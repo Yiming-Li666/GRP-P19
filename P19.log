@@ -1,0 +1,63 @@
+2019.10.9
+Choose Project 14, 10 and 12
+Submit bid on moodle.
+
+2019.10.11
+Get Project 19, Smart Class Attendence Taking System.
+
+2019.10.17
+1st meeting with Prof. Zheng LU
+Discussed about formal meeting time schedual, time plan, website functionality, open source library or codes, hardware requirements, database/data structure and accuracy.
+
+2019.10.18
+1st informal meeting
+Start to work on time plan, use case diagram, website design and learning python.
+
+2019.10.23
+2nd formal meeting
+Discussed about website, use case diagram, time plan.
+Need to modify use case diagram and time plan, finish the website and draw class diagram, sequence diagram and component diagram.
+2nd informal meeting
+Identified actors and use cases.
+Start to update use case diagram, list user requirement and system requirement, update time plan, list method for the system, draw class diagram and other UML and update website.
+
+2019.10.25
+Rewrite timeline, make it follow water-fall model process.
+Done user requirement specification, list all the method for admin and teacher.
+
+2019.10.28
+3rd formal meeting
+Review Class Diagram, use case Diagram and timeline.
+Need to spend more time on class diagram: class missing, method missing, change relationship.
+Done class specification in class diagram and signed the ethic checklist.
+
+2019.10.31
+Submitted ethic checklist.
+
+2019.11.01
+3rd informal meeting
+Identify all the class in the class diagram.
+Unify all the method name in class diagram and method checklist.
+
+2019.11.05
+List suggestion about class diagram.
+
+2019.11.07
+4th formal meeting
+Review Class Diagram.
+Need to consider the relationship between classes according to the code design.
+
+2019.11.09
+4th informal meeting
+Basic UI design for log in page and teacher page, including module selection and lecture selection.
+
+2019.11.15
+5th formal meeting
+Small changes in Class diagram, including naming and relationship.
+First design of UI, which need to consider the user experience.
+Need to work on sequence diagram and interm report.
+
+2019.11.16
+5th informal meeting
+Complete the UI design for teacher part and have a prototype of admin UI page.
+Divided interm report into three parts, including marketing research, SRS and expanded description.

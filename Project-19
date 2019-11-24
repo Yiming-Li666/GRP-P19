@@ -1,0 +1,185 @@
+Project19
+GUI programming and face recognition/identification with Python.
+
+core functionality {
+	recognize and identify the faces of the students enrolled in a specific module.
+	recording time of arrival of the students given the time schedule once the face of the student is identified.
+	statistical data such as how many students have attended for the current session and who are missing.
+	how many classes are missed by a specific student.
+	// addition
+	student information database{
+		Face 
+		Student id
+	}
+	management log in, set lecture time, search data from particular lecture or student.
+	adminstrator log in, set parameter to adjust accuracy.
+}
+
+tasks {
+	1) overall system design;
+	2) face recognition design and development, data related function design and development;
+	3) GUI design and development;
+	4) testing at different levels
+}
+
+meeting 1 {
+	formal meeting time schedual
+	time plan
+	website functionality
+	open source library or codes
+	exist hardware or buy new one
+	a camera or anything else
+	database/data structure
+	accuracy
+}
+
+Week 1 {
+	time plan
+	use case diagram
+	website design
+	python
+}
+
+meeting 2 {
+	Done{
+		website			// not finished yet
+		use case diagram
+		time plan 		// gantt chart
+	}
+	Todo{
+		user requirement specification
+	}
+	prototype and UI design
+}
+
+Week 2 {
+	Todo{
+		requirement analysis
+		class diagram
+		component diagram
+		sequence diagram
+		UI design
+		camera function
+	}
+	use case diagram{
+		// need to be more detailed
+		change 'view' to 'search'
+		change 'face info' to 'image'
+		change 'modify' to 'add / delete / update'
+	}
+	Software Process Models{
+		use water-fall model process
+		first design, then develop
+	}
+	four parts{
+		//develop seperate parts and then integrate 
+		UI, DB, camera based and DB based
+	}
+}
+
+meeting 3{
+	check timeline
+	check usecase diagram
+	check class diagram
+}
+
+week 3 {
+	Modify the class diagram {
+		// about name format
+		the first letter of class name should all be in capital and use only one word: TeachingSession
+		the first letter of attribute in the class should all be in lower-case: groupID
+		// about all the controller class
+		the relationship between Teacher class and TeacherController class should be Inheritance(trangle arrow)
+		the relationship between Admin class and AdminController class should be Inheritance(trangle arrow)
+		the relationship between Teacher class, Admin class and PublicControl class should be Inheritance(trangle arrow)
+		// about Module class
+		the relationship between Student class and Module class should be Aggregation(hollow diamond)
+		the relationship between Module class and Group class should be Composition(solid diamond)
+		// about Teacher class
+		the relationship between Teacher class and Module class should be Association(single arrow)
+		link Teacher class and TeachingSession class using Aggregation, add [tutor:Teacher] into TeachingSession
+		// about Teaching session
+		the relationship between TeachingSession class and Group class should be Association(single arrow)
+		// about Attendence class
+		the relationship between Student class and Attendence class can be removed
+		// about FaceFetector class
+		the relationship between TeacherController class and FaceDetector class？
+		the relationship between FaceDetector class and attendence class？
+		// about attribute
+		in Module class: tutor should be Arraylist<Teacher>
+		in Module/Group class: enrolledStudent should be Arraylist<Student>
+		in Attendence class: attendStudent can be removed
+		// about method
+		in FaceDetector class should have identify, reconigize, record and sendComfirmation method
+		// about main method
+		where to put main method
+	}
+	Modify timeline
+	Modify use case diagram
+}
+
+meeting 4{
+	class diagram
+	link to the database
+	UI design
+}
+
+week 4{
+	UI design for log in page and teacher page.
+	Modify class diagram {
+		reconsider the relationship between the classes
+		reconsider where to put the method
+	}
+}
+
+meeting 5{
+	Todo{
+		delete type in log in page
+		teacher cannot delete the lecture
+		resume function
+		general search show everything correctly
+		have a summary of the attendence of the student
+		searching for student with the same name
+		detailed student attendence information
+		need to be easy to change the status
+		add command for changing
+		start a session when time is wrong
+		add time and rate on the record page
+		summary for the session/module/student
+		if cannot be recognized(can take a photo and add command)
+		class diagram{
+			people - public controller
+			rename public controller -> general
+			rename people -> staff
+		}
+		sequence diagram
+		market research
+	}
+}
+
+Interview {
+	1. How do you think of our attendance sheet now? Do you need to type these attendence information into an electrical file after class?
+	pain 
+	print out
+	sign for each other
+	put into excel
+	2. If there is a software can take the place of attendance sheet, will you use it?
+
+	3.  If there is a software can take the place of attendance sheet, what functionality do you want on it?
+
+	4. Do you prefer accord attendance before class or after class?
+	uk
+	scan the card
+	notification
+
+	5. The acceptable time of taking attendance after teaching session?
+	
+	6. Have you ever used any face-recognition attendance software? If you do, can you talk about the features you like and feel not user-friendly of that application? If not, can you talk about what operations in PC app that you found not user-friendly?
+
+	7. When doing the search operation, what kind of information do you want to search?
+	time not remember the time
+	comparison feature
+	how safe the data will be protected
+}
+
+
