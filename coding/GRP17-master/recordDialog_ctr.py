@@ -9,7 +9,10 @@ class recordDialog_ctr():
     def connectSlot(self):
         self.recordDialogView.startRecord_Signal.connect(self.recording)
     
-
+    def hideSession(self, session):
+        self.session = session
+        self.session.hide()
+        
     def recording(self):
         print("start record")
         self.mainWindow = basicMainWindow_view()
@@ -18,6 +21,9 @@ class recordDialog_ctr():
 
         self.recordingPage_View = recordingPage_View()
         self.recordingPage_View.setMainWindow(self.mainWindow)
+       
+        self.mainWindowCtr.setWindow(self.recordingPage_View)
+       
         self.recordingPage_View.show()
         self.recordDialogView.hide()
         

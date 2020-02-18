@@ -38,24 +38,24 @@ class modulePage_view(QMainWindow):
 
     def setupMyUI(self):
         # build view, model, delegate
-        self.moduleFrame = moduleFrame1_view()
+        self.Frame1 = moduleFrame1_view()
         moduleModel = moduleFrame1_Model()
         moduleDelegate = moduleFrame_Deletagte()
 
         # connect signal of frame to this page
-        self.moduleFrame.enterSessionPage_SignalToPage.connect(self.goSession)
+        self.Frame1.enterSessionPage_SignalToPage.connect(self.goSession)
 
         self.upcomingFrame = upcomingEvent_view()
         upcomingModel = upcomingEvent_Model()
 
         # set model and delegate for views
-        self.moduleFrame.setupUi(self.window.frame1)
-        self.moduleFrame.listView.setModel(moduleModel)
-        self.moduleFrame.listView.setItemDelegate(moduleDelegate)
-        self.moduleFrame.refresh()
+        self.Frame1.setupUi(self.window.frame1)
+        self.Frame1.listView.setModel(moduleModel)
+        self.Frame1.listView.setItemDelegate(moduleDelegate)
+        self.Frame1.refresh()
 
         self.upcomingFrame.setupUi(self.window.frame_2)
-        self.upcomingFrame.listView_2.setModel(upcomingModel)
+        self.upcomingFrame.listView.setModel(upcomingModel)
 
     def goSession(self):
         # TODO: jump to the page

@@ -21,24 +21,27 @@ class sessionPage_View(QMainWindow):
     def show(self):
         self.window.show()
 
+    def hide(self):
+        self.window.hide()
+
     def setMainWindow(self, mainWindow):
         self.window = mainWindow
         self.setupMyUI()
 
     def setupMyUI(self):
         self.upcomingFrame = upcomingEvent_view()
-        self.sessionFrame = sessionFrame1_View()
+        self.Frame1 = sessionFrame1_View()
         sessionModel = sessionFrame1_model()
         sessionDelegate = sessionFrame_delegate()
 
         # connect signal of frame to this page
-        self.sessionFrame.enterRecordingPage_SignalToPage.connect(self.recordDialog)
+        self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordDialog)
 
         # set model and delegate for views
-        self.sessionFrame.setupUi(self.window.frame1)
-        self.sessionFrame.listView.setModel(sessionModel)
-        self.sessionFrame.listView.setItemDelegate(sessionDelegate)
-        self.sessionFrame.refresh()
+        self.Frame1.setupUi(self.window.frame1)
+        self.Frame1.listView.setModel(sessionModel)
+        self.Frame1.listView.setItemDelegate(sessionDelegate)
+        self.Frame1.refresh()
 
         self.upcomingFrame.setupUi(self.window.frame_2)
     

@@ -43,5 +43,7 @@ class ModulePage_ctr():
 
         self.sessionView = sessionPage_View()
         self.sessionView.setMainWindow(self.mainWindow)
+        self.mainWindowCtr.setWindow(self.sessionView)
+        
         self.modulePageView.hide()
         self.sessionView.show()

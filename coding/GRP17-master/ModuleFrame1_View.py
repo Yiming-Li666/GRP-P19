@@ -42,26 +42,6 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         """
         # TODO: not implemented yet
 
-    def showNum(self):
-        print("edit show Num")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
-
-    def leftPage(self):
-        print("left page")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
-
-    def rightPage(self):
-        print("right page")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
 
     def sort(self):
         print("sort")

@@ -56,27 +56,6 @@ class sessionFrame1_View(QFrame,Ui_Frame):
         """
         # TODO: not implemented yet
 
-    def showNum(self):
-        print("edit show Num")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
-
-    def leftPage(self):
-        print("left page")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
-
-    def rightPage(self):
-        print("right page")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
-
     def sort(self):
         print("sort")
         """
@@ -96,6 +75,7 @@ if __name__ == "__main__":
     frame1.setGeometry(QtCore.QRect(0, 0, 300, 300))
 
     test = sessionFrame1_View()
+    test.refresh()
 
     test.show()
     sys.exit(app.exec_())

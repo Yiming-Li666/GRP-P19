@@ -13,4 +13,5 @@ class sessionPage_ctr():
 
     def recordDialog(self):
         self.dialog = recordDialog_View()
+        self.dialog.setSessionWindow(self.sessionPageView)
         self.dialog.show()

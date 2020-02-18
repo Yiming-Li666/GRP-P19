@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/derrickyu/Desktop/UI/modulePrint_dialog.ui'
+# Form implementation generated from reading ui file 'modulePrint_dialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.1
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -42,40 +42,40 @@ class Ui_Dialog(object):
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.widget = QtWidgets.QWidget(Dialog)
-        self.widget.setGeometry(QtCore.QRect(40, 240, 284, 74))
-        self.widget.setObjectName("widget")
-        self.gridLayout = QtWidgets.QGridLayout(self.widget)
+        self.layoutWidget1 = QtWidgets.QWidget(Dialog)
+        self.layoutWidget1.setGeometry(QtCore.QRect(40, 240, 284, 74))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget1)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.checkBox_5 = QtWidgets.QCheckBox(self.widget)
+        self.checkBox_5 = QtWidgets.QCheckBox(self.layoutWidget1)
         self.checkBox_5.setObjectName("checkBox_5")
         self.gridLayout.addWidget(self.checkBox_5, 0, 1, 1, 1)
-        self.checkBox_8 = QtWidgets.QCheckBox(self.widget)
+        self.checkBox_8 = QtWidgets.QCheckBox(self.layoutWidget1)
         self.checkBox_8.setObjectName("checkBox_8")
         self.gridLayout.addWidget(self.checkBox_8, 1, 0, 1, 1)
-        self.checkBox_7 = QtWidgets.QCheckBox(self.widget)
+        self.checkBox_7 = QtWidgets.QCheckBox(self.layoutWidget1)
         self.checkBox_7.setObjectName("checkBox_7")
         self.gridLayout.addWidget(self.checkBox_7, 1, 1, 1, 1)
-        self.checkBox_6 = QtWidgets.QCheckBox(self.widget)
+        self.checkBox_6 = QtWidgets.QCheckBox(self.layoutWidget1)
         self.checkBox_6.setObjectName("checkBox_6")
         self.gridLayout.addWidget(self.checkBox_6, 0, 0, 1, 1)
-        self.widget1 = QtWidgets.QWidget(Dialog)
-        self.widget1.setGeometry(QtCore.QRect(40, 80, 269, 71))
-        self.widget1.setObjectName("widget1")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.widget1)
+        self.layoutWidget2 = QtWidgets.QWidget(Dialog)
+        self.layoutWidget2.setGeometry(QtCore.QRect(40, 80, 269, 71))
+        self.layoutWidget2.setObjectName("layoutWidget2")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.layoutWidget2)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.label_4 = QtWidgets.QLabel(self.widget1)
-        self.label_4.setObjectName("label_4")
-        self.gridLayout_2.addWidget(self.label_4, 1, 0, 1, 1)
-        self.dateEdit = QtWidgets.QDateEdit(self.widget1)
+        self.dateEdit = QtWidgets.QDateEdit(self.layoutWidget2)
         self.dateEdit.setObjectName("dateEdit")
         self.gridLayout_2.addWidget(self.dateEdit, 0, 1, 1, 1)
-        self.label_3 = QtWidgets.QLabel(self.widget1)
+        self.label_3 = QtWidgets.QLabel(self.layoutWidget2)
         self.label_3.setObjectName("label_3")
         self.gridLayout_2.addWidget(self.label_3, 0, 0, 1, 1)
-        self.dateEdit_2 = QtWidgets.QDateEdit(self.widget1)
+        self.label_4 = QtWidgets.QLabel(self.layoutWidget2)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_2.addWidget(self.label_4, 1, 0, 1, 1)
+        self.dateEdit_2 = QtWidgets.QDateEdit(self.layoutWidget2)
         self.dateEdit_2.setObjectName("dateEdit_2")
         self.gridLayout_2.addWidget(self.dateEdit_2, 1, 1, 1, 1)
 
@@ -93,9 +93,8 @@ class Ui_Dialog(object):
         self.checkBox_8.setText(_translate("Dialog", "Tutorial"))
         self.checkBox_7.setText(_translate("Dialog", "Lab/Seminar"))
         self.checkBox_6.setText(_translate("Dialog", "All"))
-        self.label_4.setText(_translate("Dialog", "To"))
         self.label_3.setText(_translate("Dialog", "From"))
-
+        self.label_4.setText(_translate("Dialog", "To"))
 
 if __name__ == "__main__":
     import sys

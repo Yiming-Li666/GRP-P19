@@ -17,5 +17,10 @@ class recordDialog_View(QDialog, startRecord_dialog):
 
         self.pushButton.clicked.connect(self.startRecord)
 
+    #for hide session window. pass session window to Dialog Ctr
+    def setSessionWindow(self, Session):
+        self.sessionWindow = Session
+
     def startRecord(self):
+        self.recordDialogCtr.hideSession(self.sessionWindow)
         self.startRecord_Signal.emit()

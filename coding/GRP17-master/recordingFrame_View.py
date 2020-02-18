@@ -16,8 +16,10 @@ class recordingFrame_View(QFrame, recording_totalframe):
         self.recordingFrameCtr = recordingFrame_ctr()
         self.recordingFrameCtr.setCtr(self)
         
-        self.pushButton.clicked.connect(self.recording)
 
-    def recording(self):
-        print("works")
+    #for hide session window
+    def setSessionWindow(self, Session):
+        self.sessionWindow = Session
+
+    def start(self):
         self.start_Signal.emit()

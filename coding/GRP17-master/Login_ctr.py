@@ -20,6 +20,8 @@ class login_Ctr():
         self.tmView = modulePage_view()
         self.tmView.setMainWindow(self.mainWindow)
 
+        self.mainWindowCtr.setWindow(self.tmView)
+
     def setView(self, loginView):
         self.loginView = loginView
         self.connectSlot()
