@@ -150,7 +150,7 @@
           <item row="0" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,1,15">
             <item>
-             <widget class="QLabel" name="label">
+             <widget class="QLabel" name="AC_label">
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
@@ -173,7 +173,7 @@
                <number>10</number>
               </property>
               <item>
-               <widget class="QComboBox" name="comboBox_13">
+               <widget class="QComboBox" name="ACcomboBox1">
                 <item>
                  <property name="text">
                   <string>UserType</string>
@@ -182,7 +182,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_16">
+               <widget class="QComboBox" name="ACcomboBox2">
                 <item>
                  <property name="text">
                   <string>Faculty</string>
@@ -191,7 +191,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_14">
+               <widget class="QComboBox" name="ACcomboBox3">
                 <item>
                  <property name="text">
                   <string>School</string>
@@ -208,7 +208,7 @@
                  <number>5</number>
                 </property>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_5">
+                 <widget class="QLineEdit" name="ACsearch_lineEdit">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
@@ -224,7 +224,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton_20">
+                 <widget class="QToolButton" name="ACsearch_toolButton">
                   <property name="styleSheet">
                    <string notr="true">border-image:url(:/all/images/searchIcon.png)</string>
                   </property>
@@ -236,21 +236,21 @@
                </layout>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_21">
+               <widget class="QToolButton" name="ACmodify_toolButton">
                 <property name="text">
                  <string>M</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_22">
+               <widget class="QToolButton" name="ACdelete_toolButton">
                 <property name="text">
                  <string>-</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_23">
+               <widget class="QToolButton" name="ACadd_toolButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
@@ -305,7 +305,7 @@
           <item row="0" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2,1,15">
             <item>
-             <widget class="QLabel" name="label_2">
+             <widget class="QLabel" name="Stu_label">
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
@@ -328,7 +328,7 @@
                <number>10</number>
               </property>
               <item>
-               <widget class="QComboBox" name="comboBox_17">
+               <widget class="QComboBox" name="Stu_comboBox1">
                 <item>
                  <property name="text">
                   <string>Faculty</string>
@@ -337,7 +337,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_18">
+               <widget class="QComboBox" name="Stu_comboBox2">
                 <item>
                  <property name="text">
                   <string>School</string>
@@ -346,7 +346,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_15">
+               <widget class="QComboBox" name="Stu_comboBox3">
                 <item>
                  <property name="text">
                   <string>Year</string>
@@ -363,7 +363,7 @@
                  <number>5</number>
                 </property>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_6">
+                 <widget class="QLineEdit" name="Stu_lineEdit">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
@@ -379,7 +379,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton_24">
+                 <widget class="QToolButton" name="Stu_toolButton">
                   <property name="styleSheet">
                    <string notr="true">border-image:url(:/all/images/searchIcon.png)</string>
                   </property>
@@ -391,21 +391,21 @@
                </layout>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_25">
+               <widget class="QToolButton" name="STUModify_toolButton">
                 <property name="text">
                  <string>M</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_26">
+               <widget class="QToolButton" name="STUdelete_toolButton">
                 <property name="text">
                  <string>-</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_27">
+               <widget class="QToolButton" name="STUadd_toolButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
@@ -460,7 +460,7 @@
           <item row="0" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_4" stretch="2,1,15">
             <item>
-             <widget class="QLabel" name="label_3">
+             <widget class="QLabel" name="teacher_label">
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
@@ -483,7 +483,7 @@
                <number>10</number>
               </property>
               <item>
-               <widget class="QComboBox" name="comboBox_20">
+               <widget class="QComboBox" name="Tea_comboBox1">
                 <item>
                  <property name="text">
                   <string>Faculty</string>
@@ -492,7 +492,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_21">
+               <widget class="QComboBox" name="Tea_comboBox2">
                 <item>
                  <property name="text">
                   <string>School</string>
@@ -501,7 +501,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_19">
+               <widget class="QComboBox" name="Tea_comboBox3">
                 <item>
                  <property name="text">
                   <string>Type</string>
@@ -518,7 +518,7 @@
                  <number>5</number>
                 </property>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_7">
+                 <widget class="QLineEdit" name="TEAsearch_lineEdit">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
@@ -534,7 +534,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton_28">
+                 <widget class="QToolButton" name="TEAsearch_toolButton">
                   <property name="styleSheet">
                    <string notr="true">border-image:url(:/all/images/searchIcon.png)</string>
                   </property>
@@ -546,21 +546,21 @@
                </layout>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_29">
+               <widget class="QToolButton" name="TEAmodify_toolButton">
                 <property name="text">
                  <string>M</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_30">
+               <widget class="QToolButton" name="TEAdelete_toolButton">
                 <property name="text">
                  <string>-</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_31">
+               <widget class="QToolButton" name="TEAadd_toolButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
@@ -615,7 +615,7 @@
           <item row="0" column="0">
            <layout class="QVBoxLayout" name="verticalLayout_5" stretch="2,1,15">
             <item>
-             <widget class="QLabel" name="label_4">
+             <widget class="QLabel" name="module_label">
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
@@ -638,7 +638,7 @@
                <number>10</number>
               </property>
               <item>
-               <widget class="QComboBox" name="comboBox_23">
+               <widget class="QComboBox" name="Module_comboBox1">
                 <item>
                  <property name="text">
                   <string>Faculty</string>
@@ -647,7 +647,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_24">
+               <widget class="QComboBox" name="Module_comboBox2">
                 <item>
                  <property name="text">
                   <string>School</string>
@@ -656,7 +656,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_22">
+               <widget class="QComboBox" name="Module_comboBox3">
                 <item>
                  <property name="text">
                   <string>Year</string>
@@ -673,7 +673,7 @@
                  <number>5</number>
                 </property>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_8">
+                 <widget class="QLineEdit" name="TEAsearch_lineEdit_2">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
@@ -689,7 +689,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton_32">
+                 <widget class="QToolButton" name="TEAsearch_toolButton_2">
                   <property name="styleSheet">
                    <string notr="true">border-image:url(:/all/images/searchIcon.png)</string>
                   </property>
@@ -701,21 +701,21 @@
                </layout>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_33">
+               <widget class="QToolButton" name="TEAmodify_toolButton_2">
                 <property name="text">
                  <string>M</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_34">
+               <widget class="QToolButton" name="TEAdelete_toolButton_2">
                 <property name="text">
                  <string>-</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_35">
+               <widget class="QToolButton" name="TEAadd_toolButton_2">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
@@ -776,7 +776,7 @@
              <number>7</number>
             </property>
             <item>
-             <widget class="QLabel" name="label_5">
+             <widget class="QLabel" name="attendence_label">
               <property name="font">
                <font>
                 <pointsize>15</pointsize>
@@ -799,7 +799,7 @@
                <number>0</number>
               </property>
               <item>
-               <widget class="QComboBox" name="comboBox_26">
+               <widget class="QComboBox" name="Att_comboBox1">
                 <item>
                  <property name="text">
                   <string>Faculty</string>
@@ -808,7 +808,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_27">
+               <widget class="QComboBox" name="Att_comboBox2">
                 <item>
                  <property name="text">
                   <string>School</string>
@@ -817,7 +817,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QComboBox" name="Att_comboBox3">
                 <item>
                  <property name="text">
                   <string>Year</string>
@@ -826,7 +826,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_2">
+               <widget class="QComboBox" name="Att_comboBox4">
                 <item>
                  <property name="text">
                   <string>Course</string>
@@ -835,7 +835,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox_3">
+               <widget class="QComboBox" name="Att_comboBox5">
                 <item>
                  <property name="text">
                   <string>SessionType</string>
@@ -860,7 +860,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDateEdit" name="dateEdit"/>
+                 <widget class="QDateEdit" name="att_dateEdit1"/>
                 </item>
                </layout>
               </item>
@@ -874,7 +874,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QDateEdit" name="dateEdit_2"/>
+                 <widget class="QDateEdit" name="Att_dateEdit2"/>
                 </item>
                </layout>
               </item>
@@ -887,7 +887,7 @@
                  <number>5</number>
                 </property>
                 <item>
-                 <widget class="QLineEdit" name="lineEdit_10">
+                 <widget class="QLineEdit" name="ATTsearch_lineEdit">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
@@ -903,7 +903,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="toolButton_40">
+                 <widget class="QToolButton" name="Attsearch_toolButton">
                   <property name="styleSheet">
                    <string notr="true">border-image:url(:/all/images/searchIcon.png)</string>
                   </property>
@@ -915,21 +915,21 @@
                </layout>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_41">
+               <widget class="QToolButton" name="ATTmodify_toolButton">
                 <property name="text">
                  <string>M</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_42">
+               <widget class="QToolButton" name="ATTdelete_toolButton">
                 <property name="text">
                  <string>-</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QToolButton" name="toolButton_43">
+               <widget class="QToolButton" name="ATTadd_toolButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
