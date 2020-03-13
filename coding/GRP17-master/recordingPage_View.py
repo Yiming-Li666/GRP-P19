@@ -22,5 +22,5 @@ class recordingPage_View():
     def setupMyUI(self):
         self.Frame1 = recordingFrame_View()
         
-        self.Frame1.setupUi(self.window.frame1)
-        self.window.frame_2.hide()
+        self.Frame1.setupUi(self.window.recordingFrame)
+        

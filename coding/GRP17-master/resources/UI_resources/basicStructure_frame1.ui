@@ -34,16 +34,6 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QToolButton" name="printTButton_TBS">
-         <property name="styleSheet">
-          <string notr="true">border-image:url(:/all/images/printIcon.png)</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="frameName_TBS">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -220,22 +210,6 @@
   <include location="../images.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>printTButton_TBS</sender>
-   <signal>clicked()</signal>
-   <receiver>Frame</receiver>
-   <slot>print()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>54</x>
-     <y>69</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>294</x>
-     <y>0</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>comboBox</sender>
    <signal>currentTextChanged(QString)</signal>

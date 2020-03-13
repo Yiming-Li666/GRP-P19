@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Frame</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout" rowminimumheight="0,0,0,0">
    <property name="leftMargin">
     <number>40</number>
    </property>
@@ -26,25 +26,17 @@
    <property name="bottomMargin">
     <number>40</number>
    </property>
-   <item row="1" column="0">
-    <widget class="QTableView" name="tableView"/>
+   <item row="3" column="0">
+    <widget class="QListView" name="attendance_listView"/>
    </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="frameName_TBS">
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Search Result:</string>
-     </property>
-    </widget>
+   <item row="1" column="0">
+    <widget class="QTextBrowser" name="summary_textBrowser"/>
    </item>
    <item row="2" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1,3,3,1">
+     <property name="spacing">
+      <number>10</number>
+     </property>
      <item>
       <widget class="QComboBox" name="comboBox">
        <item>
@@ -79,22 +71,38 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_3">
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,8">
+       <property name="spacing">
+        <number>3</number>
+       </property>
        <item>
-        <property name="text">
-         <string>Month</string>
-        </property>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>From:</string>
+         </property>
+        </widget>
        </item>
-      </widget>
+       <item>
+        <widget class="QDateEdit" name="dateEdit"/>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_4">
+      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,8">
+       <property name="spacing">
+        <number>3</number>
+       </property>
        <item>
-        <property name="text">
-         <string>Day</string>
-        </property>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>To:</string>
+         </property>
+        </widget>
        </item>
-      </widget>
+       <item>
+        <widget class="QDateEdit" name="dateEdit_2"/>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QComboBox" name="comboBox_5">
@@ -112,8 +120,19 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0">
-    <widget class="QListView" name="listView"/>
+   <item row="0" column="0">
+    <widget class="QLabel" name="frameName_TBS">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Search Result:</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

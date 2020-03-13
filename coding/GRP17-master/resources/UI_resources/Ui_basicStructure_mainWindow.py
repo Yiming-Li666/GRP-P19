@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'basicStructure_mainWindow.ui'
+# Form implementation generated from reading ui file '/Users/derrickyu/Desktop/GRP17-master/resources/UI_resources/basicStructure_mainWindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.0
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -10,7 +10,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class MainWindow_Structure(object):
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1397, 639)
@@ -49,14 +49,14 @@ class MainWindow_Structure(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setContentsMargins(0, -1, -1, -1)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.widget)
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.horizontalLayout_2.addWidget(self.lineEdit_4)
         self.toolButton_3 = QtWidgets.QToolButton(self.widget)
         self.toolButton_3.setStyleSheet("border-image:url(:/all/images/searchIcon.png)")
         self.toolButton_3.setText("")
         self.toolButton_3.setObjectName("toolButton_3")
         self.horizontalLayout_2.addWidget(self.toolButton_3)
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit_4.setObjectName("lineEdit_4")
+        self.horizontalLayout_2.addWidget(self.lineEdit_4)
         self.gridLayout.addLayout(self.horizontalLayout_2, 0, 4, 1, 1)
         self.toolButton = QtWidgets.QToolButton(self.widget)
         self.toolButton.setStyleSheet("border-image: url(:/all/images/backIcon.png);")
@@ -285,4 +285,14 @@ class MainWindow_Structure(object):
         self.actionSettings.setText(_translate("MainWindow", "Open"))
         self.actionOpen.setText(_translate("MainWindow", "Open"))
         self.actionGuide.setText(_translate("MainWindow", "Guide"))
-import resources.images_rc
+import images_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

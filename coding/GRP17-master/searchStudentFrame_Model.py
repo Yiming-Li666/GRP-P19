@@ -2,14 +2,14 @@ from PyQt5.QtCore import QAbstractListModel, QVariant, QModelIndex, Qt
 from PyQt5.QtGui import QFont
 
 
-class sessionFrame1_model(QAbstractListModel):
+class searchStudentFrame_model(QAbstractListModel):
 
     def __init__(self,parent=None):
-        super(sessionFrame1_model,self).__init__(parent)
+        super(searchStudentFrame_model,self).__init__(parent)
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["Session1","Session2"]
+        self.listItemData = ["Student1"]
         # TODO: build the module data
 
     def flags(self, index):
@@ -33,14 +33,3 @@ class sessionFrame1_model(QAbstractListModel):
 
     def rowCount(self, parent=QModelIndex()):
         return len(self.listItemData)
-
-    def addItem(self, itemData):
-        if itemData:
-            self.beginInsertRows(QModelIndex(),len(self.listItemData),len(self.listItemData)+1)
-            self.listItemData.append(itemData)
-            self.endInsertRows()
-
-    def deleteItem(self, index):
-        del self.listItemData[index]
-
-

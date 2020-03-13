@@ -2,15 +2,15 @@ from PyQt5.QtCore import QAbstractListModel, QVariant, QModelIndex, Qt
 from PyQt5.QtGui import QFont
 
 
-class sessionFrame1_model(QAbstractListModel):
+class oneStudentFrame_model(QAbstractListModel):
 
     def __init__(self,parent=None):
-        super(sessionFrame1_model,self).__init__(parent)
+        super(oneStudentFrame_model,self).__init__(parent)
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["Session1","Session2"]
-        # TODO: build the module data
+        self.listItemData = ["Module1 Lab1 2020/3/2 15:00 - 16:00 Attended"]
+        # TODO: build the student attendance data
 
     def flags(self, index):
         if not index.isValid():

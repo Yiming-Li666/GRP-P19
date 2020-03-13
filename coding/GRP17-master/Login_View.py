@@ -27,11 +27,7 @@ class login_View(QMainWindow, login_MainWindow):
 
     def forgetPwd(self):
         self.forgetPwd_Signal.emit()
-        print("forget")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: show the forget pw dialog
+
 
 
 # test code for the single view

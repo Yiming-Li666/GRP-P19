@@ -31,17 +31,8 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         print("go to " + str(qModelIndex.row()))
         self.enterSessionPage_SignalToPage.emit()
 
-
     def doubleClicked(self, qModelIndex):
         print("you choosed " + str(qModelIndex.row()))
-
-    def print(self):
-        print("print recording")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
-
 
     def sort(self):
         print("sort")

@@ -14,9 +14,6 @@ class sessionPage_View(QMainWindow):
         super(sessionPage_View, self).__init__()
         self.window = None
 
-        #connect with Ctr
-        self.sessionPageCtr = sessionPage_ctr()
-        self.sessionPageCtr.setCtr(self)
     
     def show(self):
         self.window.show()
@@ -29,21 +26,23 @@ class sessionPage_View(QMainWindow):
         self.setupMyUI()
 
     def setupMyUI(self):
+        #connect with Ctr
+        self.sessionPageCtr = sessionPage_ctr()
+        self.sessionPageCtr.setCtr(self,self.window)
+
         self.upcomingFrame = upcomingEvent_view()
         self.Frame1 = sessionFrame1_View()
-        sessionModel = sessionFrame1_model()
-        sessionDelegate = sessionFrame_delegate()
 
         # connect signal of frame to this page
         self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordDialog)
 
-        # set model and delegate for views
-        self.Frame1.setupUi(self.window.frame1)
-        self.Frame1.listView.setModel(sessionModel)
-        self.Frame1.listView.setItemDelegate(sessionDelegate)
+        
+        self.Frame1.setupUi(self.window.sessionFrame1)
+        
         self.Frame1.refresh()
 
-        self.upcomingFrame.setupUi(self.window.frame_2)
+        self.upcomingFrame.setupUi(self.window.sessionFrame2)
+        
     
     def recordDialog(self):
         print("dialog")

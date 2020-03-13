@@ -22,11 +22,6 @@ class Ui_Frame(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.printTButton_TBS = QtWidgets.QToolButton(Frame)
-        self.printTButton_TBS.setStyleSheet("border-image:url(:/all/images/printIcon.png)")
-        self.printTButton_TBS.setText("")
-        self.printTButton_TBS.setObjectName("printTButton_TBS")
-        self.horizontalLayout.addWidget(self.printTButton_TBS)
         self.frameName_TBS = QtWidgets.QLabel(Frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -98,7 +93,6 @@ class Ui_Frame(object):
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
 
         self.retranslateUi(Frame)
-        self.printTButton_TBS.clicked.connect(self.print)
         self.comboBox.currentTextChanged['QString'].connect(self.sort)
         QtCore.QMetaObject.connectSlotsByName(Frame)
 
