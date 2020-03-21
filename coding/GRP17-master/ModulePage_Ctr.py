@@ -1,16 +1,21 @@
-from sessionFrame1_Model import sessionFrame1_model
-from sessionFrame1_Delegate import sessionFrame_delegate
-from upcomingEvent_Model import upcomingEvent_Model
+from basicMainWindow_View import basicMainWindow_view
 
+from basicMainWindow_Ctr import basicMainWindow_Ctr
 
+from sessionPage_View import sessionPage_View
+
+from PyQt5.QtWidgets import QFrame
+
+from PyQt5 import QtCore, QtWidgets
+
+# TBC
 class ModulePage_ctr():
 
     def __init__(self):
         self.modulePageView = None
 
-    def setCtr(self, modulePageView, mainwindow):
+    def setCtr(self, modulePageView):
         self.modulePageView = modulePageView
-        self.mainwindow = mainwindow
         self.connectSlot()
 
     def connectSlot(self):
@@ -20,16 +25,25 @@ class ModulePage_ctr():
 
         print("to session")
         '''
-        Change the related list module
-        '''
-        #load related session Model
-        self.sessionModel = sessionFrame1_model()
-        self.sessionDelegate = sessionFrame_delegate()
-        self.modulePageView.logCtr.sessionView.Frame1.listView.setModel(self.sessionModel)
-        self.modulePageView.logCtr.sessionView.Frame1.listView.setItemDelegate(self.sessionDelegate)
 
-        self.upcomingModel = upcomingEvent_Model()
-        self.modulePageView.logCtr.sessionView.upcomingFrame.listView.setModel(self.upcomingModel)
+        self.sessionFrame = sessionFrame1_View()
+
+        self.sessionFrame.refresh()
+
+        self.modulePageView.moduleFrame = self.sessionFrame
+
+        self.modulePageView.window.frame1.reset()
+
+        #self.sessionFrame.setupUi(self.modulePageView.window.frame1) 
+
+        '''
+        self.mainWindow = basicMainWindow_view()
+        self.mainWindowCtr = basicMainWindow_Ctr()
+        self.mainWindowCtr.setView(self.mainWindow)
+
+        self.sessionView = sessionPage_View()
+        self.sessionView.setMainWindow(self.mainWindow)
+        self.mainWindowCtr.setWindow(self.sessionView)
         
-        #change page
-        self.mainwindow.stackedWidget.setCurrentIndex(1)
+        self.modulePageView.hide()
+        self.sessionView.show()

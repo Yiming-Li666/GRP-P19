@@ -1,6 +1,7 @@
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from resources.teacherUIPY.login_mainWindow import login_MainWindow
+from CommonHelper import CommonHelper
 import sys
 
 
@@ -27,7 +28,11 @@ class login_View(QMainWindow, login_MainWindow):
 
     def forgetPwd(self):
         self.forgetPwd_Signal.emit()
-
+        print("forget")
+        """
+               Slot documentation goes here.
+        """
+        # TODO: show the forget pw dialog
 
 
 # test code for the single view
@@ -35,4 +40,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     mainWindow = login_View()
     mainWindow.show()
+    CommonHelper.readQSS("resources/qss/login.qss",app)
     sys.exit(app.exec_())

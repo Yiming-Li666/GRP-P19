@@ -2,6 +2,7 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtWidgets import QFrame, QApplication, QMainWindow
 from resources.teacherUIPY.basicStructure_frame1 import Ui_Frame
+from CommonHelper import CommonHelper
 import sys
 
 
@@ -78,4 +79,5 @@ if __name__ == "__main__":
     test.refresh()
 
     test.show()
+    CommonHelper.readQSS("resources/qss/Module.qss",app)
     sys.exit(app.exec_())

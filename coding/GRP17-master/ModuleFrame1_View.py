@@ -6,6 +6,7 @@ import sys
 #test
 from ModuleFrame1_Model import moduleFrame1_Model
 from ModuleFrame_Delegate import moduleFrame_Deletagte
+from CommonHelper import CommonHelper
 
 
 class moduleFrame1_view(QFrame, Ui_Frame):
@@ -31,8 +32,17 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         print("go to " + str(qModelIndex.row()))
         self.enterSessionPage_SignalToPage.emit()
 
+
     def doubleClicked(self, qModelIndex):
         print("you choosed " + str(qModelIndex.row()))
+
+    def print(self):
+        print("print recording")
+        """
+               Slot documentation goes here.
+        """
+        # TODO: not implemented yet
+
 
     def sort(self):
         print("sort")
@@ -52,4 +62,5 @@ if __name__ == "__main__":
     test.listView.setModel(model)
     test.listView.setItemDelegateForRow(0,delegate)
     test.show()
+    CommonHelper.readQSS("resources/qss/Module.qss",app)
     sys.exit(app.exec_())

@@ -23,19 +23,19 @@ video_capture = cv2.VideoCapture(0)
 # biden_image = face_recognition.load_image_file("biden.jpg")
 # biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
 
-lmc_image = face_recognition.load_image_file("five.jpg")
-five_face_encoding = face_recognition.face_encodings(lmc_image)[0]
+LYM_image = face_recognition.load_image_file("LYM.jpeg")
+LYM_face_encoding = face_recognition.face_encodings(LYM_image)[0]
 
 # Create arrays of known face encodings and their names
 known_face_encodings = [
     # trump_face_encoding,
     # biden_face_encoding,
-    five_face_encoding
+    LYM_face_encoding
 ]
 known_face_names = [
     # "Donald Trump",
     # "Joe Biden",
-    "LMC"
+    "LYM"
 ]
 
 # 实际使用 用一以下代码块

@@ -11,7 +11,6 @@ class basicMainWindow_view(QMainWindow,  MainWindow_Structure):
     home_Sig = pyqtSignal()
     searchStudent_Sig = pyqtSignal()
     teacherInfo_Sig = pyqtSignal()
-    print_Sig = pyqtSignal()
 
     #TODO: implementation of status bar
 
@@ -38,9 +37,6 @@ class basicMainWindow_view(QMainWindow,  MainWindow_Structure):
                Slot documentation goes here.
         """
         # TODO: not implemented yet
-    
-    def printInfo(self):
-        self.print_Sig.emit()
 
 
 # test code

@@ -1,4 +1,4 @@
-from oneStudentFrame_View import oneStudentFrame_view
+from oneStudentFrame_View import oneStudentFrame_View
 from upcomingEvent_View import upcomingEvent_view
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from upcomingEvent_Model import upcomingEvent_Model
@@ -23,9 +23,13 @@ class oneStudentPage_View(QMainWindow):
     
     def setupMyUI(self):
         #build view
-        self.Frame1 = oneStudentFrame_view()
+        self.Frame1 = oneStudentFrame_View()
         self.upcomingFrame = upcomingEvent_view()
+        upcomingModel = upcomingEvent_Model()
 
-        #setUp view
-        self.Frame1.setupUi(self.window.oneStudentFrame1)
-        self.upcomingFrame.setupUi(self.window.oneStudentFrame2)
+        #set Model
+        self.Frame1.setupUi(self.window.frame1)
+        self.upcomingFrame.setupUi(self.window.frame_2)
+        self.upcomingFrame.listView.setModel(upcomingModel)
+
+        

@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QFrame, QApplication
 from resources.teacherUIPY.admin_totalFrame import Ui_Frame
+from CommonHelper import CommonHelper
 import sys
 
 
@@ -19,7 +20,8 @@ class adminFrame_view(QFrame, Ui_Frame):
 # test code
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
     test = adminFrame_view()
     test.show()
+    CommonHelper.readQSS("resources/qss/AdminFrame.qss",app)
+    test.setAutoFillBackground(True)
     sys.exit(app.exec_())

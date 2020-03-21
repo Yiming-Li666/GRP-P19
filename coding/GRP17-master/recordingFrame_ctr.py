@@ -13,4 +13,3 @@ class recordingFrame_ctr():
         '''
             slot document goes here
         '''
-        # TODO: face-recognition based recording

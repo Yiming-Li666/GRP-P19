@@ -1,0 +1,24 @@
+QFrame{
+    background-color: qlineargradient(x1:0,yi:0,x2:0,y2:1,stop:0 #E0FFFF,stop:1 white);
+}
+QWidget#frame5,#frame6,#frame7,#frame8,#frame9{
+    background-color:#E0FFFF;
+}
+QPushButton{
+    border-radius:2px;
+}
+QPushButton:hover{
+    background-color:#00BFFF;
+}
+QTushButton{
+    border-radius:1px;
+}
+QToolButton:hover{
+    background-color:#00BFFF;
+}
+QLineEdit{
+    border-radius:1px;
+}
+QComboBox{
+    border-radius:1px;
+}

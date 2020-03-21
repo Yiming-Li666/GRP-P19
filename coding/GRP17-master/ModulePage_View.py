@@ -21,6 +21,9 @@ class modulePage_view(QMainWindow):
         super(modulePage_view, self).__init__()
         self.window = None
 
+        # connect with Ctr -TBC
+        self.modulePageCtr = ModulePage_ctr()
+        self.modulePageCtr.setCtr(self)
 
     def show(self):
        self.window.show()
@@ -29,18 +32,11 @@ class modulePage_view(QMainWindow):
     def hide(self):
         self.window.hide()
 
-    def setMainWindow(self, mainWindow, logCtr):
+    def setMainWindow(self, mainWindow):
         self.window = mainWindow
-        #In order to get View in class logCtr
-        self.logCtr = logCtr
-
         self.setupMyUI()
 
     def setupMyUI(self):
-        # connect with Ctr
-        self.modulePageCtr = ModulePage_ctr()
-        self.modulePageCtr.setCtr(self, self.window)
-
         # build view, model, delegate
         self.Frame1 = moduleFrame1_view()
         moduleModel = moduleFrame1_Model()
@@ -53,15 +49,13 @@ class modulePage_view(QMainWindow):
         upcomingModel = upcomingEvent_Model()
 
         # set model and delegate for views
-        
-        self.Frame1.setupUi(self.window.moduleFrame1)
+        self.Frame1.setupUi(self.window.frame1)
         self.Frame1.listView.setModel(moduleModel)
         self.Frame1.listView.setItemDelegate(moduleDelegate)
         self.Frame1.refresh()
-        #self.window.stackedWidget.addWidget(self.Frame1)
-        self.upcomingFrame.setupUi(self.window.moduleFrame2)
+
+        self.upcomingFrame.setupUi(self.window.frame_2)
         self.upcomingFrame.listView.setModel(upcomingModel)
-        self.window.stackedWidget.setCurrentIndex(0)
 
     def goSession(self):
         # TODO: jump to the page
