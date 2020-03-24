@@ -82,3 +82,14 @@ Finished interim report.
 9th formal meeting
 Finished basic UI building and some modification advices are given.
 Divided the work.
+
+2020.03.15
+Downloaded and installed all the library and software material.
+
+2020.03.22
+Set up all the SQL table.
+
+2020.03.24
+Connect mySQL database using Python and encapsulated database operation into functions.
+Tested the database connection.
+
