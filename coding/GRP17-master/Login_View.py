@@ -27,8 +27,8 @@ class login_View(QMainWindow, login_MainWindow):
         userId = self.lineEdit.text()
         userPsw = self.lineEdit_2.text()
         if(userId != '' and  userPsw!= ''):
+            self.hintLabel.setText("loading...")
             if(dbController.CheckLogin(userId,userPsw)):
-                self.hintLabel.setText("loading...")
                 self.login_Signal.emit()
         self.hintLabel.setText("Invalid username or password!")
 
