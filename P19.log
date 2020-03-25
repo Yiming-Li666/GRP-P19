@@ -95,3 +95,4 @@ Tested the database connection.
 
 2020.03.25
 Completed the functionality in the login page.
+A dialog will be opened when click teacher information, with an OK button to exit.

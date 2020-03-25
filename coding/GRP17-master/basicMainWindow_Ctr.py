@@ -1,4 +1,5 @@
 from basicMainWindow_View import basicMainWindow_view
+from PyQt5.Qt import *
 class basicMainWindow_Ctr():
 
     def __init__(self):
@@ -26,7 +27,7 @@ class basicMainWindow_Ctr():
         # if is first page, cannot go back
         if self.window.Frame1.frameName_TBS.text() == "Module" :
             print("first Page")
-            
+
         elif self.window.Frame1.frameName_TBS.text() == "Teaching Session" :
             print("back to Module")
             self.mainWindow = basicMainWindow_view()
@@ -120,11 +121,23 @@ class basicMainWindow_Ctr():
 
     def clickTeacherInfo(self):
         print("Teacher Info")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
+        dl = QDialog()
+        dl.setWindowTitle('Teacher information')
+        dl.resize(300,200)
+        btn=QPushButton('ok',dl)
+        btn.resize(25,20)
+        btn.move(140,150)
+        #ok_Signal = pyqtSignal()
+        #ok_Signal.connect(self.close)
+        btn.clicked.connect(lambda:self.close(dl))
+        dl.setWindowModality(Qt. WindowModal)
+        dl.exec_()
+        
+    def close(self,dl):
+        dl.close()
 
+        
+        #dl.ok_Signal.emit()
 
 
 
