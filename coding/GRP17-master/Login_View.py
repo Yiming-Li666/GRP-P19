@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 from resources.teacherUIPY.login_mainWindow import login_MainWindow
 from CommonHelper import CommonHelper
 import sys
+import dbController
 
 
 class login_View(QMainWindow, login_MainWindow):
@@ -23,10 +24,12 @@ class login_View(QMainWindow, login_MainWindow):
         self.hintLabel.setText(" Login ? ")
 
     def login(self):
-        print("login")
-        print(self.lineEdit.text())
-        print(self.lineEdit_2.text())
-        self.login_Signal.emit()
+        userId = self.lineEdit.text()
+        userPsw = self.lineEdit_2.text()
+        if(userId != '' and  userPsw!= ''):
+            if(dbController.CheckLogin(userId,userPsw)):
+                print("login")
+                self.login_Signal.emit()
 
     def forgetPwd(self):
         self.forgetPwd_Signal.emit()
