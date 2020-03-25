@@ -127,17 +127,12 @@ class basicMainWindow_Ctr():
         btn=QPushButton('ok',dl)
         btn.resize(25,20)
         btn.move(140,150)
-        #ok_Signal = pyqtSignal()
-        #ok_Signal.connect(self.close)
         btn.clicked.connect(lambda:self.close(dl))
         dl.setWindowModality(Qt. WindowModal)
         dl.exec_()
-        
+
     def close(self,dl):
         dl.close()
-
-        
-        #dl.ok_Signal.emit()
 
 
 
