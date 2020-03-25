@@ -93,3 +93,5 @@ Set up all the SQL table.
 Connect mySQL database using Python and encapsulated database operation into functions.
 Tested the database connection.
 
+2020.03.25
+Completed the functionality in the login page.

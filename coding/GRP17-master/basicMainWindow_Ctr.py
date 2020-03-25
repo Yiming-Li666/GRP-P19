@@ -23,9 +23,10 @@ class basicMainWindow_Ctr():
         self.bmView.teacherInfo_Sig.connect(self.clickTeacherInfo)
 
     def backTo(self):
+        # if is first page, cannot go back
         if self.window.Frame1.frameName_TBS.text() == "Module" :
             print("first Page")
-
+            
         elif self.window.Frame1.frameName_TBS.text() == "Teaching Session" :
             print("back to Module")
             self.mainWindow = basicMainWindow_view()
