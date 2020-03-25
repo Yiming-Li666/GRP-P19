@@ -21,15 +21,16 @@ class login_View(QMainWindow, login_MainWindow):
 
         # hintLabel
         # TODO: provide login hint for user
-        self.hintLabel.setText(" Login ? ")
+        
 
     def login(self):
         userId = self.lineEdit.text()
         userPsw = self.lineEdit_2.text()
         if(userId != '' and  userPsw!= ''):
             if(dbController.CheckLogin(userId,userPsw)):
-                print("login")
+                self.hintLabel.setText("loading...")
                 self.login_Signal.emit()
+        self.hintLabel.setText("Invalid username or password!")
 
     def forgetPwd(self):
         self.forgetPwd_Signal.emit()
