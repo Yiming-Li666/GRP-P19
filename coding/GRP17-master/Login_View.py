@@ -24,6 +24,8 @@ class login_View(QMainWindow, login_MainWindow):
 
     def login(self):
         print("login")
+        print(self.lineEdit.text())
+        print(self.lineEdit_2.text())
         self.login_Signal.emit()
 
     def forgetPwd(self):
