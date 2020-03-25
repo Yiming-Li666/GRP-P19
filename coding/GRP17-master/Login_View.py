@@ -19,15 +19,11 @@ class login_View(QMainWindow, login_MainWindow):
         self.pushButton.clicked.connect(self.login)
         self.toolButton.clicked.connect(self.forgetPwd)
 
-        # hintLabel
-        # TODO: provide login hint for user
-        
-
     def login(self):
         userId = self.lineEdit.text()
         userPsw = self.lineEdit_2.text()
         if(userId != '' and  userPsw!= ''):
-            self.hintLabel.setText("loading...")
+            #self.hintLabel.setText("loading...")
             if(dbController.CheckLogin(userId,userPsw)):
                 self.login_Signal.emit()
         self.hintLabel.setText("Invalid username or password!")
@@ -35,10 +31,7 @@ class login_View(QMainWindow, login_MainWindow):
     def forgetPwd(self):
         self.forgetPwd_Signal.emit()
         print("forget")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: show the forget pw dialog
+        self.hintLabel.setText("Please contact the admin! 188-8888-8888")
 
 
 # test code for the single view
