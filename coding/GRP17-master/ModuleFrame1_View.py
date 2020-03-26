@@ -24,16 +24,16 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         self.search_lineEdit.hide()
         self.search_toolButton.hide()
         self.addButton.hide()
-        self.listView.doubleClicked.connect(self.doubleClicked)
-        self.listView.clicked.connect(self.goSession)
+        self.listView.clicked.connect(self.singleClicked)
+        self.listView.doubleClicked.connect(self.goSession)
 
     def goSession(self, qModelIndex):
         # TODO: jump to the page
         print("go to " + str(qModelIndex.row()))
         self.enterSessionPage_SignalToPage.emit()
 
-
-    def doubleClicked(self, qModelIndex):
+    # may not to be used
+    def singleClicked(self, qModelIndex):
         print("you choosed " + str(qModelIndex.row()))
 
     def print(self):
