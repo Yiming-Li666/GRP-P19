@@ -48,10 +48,10 @@ def AddTeacher(teacherId, teacherName, moduleId):
     cursor.close()
     db.close()
 
-def DeleteTeacher(teacherId):
+def DeleteTeacher(teacherId,moduleId):
     db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
-    sql = "DELETE FROM teacher WHERE teacherId = '%s'" % teacherId
+    sql = "DELETE FROM teacher WHERE teacherId = '%s' AND moduleId = '%s'" % (teacherId,moduleId)
     cursor.execute(sql)
     db.commit()
     cursor.close()
@@ -176,7 +176,7 @@ def GetTeacherInfo(teacherId):
 #AddTeacher('admin','Paul','COMP1234')
 #AddTeacher('admin','Paul','COMP1020')
 #AddTeacher('admin','Paul','COMP1030')
-#DeleteTeacher('z202020')
+#DeleteTeacher('admin','COMP1234')
 #AddModule('COMP1010', 'Computer Science', '20031525')
 #DeleteModule('COMP1010')
 #AddLesson('lecture1', 'COMP1010', '2019-03-05 01:53:55.63', 'lab')
