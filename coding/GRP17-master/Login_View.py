@@ -11,13 +11,14 @@ class login_View(QMainWindow, login_MainWindow):
     userId = ''
     login_Signal = pyqtSignal()
     forgetPwd_Signal = pyqtSignal()
-
+    
     def __init__(self):
         # setup UI
         super(login_View, self).__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(self.login)
         self.toolButton.clicked.connect(self.forgetPwd)
+        # self.lineEdit_2.password()
 
     def login(self):
         global userId
