@@ -1,0 +1,16 @@
+QProgressBar{
+    border-radius:2px;
+}
+QFrame{
+        background-color: qlineargradient(x1:0,yi:0,x2:0,y2:1,stop:0 #E0FFFF,stop:1 white);
+}
+QToolButton{
+    border-radius:3px;
+    font: bold italic;
+}
+QPushButton{
+    font: bold;
+}
+QPushButton{
+    font: bold italic;
+}
