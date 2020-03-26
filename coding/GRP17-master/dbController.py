@@ -155,10 +155,27 @@ def CheckLogin(userId,userPsw):
     cursor.close()
     db.close()
 
+def GetTeacherInfo(teacherId):
+    db = pymysql.connect("localhost", "root", "密码", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM teacher WHERE teacherId = '%s';" % teacherId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    return data
+    # teacherId, teacherName, moduleId
+
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
 #AddStudent('/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg','20031525', 'Li Yiming')
 #DeleteStudent('20031525')
 #AddTeacher('z202020','Paul','COMP1010')
+#AddTeacher('z202020','Paul','COMP1234')
+#AddTeacher('admin','Paul','COMP1234')
+#AddTeacher('admin','Paul','COMP1020')
+#AddTeacher('admin','Paul','COMP1030')
 #DeleteTeacher('z202020')
 #AddModule('COMP1010', 'Computer Science', '20031525')
 #DeleteModule('COMP1010')
@@ -171,6 +188,7 @@ def CheckLogin(userId,userPsw):
 #AddLogin('admin', 'Li', 'admin')
 #CheckLogin('admin','admin')
 #DeleteLogin('z202020')
+#GetTeacherInfo('z202020')
 '''
 print("============")
 print("Done! ")

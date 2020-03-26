@@ -7,8 +7,8 @@ import dbController
 
 
 class login_View(QMainWindow, login_MainWindow):
-
     # send signals to login controller to operate
+    userId = ''
     login_Signal = pyqtSignal()
     forgetPwd_Signal = pyqtSignal()
 
@@ -20,6 +20,7 @@ class login_View(QMainWindow, login_MainWindow):
         self.toolButton.clicked.connect(self.forgetPwd)
 
     def login(self):
+        global userId
         userId = self.lineEdit.text()
         userPsw = self.lineEdit_2.text()
         if(userId != '' and  userPsw!= ''):

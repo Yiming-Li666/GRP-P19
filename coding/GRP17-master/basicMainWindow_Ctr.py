@@ -1,5 +1,9 @@
 from basicMainWindow_View import basicMainWindow_view
 from PyQt5.Qt import *
+from PyQt5 import QtCore
+import dbController
+import Login_View
+
 class basicMainWindow_Ctr():
 
     def __init__(self):
@@ -124,6 +128,17 @@ class basicMainWindow_Ctr():
         dl = QDialog()
         dl.setWindowTitle('Teacher information')
         dl.resize(300,200)
+        # TODO: link to the dataBase to get teacher name
+        # teacherId, teacherName, moduleId
+        # print(Login_View.userId)
+        teacherInformation = dbController.GetTeacherInfo(Login_View.userId)
+        dl.name = QLabel("Teacher:           " + teacherInformation[0][1],dl) 
+        dl.name.setGeometry(QtCore.QRect(50, 20, 250, 50))
+        str = "Module:           " 
+        for r in teacherInformation:
+            str = str + r[2] + "\n                           "
+        dl.module = QLabel(str,dl) 
+        dl.module.setGeometry(QtCore.QRect(50, 60, 250, 100))
         btn=QPushButton('ok',dl)
         btn.resize(25,20)
         btn.move(140,150)
