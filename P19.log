@@ -96,3 +96,10 @@ Tested the database connection.
 2020.03.25
 Completed the functionality in the login page.
 A dialog will be opened when click teacher information, with an OK button to exit.
+
+2020.03.26
+Modified primary key in teacher table and module table in database.
+Modified the deleteTeacher method.
+Added two more function in dbController.
+Complete the dialog showing teacher's name and module ID.
+Modified the entry to specific module to double click.
