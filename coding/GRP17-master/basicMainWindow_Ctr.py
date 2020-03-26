@@ -125,24 +125,31 @@ class basicMainWindow_Ctr():
 
     def clickTeacherInfo(self):
         print("Teacher Info")
+        # create a dialog to give teacher information
         dl = QDialog()
         dl.setWindowTitle('Teacher information')
         dl.resize(300,200)
-        # TODO: link to the dataBase to get teacher name
-        # teacherId, teacherName, moduleId
-        # print(Login_View.userId)
+        # get userId from the login page
+        # link to database ask for teacher information
         teacherInformation = dbController.GetTeacherInfo(Login_View.userId)
+        # teacherInformation is a 2D array
+        # get teacher name
         dl.name = QLabel("Teacher:           " + teacherInformation[0][1],dl) 
+        # set position
         dl.name.setGeometry(QtCore.QRect(50, 20, 250, 50))
+        # get all the module name
         str = "Module:           " 
         for r in teacherInformation:
             str = str + r[2] + "\n                           "
         dl.module = QLabel(str,dl) 
+        # set position
         dl.module.setGeometry(QtCore.QRect(50, 60, 250, 100))
+        # create a button to close the window
         btn=QPushButton('ok',dl)
         btn.resize(25,20)
         btn.move(140,150)
         btn.clicked.connect(lambda:self.close(dl))
+        # lock the parent window
         dl.setWindowModality(Qt. WindowModal)
         dl.exec_()
 
