@@ -5,7 +5,7 @@ import dbController
 import Login_View
 
 class ModulePage_ctr():
-
+    sessionModel = sessionFrame1_model()
     def __init__(self):
         self.modulePageView = None
 
@@ -24,7 +24,7 @@ class ModulePage_ctr():
         Change the related list module
         '''
         #load related session Model
-        self.sessionModel = sessionFrame1_model()
+        # self.sessionModel = sessionFrame1_model()
         # add the list
         self.sessionDelegate = sessionFrame_delegate()
         self.modulePageView.logCtr.sessionView.Frame1.listView.setModel(self.sessionModel)

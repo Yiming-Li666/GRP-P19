@@ -5,6 +5,8 @@ import sys
 from CommonHelper import CommonHelper
 import ModulePage_View
 import Login_ctr
+import dbController
+import ModulePage_Ctr
 #test
 from ModuleFrame1_Model import moduleFrame1_Model
 from ModuleFrame_Delegate import moduleFrame_Deletagte
@@ -31,8 +33,12 @@ class moduleFrame1_view(QFrame, Ui_Frame):
     def goSession(self, qModelIndex):
         # TODO: jump to the page
         print("go to " + str(qModelIndex.row()))
-        #print(ModulePage_View.modulePage_view.moduleModel.listItemData)
-        print(ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()])
+        # get all the session to load session list
+        moduleId = ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()]
+        sessionInfo = dbController.GetSessionInfo(moduleId)
+        for r in sessionInfo:
+            ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+        print(sessionInfo)
         self.enterSessionPage_SignalToPage.emit()
 
     # may not to be used
