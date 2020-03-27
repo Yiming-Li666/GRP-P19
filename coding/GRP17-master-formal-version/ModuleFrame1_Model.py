@@ -1,5 +1,7 @@
-from PyQt5.QtCore import QAbstractListModel, QVariant, QModelIndex, Qt
+from PyQt5.QtCore import QAbstractListModel, QModelIndex, Qt, QVariant
 from PyQt5.QtGui import QFont
+from Login_View import userId
+import dbController
 
 
 class moduleFrame1_Model(QAbstractListModel):
@@ -9,7 +11,10 @@ class moduleFrame1_Model(QAbstractListModel):
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["Module1"]
+        str = Login_View.userId
+        print(str)
+        #dbController
+        self.listItemData = ["Module 1", "Module 2", "Module 3"]
         # TODO: build the module data
 
     def flags(self, index):
@@ -42,5 +47,4 @@ class moduleFrame1_Model(QAbstractListModel):
 
     def deleteItem(self, index):
         del self.listItemData[index]
-
 
