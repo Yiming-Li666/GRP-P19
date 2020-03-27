@@ -8,6 +8,8 @@ from upcomingEvent_Model import upcomingEvent_Model
 from CommonHelper import CommonHelper
 # jump by creating new window
 from ModulePage_Ctr import ModulePage_ctr
+import dbController
+import Login_View
 
 import sys
 
@@ -43,7 +45,7 @@ class modulePage_view(QMainWindow):
 
         # build view, model, delegate
         self.Frame1 = moduleFrame1_view()
-        moduleModel = moduleFrame1_Model()
+        #moduleModel = moduleFrame1_Model()
         moduleDelegate = moduleFrame_Deletagte()
 
         # connect signal of frame to this page
@@ -55,7 +57,7 @@ class modulePage_view(QMainWindow):
         # set model and delegate for views
         
         self.Frame1.setupUi(self.window.moduleFrame1)
-        self.Frame1.listView.setModel(moduleModel)
+        #self.Frame1.listView.setModel(moduleModel)
         self.Frame1.listView.setItemDelegate(moduleDelegate)
         self.Frame1.refresh()
         #self.window.stackedWidget.addWidget(self.Frame1)
@@ -63,6 +65,16 @@ class modulePage_view(QMainWindow):
         self.upcomingFrame.listView.setModel(upcomingModel)
         self.upcomingFrame.connectToRecord(self.window)
         self.window.stackedWidget.setCurrentIndex(0)
+
+    def setupModel(self):
+        moduleModel = moduleFrame1_Model()
+        # print(Login_View.userId)
+        moduleName = dbController.GetTeacherInfo(Login_View.userId)
+        # print(moduleName)
+        for r in moduleName:
+            moduleModel.listItemData.append(r[2])
+        print(moduleModel.listItemData)
+        self.Frame1.listView.setModel(moduleModel)
 
     def goSession(self):
         # TODO: jump to the page

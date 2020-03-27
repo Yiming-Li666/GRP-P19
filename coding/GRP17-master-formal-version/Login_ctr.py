@@ -65,6 +65,8 @@ class login_Ctr():
         #self.loginView.forgetPwd_Signal.connect(self.forgetPwd)
 
     def enterMainPage(self):
+        self.tmView.setupModel()
+        
         self.loginView.hide()
         self.tmView.show()
 

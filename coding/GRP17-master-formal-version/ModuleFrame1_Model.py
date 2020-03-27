@@ -1,20 +1,18 @@
 from PyQt5.QtCore import QAbstractListModel, QModelIndex, Qt, QVariant
 from PyQt5.QtGui import QFont
-from Login_View import userId
-import dbController
+#import dbController
 
 
 class moduleFrame1_Model(QAbstractListModel):
 
+    listItemData = []
     def __init__(self,parent=None):
         super(moduleFrame1_Model,self).__init__(parent)
         self.init_data()
 
     def init_data(self):
-        str = Login_View.userId
-        print(str)
-        #dbController
-        self.listItemData = ["Module 1", "Module 2", "Module 3"]
+        # moduleName = self.checkModule()
+        self.listItemData = []
         # TODO: build the module data
 
     def flags(self, index):
@@ -48,3 +46,4 @@ class moduleFrame1_Model(QAbstractListModel):
     def deleteItem(self, index):
         del self.listItemData[index]
 
+    

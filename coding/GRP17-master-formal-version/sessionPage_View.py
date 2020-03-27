@@ -37,8 +37,8 @@ class sessionPage_View(QMainWindow):
         Add different sig for passed and future session
         '''
         # connect signal of frame to this page
-        #self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordDialog)
-        self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordedSession)
+        self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordDialog)
+        #self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordedSession)
         
         self.Frame1.setupUi(self.window.sessionFrame1)
         
