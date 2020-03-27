@@ -3,7 +3,8 @@ from PyQt5.QtWidgets import QFrame, QApplication
 from resources.teacherUIPY.basicStructure_frame1 import Ui_Frame
 import sys
 from CommonHelper import CommonHelper
-
+import ModulePage_View
+import Login_ctr
 #test
 from ModuleFrame1_Model import moduleFrame1_Model
 from ModuleFrame_Delegate import moduleFrame_Deletagte
@@ -30,6 +31,8 @@ class moduleFrame1_view(QFrame, Ui_Frame):
     def goSession(self, qModelIndex):
         # TODO: jump to the page
         print("go to " + str(qModelIndex.row()))
+        #print(ModulePage_View.modulePage_view.moduleModel.listItemData)
+        print(ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()])
         self.enterSessionPage_SignalToPage.emit()
 
     # may not to be used

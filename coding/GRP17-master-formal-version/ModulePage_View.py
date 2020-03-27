@@ -17,6 +17,8 @@ import sys
 class modulePage_view(QMainWindow):
 
     # jumping signal to controller - TBC
+    # moduleModel = None
+    moduleModel = moduleFrame1_Model()
     enterSessionPage_Signal = pyqtSignal()
 
     def __init__(self):
@@ -67,14 +69,15 @@ class modulePage_view(QMainWindow):
         self.window.stackedWidget.setCurrentIndex(0)
 
     def setupModel(self):
-        moduleModel = moduleFrame1_Model()
+        
         # print(Login_View.userId)
         moduleName = dbController.GetTeacherInfo(Login_View.userId)
         # print(moduleName)
         for r in moduleName:
-            moduleModel.listItemData.append(r[2])
-        print(moduleModel.listItemData)
-        self.Frame1.listView.setModel(moduleModel)
+            self.moduleModel.listItemData.append(r[2])
+        #print(moduleModel.listItemData)
+        self.Frame1.listView.setModel(self.moduleModel)
+        return self.moduleModel.listItemData
 
     def goSession(self):
         # TODO: jump to the page

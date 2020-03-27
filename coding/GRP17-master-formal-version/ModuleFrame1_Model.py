@@ -1,6 +1,5 @@
 from PyQt5.QtCore import QAbstractListModel, QModelIndex, Qt, QVariant
 from PyQt5.QtGui import QFont
-#import dbController
 
 
 class moduleFrame1_Model(QAbstractListModel):

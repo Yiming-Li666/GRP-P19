@@ -1,7 +1,8 @@
 from sessionFrame1_Model import sessionFrame1_model
 from sessionFrame1_Delegate import sessionFrame_delegate
 from upcomingEvent_Model import upcomingEvent_Model
-
+import dbController
+import Login_View
 
 class ModulePage_ctr():
 
@@ -24,6 +25,7 @@ class ModulePage_ctr():
         '''
         #load related session Model
         self.sessionModel = sessionFrame1_model()
+        # add the list
         self.sessionDelegate = sessionFrame_delegate()
         self.modulePageView.logCtr.sessionView.Frame1.listView.setModel(self.sessionModel)
         self.modulePageView.logCtr.sessionView.Frame1.listView.setItemDelegate(self.sessionDelegate)
@@ -33,3 +35,11 @@ class ModulePage_ctr():
         
         #change page
         self.mainwindow.stackedWidget.setCurrentIndex(1)
+'''
+    def setupSession(self):
+        sessionName = dbController.GetSessionInfo(Login_View.userId)
+        # print(moduleName)
+        for r in sessionName:
+            self.sessionModel.listItemData.append(r[2])
+        print(moduleModel.listItemData)
+'''
