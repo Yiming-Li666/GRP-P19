@@ -69,7 +69,6 @@ class modulePage_view(QMainWindow):
         self.window.stackedWidget.setCurrentIndex(0)
 
     def setupModel(self):
-        
         # print(Login_View.userId)
         moduleName = dbController.GetTeacherInfo(Login_View.userId)
         # print(moduleName)
