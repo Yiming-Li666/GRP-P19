@@ -20,9 +20,6 @@ class ModulePage_ctr():
     def enterSessionPage(self):
 
         print("to session")
-        '''
-        Change the related list module
-        '''
         #load related session Model
         # self.sessionModel = sessionFrame1_model()
         # add the list
@@ -35,11 +32,3 @@ class ModulePage_ctr():
         
         #change page
         self.mainwindow.stackedWidget.setCurrentIndex(1)
-'''
-    def setupSession(self):
-        sessionName = dbController.GetSessionInfo(Login_View.userId)
-        # print(moduleName)
-        for r in sessionName:
-            self.sessionModel.listItemData.append(r[2])
-        print(moduleModel.listItemData)
-'''

@@ -34,6 +34,17 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         # TODO: jump to the page
         print("go to " + str(qModelIndex.row()))
         # get all the session to load session list
+        self.sortSessionList(qModelIndex)
+        self.enterSessionPage_SignalToPage.emit()
+
+    # may not to be used
+    def singleClicked(self, qModelIndex):
+        print("you choosed " + str(qModelIndex.row()))
+
+    def sort(self):
+        print("sort")
+
+    def sortSessionList(self,qModelIndex):
         moduleId = ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()]
         sessionInfo = dbController.GetSessionInfo(moduleId)
         DateTime = []
@@ -53,30 +64,16 @@ class moduleFrame1_view(QFrame, Ui_Frame):
                 for inner in range(len(DateTime)):
                     # if current is the greatest
                     if DateTime[len(DateTime)-1] < current:
-                        print('great   ' +str(DateTime[len(DateTime)-2])+"   "+str(current))
+                        #print('great   ' +str(DateTime[len(DateTime)-2])+"   "+str(current))
                         ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
                         break
                     # if the current is smaller than this one
                     if DateTime[inner] > current:
-                        print('insert  '+ str(current))
+                        #print('insert  '+ str(current))
                         ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.insert(inner-1,r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
                         break
                     else: 
                         continue
-                
-        print(sessionInfo)
-        self.enterSessionPage_SignalToPage.emit()
-
-    # may not to be used
-    def singleClicked(self, qModelIndex):
-        print("you choosed " + str(qModelIndex.row()))
-
-    def sort(self):
-        print("sort")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
 
 # test code
 if __name__ == "__main__":
