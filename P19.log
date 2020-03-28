@@ -114,3 +114,6 @@ Session page list can be read from database.
 2020.03.28
 Applied sort algorithm by start time in session list.
 Get selected row number from sessionFrame1_View in sessionPage_View, using emit to pass the str parameter.
+Added time compare algorithm to distinguish recorded courses and unrecored courses.
+Bugs found that when read in session from database, will lost one session.
+Bug fixed when read in session from database, will lost one session.

@@ -68,7 +68,7 @@ class login_Ctr():
         self.moduleList
         self.moduleList = self.tmView.setupModel()
         #print(moduleList)
-        print(self.moduleList)
+        #print(self.moduleList)
         self.loginView.hide()
         self.tmView.show()
 

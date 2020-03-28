@@ -50,20 +50,14 @@ class sessionPage_View(QMainWindow):
         self.upcomingFrame.connectToRecord(self.window)
 
 
-    def dialogORrecord(self, str):
-        print(str)
-        #print("go "+str(qModelIndex.row()))
-        print("dialog")
-        print(ModuleFrame1_View.moduleFrame1_view.DateTime)
+    def dialogORrecord(self, rowNum):
+        # if the session has started for two hours
+        endTime = str(int(ModuleFrame1_View.moduleFrame1_view.DateTime[int(rowNum)])+2000000)
         timer = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-4]
         timer = timer.replace(' ','').replace('-','').replace(':','').replace('.','')
-        print(timer)
-        if True:
+        # if the session is ended or not
+        if endTime > timer:
             self.recordDialog_Signal.emit()
         else:
             self.recordedSession_Signal.emit()
-    '''
-    def recordedSession(self):
-        print("recorded")
-        self.recordedSession_Signal.emit()
-    '''
+
