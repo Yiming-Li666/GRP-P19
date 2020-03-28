@@ -1,10 +1,11 @@
 from sessionFrame1_Model import sessionFrame1_model
 from sessionFrame1_Delegate import sessionFrame_delegate
 from upcomingEvent_Model import upcomingEvent_Model
-
+import dbController
+import Login_View
 
 class ModulePage_ctr():
-
+    sessionModel = sessionFrame1_model()
     def __init__(self):
         self.modulePageView = None
 
@@ -19,11 +20,9 @@ class ModulePage_ctr():
     def enterSessionPage(self):
 
         print("to session")
-        '''
-        Change the related list module
-        '''
         #load related session Model
-        self.sessionModel = sessionFrame1_model()
+        # self.sessionModel = sessionFrame1_model()
+        # add the list
         self.sessionDelegate = sessionFrame_delegate()
         self.modulePageView.logCtr.sessionView.Frame1.listView.setModel(self.sessionModel)
         self.modulePageView.logCtr.sessionView.Frame1.listView.setItemDelegate(self.sessionDelegate)

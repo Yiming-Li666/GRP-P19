@@ -13,7 +13,7 @@ def AddStudent(filePath,studentID,Name):
     face_string = face_encoding.tostring()
     print('Img processed!')
     # link to the database
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     # use cursor() to get operation cursor
     cursor = db.cursor()
     # using sql to insert student table
@@ -29,7 +29,7 @@ def AddStudent(filePath,studentID,Name):
     db.close()
 
 def DeleteStudent(studentId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "DELETE FROM student WHERE studentId = '%s'" % studentId
     cursor.execute(sql)
@@ -39,7 +39,7 @@ def DeleteStudent(studentId):
     db.close()
 
 def AddTeacher(teacherId, teacherName, moduleId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "INSERT INTO teacher (teacherId, teacherName, moduleId) VALUES (%s, %s, %s);"
     args = (teacherId, teacherName, moduleId)
@@ -49,7 +49,7 @@ def AddTeacher(teacherId, teacherName, moduleId):
     db.close()
 
 def DeleteTeacher(teacherId,moduleId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "DELETE FROM teacher WHERE teacherId = '%s' AND moduleId = '%s'" % (teacherId,moduleId)
     cursor.execute(sql)
@@ -58,7 +58,7 @@ def DeleteTeacher(teacherId,moduleId):
     db.close()
 
 def AddModule(moduleId, moduleName, studentId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "INSERT INTO module (moduleId, moduleName, studentId) VALUES (%s, %s, %s);"
     args = (moduleId, moduleName, studentId)
@@ -68,7 +68,7 @@ def AddModule(moduleId, moduleName, studentId):
     db.close()
 
 def DeleteModule(moduleId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "DELETE FROM module WHERE moduleId = '%s'" % moduleId
     cursor.execute(sql)
@@ -77,17 +77,17 @@ def DeleteModule(moduleId):
     db.close()
 
 def AddLesson(lessonId, moduleId, lessonStart, lessonType):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
-    sql = "INSERT INTO lesson (lessonId, moduleId, lessonStart,lessonType) VALUES (%s, %s, NOW(), %s);"
-    args = (lessonId, moduleId, lessonType)
+    sql = "INSERT INTO lesson (lessonId, moduleId, lessonStart,lessonType) VALUES (%s, %s, %s, %s);"
+    args = (lessonId, moduleId, lessonStart, lessonType)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
     db.close()
 
 def DeleteLesson(lessonId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "DELETE FROM lesson WHERE lessonId = '%s'" % lessonId
     cursor.execute(sql)
@@ -96,7 +96,7 @@ def DeleteLesson(lessonId):
     db.close()
 
 def AddAttendance(lessonId, studentId, isAttend):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     if isAttend == 1:
         sql = "INSERT INTO attendance (lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, True, NOW());"
@@ -110,7 +110,7 @@ def AddAttendance(lessonId, studentId, isAttend):
 
 def DeleteAttendance(lessonId, studentId):
     # may not be used
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "DELETE FROM attendance WHERE lessonId = '%s' AND studentId = '%s'" % (lessonId, studentId)
     cursor.execute(sql)
@@ -120,7 +120,7 @@ def DeleteAttendance(lessonId, studentId):
 
 def AddLogin(userId, userName, userPsw):
     # may not be used
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "INSERT INTO login (userId, userName, userPsw) VALUES (%s, %s, %s);"
     args = (userId, userName, userPsw)
@@ -131,7 +131,7 @@ def AddLogin(userId, userName, userPsw):
 
 def DeleteLogin(userId):
     # may not be used
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "DELETE FROM login WHERE userId = '%s'" % userId
     cursor.execute(sql)
@@ -140,7 +140,7 @@ def DeleteLogin(userId):
     db.close()
 
 def CheckLogin(userId,userPsw):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "SELECT userPsw FROM login WHERE userId = '%s';" % userId
     cursor.execute(sql)
@@ -156,7 +156,8 @@ def CheckLogin(userId,userPsw):
     db.close()
 
 def GetTeacherInfo(teacherId):
-    db = pymysql.connect("localhost", "root", "JasonLi05@", "test")
+    # teacherId, teacherName, moduleId
+    db = pymysql.connect("localhost", "root", "密码", "test")
     cursor = db.cursor()
     sql = "SELECT * FROM teacher WHERE teacherId = '%s';" % teacherId
     cursor.execute(sql)
@@ -166,7 +167,20 @@ def GetTeacherInfo(teacherId):
     cursor.close()
     db.close()
     return data
-    # teacherId, teacherName, moduleId
+
+def GetSessionInfo(moduleId):
+    #lessonId, moduleId, lessonStart, lessonType
+    db = pymysql.connect("localhost", "root", "密码", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM lesson WHERE moduleId = '%s';" % moduleId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    return data
+
 
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
 #AddStudent('/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg','20031525', 'Li Yiming')
@@ -179,8 +193,13 @@ def GetTeacherInfo(teacherId):
 #DeleteTeacher('admin','COMP1234')
 #AddModule('COMP1010', 'Computer Science', '20031525')
 #DeleteModule('COMP1010')
-#AddLesson('lecture1', 'COMP1010', '2019-03-05 01:53:55.63', 'lab')
-#DeleteLesson('lecture1')
+#AddLesson('lecture2', 'COMP1010', '2010-01-10 10:00:00.00', 'seminer')
+#AddLesson('lecture3', 'COMP1010', '2013-01-10 14:00:00.00', 'seminer')
+#AddLesson('lecture4', 'COMP1010', '2016-01-10 01:00:00.00', 'seminer')
+#AddLesson('lecture5', 'COMP1010', '2019-01-10 23:00:00.00', 'seminer')
+#AddLesson('lab1', 'COMP1010', '2016-02-10 23:00:00.00', 'lab')
+#AddLesson('lab2', 'COMP1010', '2013-01-01 13:00:00.00', 'lab')
+#DeleteLesson('lecture2')
 #AddAttendance('lecture1', '20031525', 1)
 #AddAttendance('lecture1', '20031521', 0)
 #DeleteAttendance('lecture1', '20031525')
@@ -189,6 +208,7 @@ def GetTeacherInfo(teacherId):
 #CheckLogin('admin','admin')
 #DeleteLogin('z202020')
 #GetTeacherInfo('z202020')
+#GetSessionInfo()
 '''
 print("============")
 print("Done! ")

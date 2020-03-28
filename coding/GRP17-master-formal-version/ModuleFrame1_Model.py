@@ -1,15 +1,17 @@
-from PyQt5.QtCore import QAbstractListModel, QVariant, QModelIndex, Qt
+from PyQt5.QtCore import QAbstractListModel, QModelIndex, Qt, QVariant
 from PyQt5.QtGui import QFont
 
 
 class moduleFrame1_Model(QAbstractListModel):
 
+    listItemData = []
     def __init__(self,parent=None):
         super(moduleFrame1_Model,self).__init__(parent)
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["Module1"]
+        # moduleName = self.checkModule()
+        self.listItemData = []
         # TODO: build the module data
 
     def flags(self, index):
@@ -43,4 +45,4 @@ class moduleFrame1_Model(QAbstractListModel):
     def deleteItem(self, index):
         del self.listItemData[index]
 
-
+    

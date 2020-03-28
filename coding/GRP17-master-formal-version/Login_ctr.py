@@ -19,7 +19,7 @@ from resources.teacherUIPY.forgetPw_Dialog import forgetPw_dialog
 '''Login Controller is used for create main Window and show corresponding frames based on the main Window'''
 
 class login_Ctr():
-
+    moduleList = []
     def __init__(self):
         # TODO: test login input, link to data
         # bindModel = login_Model()
@@ -65,6 +65,10 @@ class login_Ctr():
         #self.loginView.forgetPwd_Signal.connect(self.forgetPwd)
 
     def enterMainPage(self):
+        self.moduleList
+        self.moduleList = self.tmView.setupModel()
+        #print(moduleList)
+        print(self.moduleList)
         self.loginView.hide()
         self.tmView.show()
 

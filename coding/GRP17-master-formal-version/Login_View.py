@@ -26,17 +26,28 @@ class login_View(QMainWindow, login_MainWindow):
         userPsw = self.lineEdit_2.text()
         if(userId != '' and  userPsw!= ''):
             #self.hintLabel.setText("loading...")
-            # if(dbController.CheckLogin(userId,userPsw)):
-            if True:
+            if(dbController.CheckLogin(userId,userPsw)):
+                moduleName = self.checkModule(userId)
+                '''
+                for r in moduleName:
+                    ModuleFrame1_Model.__init__()
+                    ModuleFrame1_Model.listItemData.addItem(moduleName[r][2])
+                '''
                 self.login_Signal.emit()
         self.hintLabel.setText("Invalid username or password!")
+        
 
     def forgetPwd(self):
         #self.forgetPwd_Signal.emit()
         print("forget")
         self.hintLabel.setText("Please contact the admin! 188-8888-8888")
 
-
+    def checkModule(self,userId):
+        #print(userId)
+        d = dbController.GetTeacherInfo(userId)
+        #print(d)
+        return d
+    
 
 # test code for the single view
 if __name__ == "__main__":
