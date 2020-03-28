@@ -198,7 +198,7 @@ def GetSessionInfo(moduleId):
 #AddLesson('lecture4', 'COMP1010', '2016-01-10 01:00:00.00', 'seminer')
 #AddLesson('lecture5', 'COMP1010', '2019-01-10 23:00:00.00', 'seminer')
 #AddLesson('lab1', 'COMP1010', '2016-02-10 23:00:00.00', 'lab')
-#AddLesson('lab6', 'COMP1010', '2019-01-10 01:00:00.10', 'lab')
+#AddLesson('lab688', 'COMP1010', '2020-03-29 00:00:00.10', 'lab')
 #AddLesson('lecture8', 'COMP1010', '2023-03-29 02:00:00.00', 'lab')
 #DeleteLesson('lab4')
 #DeleteLesson('lecture666')
