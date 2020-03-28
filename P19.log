@@ -110,3 +110,6 @@ Get userId from Login_View.
 Module page list can be read from database.
 Get module name from ModulePage_View in ModuleFrame1_View.
 Session page list can be read from database.
+
+2020.03.28
+Applied sort algorithm by start time in session list.

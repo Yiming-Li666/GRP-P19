@@ -36,8 +36,34 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         # get all the session to load session list
         moduleId = ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()]
         sessionInfo = dbController.GetSessionInfo(moduleId)
+        DateTime = []
         for r in sessionInfo:
-            ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+            # current = DateTime[len(DateTime)]
+            current = int(r[2].replace(' ','').replace('-','').replace(':','').replace('.',''))
+            DateTime.append(current)
+            DateTime.sort()
+            # print(DateTime)
+            # only one element in list datatime, no element in listItemData
+            if len(DateTime) == 1:
+                #print("1")
+                ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+            else:
+                # 0 to len
+                #print(str(DateTime[len(DateTime)-1]) + "  " + str(current))
+                for inner in range(len(DateTime)):
+                    # if current is the greatest
+                    if DateTime[len(DateTime)-1] < current:
+                        print('great   ' +str(DateTime[len(DateTime)-2])+"   "+str(current))
+                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+                        break
+                    # if the current is smaller than this one
+                    if DateTime[inner] > current:
+                        print('insert  '+ str(current))
+                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.insert(inner-1,r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+                        break
+                    else: 
+                        continue
+                
         print(sessionInfo)
         self.enterSessionPage_SignalToPage.emit()
 
@@ -51,7 +77,6 @@ class moduleFrame1_view(QFrame, Ui_Frame):
                Slot documentation goes here.
         """
         # TODO: not implemented yet
-
 
 # test code
 if __name__ == "__main__":
