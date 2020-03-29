@@ -190,7 +190,7 @@ def CheckAdmin(userId):
     data = cursor.fetchall()
     cursor.close()
     db.close()
-    print(data)
+    #print(data)
     if len(data) == 0:
         return True
     else:
