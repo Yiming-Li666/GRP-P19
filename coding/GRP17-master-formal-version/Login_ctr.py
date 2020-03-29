@@ -14,6 +14,7 @@ from oneStudentPage_View import oneStudentPage_View
 from teacherInfoPage_View import teacherInfoPage_View
 from studentRecordPage_View import studentRecordPage_View
 from recordedSessionPage_View import recordedSessionPage_View
+from AdminFrame_View import adminFrame_view
 
 from resources.teacherUIPY.forgetPw_Dialog import forgetPw_dialog
 '''Login Controller is used for create main Window and show corresponding frames based on the main Window'''
@@ -42,6 +43,7 @@ class login_Ctr():
         self.teacherInfoPage_View = teacherInfoPage_View()
         self.studentRecordPage_View = studentRecordPage_View()
         self.recordedSessionPage_View = recordedSessionPage_View()
+        self.adminFrame_view = adminFrame_view()
         
         self.tmView.setMainWindow(self.mainWindow, self)
         self.sessionView.setMainWindow(self.mainWindow, self)
@@ -64,13 +66,18 @@ class login_Ctr():
         self.loginView.login_Signal.connect(self.enterMainPage)
         #self.loginView.forgetPwd_Signal.connect(self.forgetPwd)
 
-    def enterMainPage(self):
+    def enterMainPage(self,num):
+        print(num)
         self.moduleList
         self.moduleList = self.tmView.setupModel()
         #print(moduleList)
         #print(self.moduleList)
         self.loginView.hide()
-        self.tmView.show()
+        if num == 0: 
+            self.tmView.show()
+        else:
+            self.adminFrame_view.show()
+        
 
 '''
     def forgetPwd(self):

@@ -117,3 +117,9 @@ Get selected row number from sessionFrame1_View in sessionPage_View, using emit 
 Added time compare algorithm to distinguish recorded courses and unrecored courses.
 Bugs found that when read in session from database, will lost one session.
 Bug fixed when read in session from database, will lost one session.
+
+2020.03.29
+Bug found when enter teaching session more than one time.
+Bug found when back from recording page to session page, list will be lost.
+Bug fixed that the session list will be remainning.
+Applied teacher or admin judgment in login page by linking to database.

@@ -181,6 +181,20 @@ def GetSessionInfo(moduleId):
     db.close()
     return data
 
+def CheckAdmin(userId):
+    db = pymysql.connect("localhost", "root", "密码", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM teacher WHERE teacherId = '%s';" % userId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    print(data)
+    if len(data) == 0:
+        return True
+    else:
+        return False
 
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
 #AddStudent('/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg','20031525', 'Li Yiming')
@@ -198,7 +212,7 @@ def GetSessionInfo(moduleId):
 #AddLesson('lecture4', 'COMP1010', '2016-01-10 01:00:00.00', 'seminer')
 #AddLesson('lecture5', 'COMP1010', '2019-01-10 23:00:00.00', 'seminer')
 #AddLesson('lab1', 'COMP1010', '2016-02-10 23:00:00.00', 'lab')
-#AddLesson('lab688', 'COMP1010', '2020-03-29 00:00:00.10', 'lab')
+#AddLesson('lab2', 'COMP1010', '2020-03-29 00:00:00.10', 'lab')
 #AddLesson('lecture8', 'COMP1010', '2023-03-29 02:00:00.00', 'lab')
 #DeleteLesson('lab4')
 #DeleteLesson('lecture666')
@@ -206,7 +220,7 @@ def GetSessionInfo(moduleId):
 #AddAttendance('lecture1', '20031521', 0)
 #DeleteAttendance('lecture1', '20031525')
 #AddLogin('z202020', 'Paul', 'passward')
-#AddLogin('admin', 'Li', 'admin')
+#AddLogin('dad', 'me', '000')
 #CheckLogin('admin','admin')
 #DeleteLogin('z202020')
 #GetTeacherInfo('z202020')
