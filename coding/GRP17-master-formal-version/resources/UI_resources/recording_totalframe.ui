@@ -18,21 +18,21 @@
     <number>30</number>
    </property>
    <property name="topMargin">
-    <number>30</number>
+    <number>20</number>
    </property>
    <property name="rightMargin">
     <number>30</number>
    </property>
    <property name="bottomMargin">
-    <number>30</number>
+    <number>20</number>
    </property>
    <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,2">
      <property name="spacing">
-      <number>10</number>
+      <number>30</number>
      </property>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="4,1">
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="5,1">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="leftMargin">
@@ -77,7 +77,17 @@
           </widget>
          </item>
          <item>
-          <widget class="QGraphicsView" name="faceRecog_graphicsView"/>
+          <widget class="QLabel" name="camera_label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>48</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>TextLabel</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -192,14 +202,30 @@
            <number>20</number>
           </property>
           <item row="0" column="0">
-           <layout class="QVBoxLayout" name="verticalLayout_4" stretch="3,1">
+           <layout class="QVBoxLayout" name="verticalLayout_4" stretch="2,1">
             <property name="spacing">
-             <number>10</number>
+             <number>30</number>
             </property>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,3,1">
               <item>
-               <widget class="QToolButton" name="toolButton">
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>50</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="sccessOrfail_pushbutton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                   <horstretch>0</horstretch>
@@ -224,12 +250,12 @@
                </widget>
               </item>
               <item>
-               <spacer name="horizontalSpacer">
+               <spacer name="horizontalSpacer_2">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>QSizePolicy::Expanding</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -239,62 +265,71 @@
                 </property>
                </spacer>
               </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
-               <widget class="QToolButton" name="toolButton_2">
+               <widget class="QPushButton" name="start_pushButton">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                 <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>120</width>
-                  <height>120</height>
+                  <width>0</width>
+                  <height>50</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>300</width>
-                  <height>300</height>
+                  <width>16777215</width>
+                  <height>80</height>
                  </size>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
                 <property name="text">
-                 <string>Fail</string>
+                 <string>START</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="stop_pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>STOP</string>
                 </property>
                </widget>
               </item>
              </layout>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>80</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>START/PAUSE/STOP</string>
-              </property>
-             </widget>
             </item>
            </layout>
           </item>
@@ -310,7 +345,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>start_pushButton</sender>
    <signal>clicked()</signal>
    <receiver>Frame</receiver>
    <slot>start()</slot>
