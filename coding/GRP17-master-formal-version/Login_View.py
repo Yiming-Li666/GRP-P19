@@ -17,6 +17,7 @@ class login_View(QMainWindow, login_MainWindow):
         super(login_View, self).__init__()
         self.setupUi(self)
         self.pushButton.clicked.connect(self.login)
+        self.lineEdit_2.returnPressed.connect(self.login)
         self.toolButton.clicked.connect(self.forgetPwd)
         # self.lineEdit_2.password()
 
@@ -32,11 +33,6 @@ class login_View(QMainWindow, login_MainWindow):
                     self.login_Signal.emit(1)
                 else:
                     moduleName = self.checkModule(userId)
-                    '''
-                    for r in moduleName:
-                        ModuleFrame1_Model.__init__()
-                        ModuleFrame1_Model.listItemData.addItem(moduleName[r][2])
-                    '''
                     self.login_Signal.emit(0)
         self.hintLabel.setText("Invalid username or password!")
         

@@ -24,6 +24,7 @@ class sessionFrame1_View(QFrame,Ui_Frame):
     def setSlot(self):
         self.search_toolButton.clicked.connect(self.searchSession)
         self.search_lineEdit.returnPressed.connect(self.searchSession)
+        self.comboBox.currentIndexChanged.connect(self.getComboBoxItem)
         self.addButton.clicked.connect(self.addSession)
         self.listView.doubleClicked.connect(self.doubleClicked)
         self.listView.clicked.connect(self.goSession)
@@ -45,6 +46,9 @@ class sessionFrame1_View(QFrame,Ui_Frame):
                Slot documentation goes here.
         """
         # TODO: not implemented yet
+
+    def getComboBoxItem(self):
+        print(self.comboBox.currentText())
 
     def print(self):
         print("print recording")

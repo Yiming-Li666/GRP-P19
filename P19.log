@@ -121,5 +121,8 @@ Bug fixed when read in session from database, will lost one session.
 2020.03.29
 Bug found when enter teaching session more than one time.
 Bug found when back from recording page to session page, list will be lost.
-Bug fixed that the session list will be remainning.
+Bug fixed that the session list will be remaining.
 Applied teacher or admin judgment in login page by linking to database.
+Change database password to 'root1'
+Add returnPressed functionality to login page.
+Get comboBox item in session page.
