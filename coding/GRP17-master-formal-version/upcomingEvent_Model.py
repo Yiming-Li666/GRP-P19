@@ -9,7 +9,7 @@ class upcomingEvent_Model(QAbstractListModel):
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["testUpcomingEvent\nTime\nVenue"]
+        self.listItemData = ["testUpcomingEvent\nTime\nVenue","Second upcoming event\nTime\nVenue"]
         # TODO: build the data
 
     def data(self, index, role):

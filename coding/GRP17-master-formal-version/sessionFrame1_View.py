@@ -1,5 +1,5 @@
 from PyQt5 import QtCore
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QModelIndex
 from PyQt5.QtWidgets import QFrame, QApplication, QMainWindow
 from resources.teacherUIPY.basicStructure_frame1 import Ui_Frame
 from CommonHelper import CommonHelper
@@ -9,7 +9,7 @@ import sys
 class sessionFrame1_View(QFrame,Ui_Frame):
 
     # send signal to module page
-    enterRecordingPage_SignalToPage = pyqtSignal()
+    enterRecordingPage_SignalToPage = pyqtSignal(str)
 
     def __init__(self):
         # setup UI
@@ -30,14 +30,14 @@ class sessionFrame1_View(QFrame,Ui_Frame):
 
     def goSession(self, qModelIndex):
         # TODO: jump to the page
-        print("go to " + str(qModelIndex.row()))
+        #print("go to " + str(qModelIndex.row()))
         #!!!!!
         #emit different Sig for different page
 
-        self.enterRecordingPage_SignalToPage.emit()
+        self.enterRecordingPage_SignalToPage.emit(str(qModelIndex.row()))
 
     def doubleClicked(self, qModelIndex):
-        print("you choosed " + str(qModelIndex.row()))
+        ("you choosed " + str(qModelIndex.row()))
 
     def searchSession(self):
         print("search Session")

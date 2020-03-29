@@ -19,7 +19,7 @@ class ModulePage_ctr():
 
     def enterSessionPage(self):
 
-        print("to session")
+        #print("to session")
         #load related session Model
         # self.sessionModel = sessionFrame1_model()
         # add the list

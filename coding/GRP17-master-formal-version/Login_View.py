@@ -9,7 +9,7 @@ class login_View(QMainWindow, login_MainWindow):
 
     # send signals to login controller to operate
     userId = ''
-    login_Signal = pyqtSignal()
+    login_Signal = pyqtSignal(int)
     forgetPwd_Signal = pyqtSignal()
 
     def __init__(self):
@@ -27,13 +27,17 @@ class login_View(QMainWindow, login_MainWindow):
         if(userId != '' and  userPsw!= ''):
             #self.hintLabel.setText("loading...")
             if(dbController.CheckLogin(userId,userPsw)):
-                moduleName = self.checkModule(userId)
-                '''
-                for r in moduleName:
-                    ModuleFrame1_Model.__init__()
-                    ModuleFrame1_Model.listItemData.addItem(moduleName[r][2])
-                '''
-                self.login_Signal.emit()
+                # if condition: userid not in teacher, emit 1
+                if dbController.CheckAdmin(userId):
+                    self.login_Signal.emit(1)
+                else:
+                    moduleName = self.checkModule(userId)
+                    '''
+                    for r in moduleName:
+                        ModuleFrame1_Model.__init__()
+                        ModuleFrame1_Model.listItemData.addItem(moduleName[r][2])
+                    '''
+                    self.login_Signal.emit(0)
         self.hintLabel.setText("Invalid username or password!")
         
 

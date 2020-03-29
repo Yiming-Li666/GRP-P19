@@ -4,12 +4,14 @@ from sessionFrame1_Delegate import sessionFrame_delegate
 from upcomingEvent_View import upcomingEvent_view
 from sessionPage_ctr import sessionPage_ctr
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QModelIndex
+import ModuleFrame1_View
+import datetime
 
 class sessionPage_View(QMainWindow):
     recordDialog_Signal = pyqtSignal()
     recordedSession_Signal = pyqtSignal()
-    def __init__(self):
+    def __init__(self,):
         super(sessionPage_View, self).__init__()
         self.window = None
 
@@ -37,7 +39,7 @@ class sessionPage_View(QMainWindow):
         Add different sig for passed and future session
         '''
         # connect signal of frame to this page
-        self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordDialog)
+        self.Frame1.enterRecordingPage_SignalToPage.connect(self.dialogORrecord)
         #self.Frame1.enterRecordingPage_SignalToPage.connect(self.recordedSession)
         
         self.Frame1.setupUi(self.window.sessionFrame1)
@@ -48,10 +50,14 @@ class sessionPage_View(QMainWindow):
         self.upcomingFrame.connectToRecord(self.window)
 
 
-    def recordDialog(self):
-        print("dialog")
-        self.recordDialog_Signal.emit()
-    
-    def recordedSession(self):
-        print("recorded")
-        self.recordedSession_Signal.emit()
+    def dialogORrecord(self, rowNum):
+        # if the session has started for two hours
+        endTime = str(int(ModuleFrame1_View.moduleFrame1_view.DateTime[int(rowNum)])+2000000)
+        timer = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-4]
+        timer = timer.replace(' ','').replace('-','').replace(':','').replace('.','')
+        # if the session is ended or not
+        if endTime > timer:
+            self.recordDialog_Signal.emit()
+        else:
+            self.recordedSession_Signal.emit()
+
