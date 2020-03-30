@@ -48,7 +48,7 @@ class moduleFrame1_view(QFrame, Ui_Frame):
     def sortSessionList(self,qModelIndex):
         moduleId = ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()]
         sessionInfo = dbController.GetSessionInfo(moduleId)
-        
+        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData = []
         for r in sessionInfo:
             # current = self.DateTime[len(self.DateTime)]
             current = int(r[2].replace(' ','').replace('-','').replace(':','').replace('.',''))

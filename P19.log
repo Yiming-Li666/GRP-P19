@@ -119,7 +119,7 @@ Bugs found that when read in session from database, will lost one session.
 Bug fixed when read in session from database, will lost one session.
 
 2020.03.29
-Bug found when enter teaching session more than one time.
+Bug found when entering teaching session more than one time.
 Bug found when back from recording page to session page, list will be lost.
 Bug fixed that the session list will be remaining.
 Applied teacher or admin judgment in login page by linking to database.
@@ -129,3 +129,4 @@ Get comboBox item in session page.
 
 2020.03.30
 Added sort functionality in session page.
+Bug fixed when enter teaching session more than one time, the list will not be loaded again.
