@@ -67,7 +67,7 @@ class login_Ctr():
         #self.loginView.forgetPwd_Signal.connect(self.forgetPwd)
 
     def enterMainPage(self,num):
-        print(num)
+        #print(num)
         self.moduleList
         self.moduleList = self.tmView.setupModel()
         #print(moduleList)

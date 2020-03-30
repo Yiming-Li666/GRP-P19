@@ -132,3 +132,4 @@ Added sort functionality in session page.
 Bug fixed when enter teaching session more than one time, the list will not be loaded again.
 Bug fixed that the sort algorithm in session page is not accurate.
 Added upcoming events to show today's remaining sessions.
+Bug fixed when entering the session page again that the list will not be sorted.

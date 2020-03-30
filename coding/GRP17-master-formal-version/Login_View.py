@@ -39,7 +39,7 @@ class login_View(QMainWindow, login_MainWindow):
 
     def forgetPwd(self):
         #self.forgetPwd_Signal.emit()
-        print("forget")
+        #print("forget")
         self.hintLabel.setText("Please contact the admin! 188-8888-8888")
 
     def checkModule(self,userId):

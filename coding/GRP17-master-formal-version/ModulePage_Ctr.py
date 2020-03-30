@@ -37,7 +37,7 @@ class ModulePage_ctr():
         self.mainwindow.stackedWidget.setCurrentIndex(1)
 
     def loadUpcoming(self):    
-        print(ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData)
+        #print(ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData)
         for session in ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData:
             r = session.split()
             r[2] = r[2].replace('-','')
@@ -49,10 +49,10 @@ class ModulePage_ctr():
             start = str(int(r[3]) + 2000000)
             if len(start) <= 7 :
                 start = "0" + start
-            print(start)
+            #print(start)
             if r[2] == timer[0] and start >= timer[1] :
                 s = session.split()
                 self.upcomingModel.listItemData.append(s[0] + "   " + s[1] + "\n" + s[2] + "\n" + s[3])
         if len(self.upcomingModel.listItemData) == 0:
-            self.upcomingModel.listItemData = ["Today has    no     upcoming event!\n"]
-        print(self.upcomingModel.listItemData)
+            self.upcomingModel.listItemData = ["Today has no upcoming event!\n"]
+        #print(self.upcomingModel.listItemData)

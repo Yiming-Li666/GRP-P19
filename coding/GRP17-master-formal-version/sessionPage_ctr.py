@@ -37,6 +37,6 @@ class sessionPage_ctr():
                 self.upcomingModel.listItemData.append(s[0] + "   " + s[1] + "\n" + s[2] + "\n" + s[3])
         if len(self.upcomingModel.listItemData) == 0:
             self.upcomingModel.listItemData = ["Today has no upcoming event!\n"]
-        print(self.upcomingModel.listItemData)
+        #print(self.upcomingModel.listItemData)
         self.sessionPageView.logCtr.recordedSessionPage_View.upcomingFrame.listView.setModel(self.upcomingModel)
         self.mainwindow.stackedWidget.setCurrentIndex(7)
