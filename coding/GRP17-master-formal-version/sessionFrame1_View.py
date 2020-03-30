@@ -107,13 +107,16 @@ class sessionFrame1_View(QFrame,Ui_Frame):
             timer[0] = timer[0].replace('-','')
             timer[1] = timer[1].replace(':','').replace('.','')
             if category == "In Progress" :
-                if r[2] == timer[0] and (str(int(r[3])-1000000) >= timer[1] or str(int(r[3])+2000000) < timer[1]) :
+                start = str(int(r[3]) - 1000000)
+                if len(start) <= 7 :
+                    start = "0" + start
+                if r[2] == timer[0] and (start <= timer[1] and str(int(r[3])+2000000) > timer[1]) :
                     self.Process_sessionModel.listItemData.append(session)
             elif category == "Future" :
                 if r[2] > timer[0] or (r[2] == timer[0] and r[3] >= timer[1]) :
                     self.Future_sessionModel.listItemData.append(session)
             elif category == "Past" :
-                if r[2] < timer[0] or (r[2] == timer[0] and str(int(r[3])+2000000) >= timer[1]) :
+                if r[2] < timer[0] or (r[2] == timer[0] and str(int(r[3])+2000000) <= timer[1]) :
                     self.Past_sessionModel.listItemData.append(session)
 
 # test code

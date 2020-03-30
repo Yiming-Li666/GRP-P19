@@ -130,3 +130,5 @@ Get comboBox item in session page.
 2020.03.30
 Added sort functionality in session page.
 Bug fixed when enter teaching session more than one time, the list will not be loaded again.
+Bug fixed that the sort algorithm in session page is not accurate.
+Added upcoming events to show today's remaining sessions.
