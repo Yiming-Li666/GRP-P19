@@ -126,3 +126,6 @@ Applied teacher or admin judgment in login page by linking to database.
 Change database password to 'root1'
 Add returnPressed functionality to login page.
 Get comboBox item in session page.
+
+2020.03.30
+Added sort functionality in session page.

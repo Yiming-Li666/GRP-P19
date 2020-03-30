@@ -16,3 +16,8 @@ QLineEdit{
     border-radius:2px;
     border: groove #F0F0F0;
 }
+QListView{
+ background-color: #BFEFFF;
+ alternate-background-color:#EED2EE;
+show-decoration-selected:0;
+}

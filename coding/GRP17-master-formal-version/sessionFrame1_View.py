@@ -3,6 +3,10 @@ from PyQt5.QtCore import pyqtSignal, QModelIndex
 from PyQt5.QtWidgets import QFrame, QApplication, QMainWindow
 from resources.teacherUIPY.basicStructure_frame1 import Ui_Frame
 from CommonHelper import CommonHelper
+from sessionFrame1_Model import sessionFrame1_model
+import ModulePage_Ctr
+import Login_ctr
+import datetime
 import sys
 
 
@@ -24,7 +28,7 @@ class sessionFrame1_View(QFrame,Ui_Frame):
     def setSlot(self):
         self.search_toolButton.clicked.connect(self.searchSession)
         self.search_lineEdit.returnPressed.connect(self.searchSession)
-        self.comboBox.currentIndexChanged.connect(self.getComboBoxItem)
+        #self.comboBox.currentIndexChanged.connect(self.getComboBoxItem)
         self.addButton.clicked.connect(self.addSession)
         self.listView.doubleClicked.connect(self.doubleClicked)
         self.listView.clicked.connect(self.goSession)
@@ -47,8 +51,11 @@ class sessionFrame1_View(QFrame,Ui_Frame):
         """
         # TODO: not implemented yet
 
-    def getComboBoxItem(self):
-        print(self.comboBox.currentText())
+    #def getComboBoxItem(self):
+        
+        
+
+            #ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData = ["else"]
 
     def print(self):
         print("print recording")
@@ -65,11 +72,49 @@ class sessionFrame1_View(QFrame,Ui_Frame):
         # TODO: not implemented yet
 
     def sort(self):
-        print("sort")
+        sortI = self.comboBox.currentText()
+        #print(sortI)
+        if sortI == "In Progress":
+            self.Process_sessionModel = sessionFrame1_model()
+            self.sortSession("In Progress")
+            #self.Process_sessionModel.listItemData = ["in progress"]
+            #print(self.Process_sessionModel.listItemData)
+            self.listView.setModel(self.Process_sessionModel)
+        elif sortI == "Future":
+            self.Future_sessionModel = sessionFrame1_model()
+            self.sortSession("Future")
+            #self.Future_sessionModel.listItemData = ["future"]
+            self.listView.setModel(self.Future_sessionModel)
+        elif sortI == "Past":
+            self.Past_sessionModel = sessionFrame1_model()
+            self.sortSession("Past")
+            #self.Past_sessionModel.listItemData = ["Past"]
+            self.listView.setModel(self.Past_sessionModel)
+        else:
+            self.listView.setModel(ModulePage_Ctr.ModulePage_ctr.sessionModel)
         """
                Slot documentation goes here.
         """
         # TODO: not implemented yet
+
+    def sortSession(self,category):
+        for session in ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData:
+            r = session.split()
+            r[2] = r[2].replace('-','')
+            r[3] = r[3].replace(':','').replace('.','')
+            timer = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-4]
+            timer = timer.split()
+            timer[0] = timer[0].replace('-','')
+            timer[1] = timer[1].replace(':','').replace('.','')
+            if category == "In Progress" :
+                if r[2] == timer[0] and (str(int(r[3])-1000000) >= timer[1] or str(int(r[3])+2000000) < timer[1]) :
+                    self.Process_sessionModel.listItemData.append(session)
+            elif category == "Future" :
+                if r[2] > timer[0] or (r[2] == timer[0] and r[3] >= timer[1]) :
+                    self.Future_sessionModel.listItemData.append(session)
+            elif category == "Past" :
+                if r[2] < timer[0] or (r[2] == timer[0] and str(int(r[3])+2000000) >= timer[1]) :
+                    self.Past_sessionModel.listItemData.append(session)
 
 # test code
 

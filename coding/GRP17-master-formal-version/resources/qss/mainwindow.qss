@@ -8,3 +8,8 @@ QtoolButton#toolButton4{
     background-color: #F0F0F0;
     font:bold;
 }
+QListView{
+ background-color: #BFEFFF;
+ alternate-background-color:#EED2EE;
+show-decoration-selected:0;
+}
