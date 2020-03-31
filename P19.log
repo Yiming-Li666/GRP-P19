@@ -133,3 +133,6 @@ Bug fixed when enter teaching session more than one time, the list will not be l
 Bug fixed that the sort algorithm in session page is not accurate.
 Added upcoming events to show today's remaining sessions.
 Bug fixed when entering the session page again that the list will not be sorted.
+
+2020.03.31
+Finish recorded session part to display the teacher name and session name.

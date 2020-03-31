@@ -55,7 +55,7 @@ class sessionPage_View(QMainWindow):
 
     def dialogORrecord(self, rowNum):
         # if the session has started for two hours
-        print(ModuleFrame1_View.moduleFrame1_view.DateTime)
+        #print(ModuleFrame1_View.moduleFrame1_view.DateTime)
         endTime = str(int(ModuleFrame1_View.moduleFrame1_view.DateTime[int(rowNum)])+2000000)
         timer = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-4]
         timer = timer.replace(' ','').replace('-','').replace(':','').replace('.','')
@@ -72,6 +72,6 @@ class sessionPage_View(QMainWindow):
     def fillInfo(self):
         teacherInformation = dbController.GetTeacherInfo(Login_View.userId)
         self.logCtr.recordedSessionPage_View.Frame1.teacherName_label.setText(teacherInformation[0][1])
-        self.logCtr.recordedSessionPage_View.Frame1.sessionName_label.setText("Session")
+        self.logCtr.recordedSessionPage_View.Frame1.sessionName_label.setText(self.Frame1.info[1])
         self.logCtr.recordedSessionPage_View.Frame1.attendance_label.setText("Attended")
         self.logCtr.recordedSessionPage_View.Frame1.absentStudent_textBrowser.setText("  aaa\n  bbb\n  ccc\n")

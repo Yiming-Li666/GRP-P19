@@ -14,7 +14,7 @@ class sessionFrame1_View(QFrame,Ui_Frame):
 
     # send signal to module page
     enterRecordingPage_SignalToPage = pyqtSignal(str)
-
+    info = []
     def __init__(self):
         # setup UI
         super(sessionFrame1_View, self).__init__()
@@ -34,8 +34,23 @@ class sessionFrame1_View(QFrame,Ui_Frame):
         self.listView.clicked.connect(self.goSession)
 
     def goSession(self, qModelIndex):
+        #print(self.listView.currentText)
+        #selected = self.listView.currentIndex()
+        #print(selected)
+        #print(self.sessonId)
         # TODO: jump to the page
-        #print("go to " + str(qModelIndex.row()))
+        sortI = self.comboBox.currentText()
+        if sortI == "In Progress":
+            s = self.Process_sessionModel.listItemData[qModelIndex.row()]
+        elif sortI == "Future":
+            s = self.Future_sessionModel.listItemData[qModelIndex.row()]
+        elif sortI == "Past":
+            s = self.Past_sessionModel.listItemData[qModelIndex.row()]
+        else:
+            s = ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData[qModelIndex.row()]
+        self.info = s.split()
+
+        print("go to " + str(qModelIndex.row()))
         #!!!!!
         #emit different Sig for different page
 
@@ -50,12 +65,6 @@ class sessionFrame1_View(QFrame,Ui_Frame):
                Slot documentation goes here.
         """
         # TODO: not implemented yet
-
-    #def getComboBoxItem(self):
-        
-        
-
-            #ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData = ["else"]
 
     def print(self):
         print("print recording")
