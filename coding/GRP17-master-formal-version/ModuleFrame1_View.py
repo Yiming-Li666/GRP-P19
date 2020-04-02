@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QFrame, QApplication
 from resources.teacherUIPY.basicStructure_frame1 import Ui_Frame
 import sys
 from CommonHelper import CommonHelper
-# import ModulePage_View
+import ModulePage_View
 import Login_ctr
 import dbController
 import ModulePage_Ctr
