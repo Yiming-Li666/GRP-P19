@@ -5,6 +5,7 @@ from basicMainWindow_View import basicMainWindow_view
 from upcomingEvent_View import upcomingEvent_view
 from sessionFrame1_Model import sessionFrame1_model
 from sessionFrame1_Delegate import sessionFrame_delegate
+from accountDialog_View import accountDialog_view
 from PyQt5.Qt import *
 from PyQt5 import QtCore
 import dbController
@@ -96,35 +97,34 @@ class basicMainWindow_Ctr():
     def clickTeacherInfo(self):
         print("Teacher Info")
         # create a dialog to give teacher information
-        dl = QDialog()
-        dl.setWindowTitle('Teacher information')
-        dl.resize(300,200)
+        self.dl = accountDialog_view()
+        # dl.setWindowTitle('Teacher information')
+        # dl.resize(300,200)
         # get userId from the login page
         # link to database ask for teacher information
         teacherInformation = dbController.GetTeacherInfo(Login_View.userId)
         # teacherInformation is a 2D array
         # get teacher name
-        dl.name = QLabel("Teacher:           " + teacherInformation[0][1],dl) 
+        self.dl.teacherName_label.setText(teacherInformation[0][1])
         # set position
-        dl.name.setGeometry(QtCore.QRect(50, 20, 250, 50))
+        # dl.name.setGeometry(QtCore.QRect(50, 20, 250, 50))
         # get all the module name
-        str = "Module:           " 
+        str = ""
         for r in teacherInformation:
-            str = str + r[2] + "\n                           "
-        dl.module = QLabel(str,dl) 
+            str = str + r[2] + "\n"
+        self.dl.module_label.setText(str)
         # set position
-        dl.module.setGeometry(QtCore.QRect(50, 60, 250, 100))
+        # dl.module.setGeometry(QtCore.QRect(50, 60, 250, 100))
         # create a button to close the window
-        btn=QPushButton('ok',dl)
-        btn.resize(25,20)
-        btn.move(140,150)
-        btn.clicked.connect(lambda:self.close(dl))
+        self.dl.logout_pushButton.clicked.connect(self.close)
         # lock the parent window
-        dl.setWindowModality(Qt. WindowModal)
-        dl.exec_()
+        # self.dl.setWindowModality(Qt. WindowModal)
+        self.dl.show()
+        # dl.exec_()
 
-    def close(self,dl):
-        dl.close()
+    def close(self):
+        self.dl.close()
+        # TODO: user logout
 
     def printInfo(self):
         print("print")

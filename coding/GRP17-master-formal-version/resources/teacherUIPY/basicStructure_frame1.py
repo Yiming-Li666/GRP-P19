@@ -53,7 +53,7 @@ class Ui_Frame(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
-        self.comboBox.addItem("")
+        # self.comboBox.addItem("")
         self.horizontalLayout_3.addWidget(self.comboBox)
         spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
@@ -104,6 +104,6 @@ class Ui_Frame(object):
         self.comboBox.setItemText(1, _translate("Frame", "In Progress"))
         self.comboBox.setItemText(2, _translate("Frame", "Future"))
         self.comboBox.setItemText(3, _translate("Frame", "Past"))
-        self.comboBox.setItemText(4, _translate("Frame", "Starred"))
+        # self.comboBox.setItemText(4, _translate("Frame", "Starred"))
         self.addButton.setText(_translate("Frame", "Add"))
 import resources.images_rc

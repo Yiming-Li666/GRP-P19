@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QFrame, QApplication
 from resources.teacherUIPY.basicStructure_frame1 import Ui_Frame
 import sys
 from CommonHelper import CommonHelper
-import ModulePage_View
+# import ModulePage_View
 import Login_ctr
 import dbController
 import ModulePage_Ctr
@@ -27,7 +27,7 @@ class moduleFrame1_view(QFrame, Ui_Frame):
         self.frameName_TBS.setText("Module")
         self.search_lineEdit.hide()
         self.search_toolButton.hide()
-        self.addButton.hide()
+        self.comboBox.hide()
         self.listView.clicked.connect(self.singleClicked)
         self.listView.doubleClicked.connect(self.goSession)
 
@@ -84,6 +84,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     test = moduleFrame1_view()
+    test.refresh()
     delegate = moduleFrame_Deletagte()
     model = moduleFrame1_Model()
     test.listView.setModel(model)
