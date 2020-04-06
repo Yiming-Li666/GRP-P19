@@ -57,11 +57,11 @@ def DeleteTeacher(teacherId,moduleId):
     cursor.close()
     db.close()
 
-def AddModule(moduleId, moduleName, studentId):
+def AddModule(moduleId, moduleName, faculty, school, year):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
-    sql = "INSERT INTO module (moduleId, moduleName, studentId) VALUES (%s, %s, %s);"
-    args = (moduleId, moduleName, studentId)
+    sql = "INSERT INTO module (moduleId, moduleName, faculty, school, year) VALUES (%s, %s, %s, %s, %s);"
+    args = (moduleId, moduleName, faculty, school, year)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
@@ -76,11 +76,11 @@ def DeleteModule(moduleId):
     cursor.close()
     db.close()
 
-def AddLesson(lessonId, moduleId, lessonStart, lessonType):
+def AddLesson(lessonId, moduleId, lessonStart, lessonType, venue):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
-    sql = "INSERT INTO lesson (lessonId, moduleId, lessonStart,lessonType) VALUES (%s, %s, %s, %s);"
-    args = (lessonId, moduleId, lessonStart, lessonType)
+    sql = "INSERT INTO lesson (lessonId, moduleId, lessonStart,lessonType, venue) VALUES (%s, %s, %s, %s, %s);"
+    args = (lessonId, moduleId, lessonStart, lessonType, venue)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
@@ -200,30 +200,31 @@ def CheckAdmin(userId):
 #AddStudent('/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg','20031525', 'Li Yiming')
 #DeleteStudent('20031525')
 #AddTeacher('z202020','Paul','COMP1010')
-#AddTeacher('z202020','Paul','COMP1234')
-#AddTeacher('admin','Paul','COMP1234')
-#AddTeacher('admin','Paul','COMP1020')
-#AddTeacher('admin','Paul','COMP1030')
+#AddTeacher('test','me','COMP1010')
 #DeleteTeacher('admin','COMP1234')
-#AddModule('COMP1010', 'Computer Science', '20031525')
+#AddModule('COMP1010', 'GRP', 'Faculty of Science and Engineering', 'Computer Science', 2020)
 #DeleteModule('COMP1010')
-#AddLesson('lecture2', 'COMP1010', '2010-01-10 10:00:00.00', 'seminer')
-#AddLesson('lecture3', 'COMP1010', '2013-01-10 14:00:00.00', 'seminer')
-#AddLesson('lecture4', 'COMP1010', '2016-01-10 01:00:00.00', 'seminer')
-#AddLesson('lecture5', 'COMP1010', '2019-01-10 23:00:00.00', 'seminer')
-#AddLesson('lab1', 'COMP1010', '2016-02-10 23:00:00.00', 'lab')
-#AddLesson('lab2', 'COMP1010', '2020-03-29 00:00:00.10', 'lab')
-#AddLesson('lecture8', 'COMP1010', '2023-03-29 02:00:00.00', 'lab')
-#AddLesson('test1', 'COMP1010', '2020-03-30 21:00:00.00', 'seminer')
-#AddLesson('test2', 'COMP1010', '2020-03-30 20:00:00.00', 'seminer')
-#AddLesson('test3', 'COMP1010', '2020-03-30 10:00:00.00', 'seminer')
+'''
+AddLesson('lecture1', 'COMP1010', '2010-01-10 10:00:00.00', 'seminer', 'TB-116')
+AddLesson('lecture2', 'COMP1010', '2010-02-10 20:00:00.00', 'lecture', 'DB-A05')
+AddLesson('lecture3', 'COMP1010', '2010-03-10 06:00:00.00', 'seminer', 'TB-116')
+AddLesson('lecture4', 'COMP1010', '2010-04-10 11:00:00.00', 'lecture', 'DB-A05')
+AddLesson('lecture5', 'COMP1010', '2010-05-10 12:00:00.00', 'seminer', 'TB-116')
+AddLesson('lecture6', 'COMP1010', '2010-06-10 13:00:00.00', 'lecture', 'DB-A05')
+AddLesson('lab1', 'COMP1010', '2010-06-10 13:00:00.00', 'lab', 'PMB432')
+AddLesson('lab2', 'COMP1010', '2012-06-10 13:00:00.00', 'lab', 'PMB432')
+AddLesson('lab3', 'COMP1010', '2013-06-10 13:00:00.00', 'lab', 'PMB432')
+AddLesson('lab4', 'COMP1010', '2015-06-10 13:00:00.00', 'lab', 'PMB432')
+AddLesson('lab5', 'COMP1010', '2016-06-10 13:00:00.00', 'lab', 'PMB432')
+'''
 #DeleteLesson('lab4')
 #DeleteLesson('lecture666')
 #AddAttendance('lecture1', '20031525', 1)
 #AddAttendance('lecture1', '20031521', 0)
 #DeleteAttendance('lecture1', '20031525')
+#AddLogin('admin', 'GOD', 'admin')
 #AddLogin('z202020', 'Paul', 'passward')
-#AddLogin('dad', 'me', '000')
+#AddLogin('test', 'me', '000')
 #CheckLogin('admin','admin')
 #DeleteLogin('z202020')
 #GetTeacherInfo('z202020')

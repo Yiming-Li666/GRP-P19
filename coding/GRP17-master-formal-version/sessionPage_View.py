@@ -73,5 +73,6 @@ class sessionPage_View(QMainWindow):
         teacherInformation = dbController.GetTeacherInfo(Login_View.userId)
         self.logCtr.recordedSessionPage_View.Frame1.teacherName_label.setText(teacherInformation[0][1])
         self.logCtr.recordedSessionPage_View.Frame1.sessionName_label.setText(self.Frame1.info[1] + "  " + self.Frame1.info[0])
+        self.logCtr.recordedSessionPage_View.Frame1.teachingVenue_label.setText(self.Frame1.info[7] + "  "  + self.Frame1.info[2] + "  "  + self.Frame1.info[3])
         self.logCtr.recordedSessionPage_View.Frame1.attendance_label.setText("Attended")
         self.logCtr.recordedSessionPage_View.Frame1.absentStudent_textBrowser.setText("  aaa\n  bbb\n  ccc\n")

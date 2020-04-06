@@ -61,7 +61,7 @@ class moduleFrame1_view(QFrame, Ui_Frame):
             # only one element in list datatime, no element in listItemData
             if len(self.DateTime) == 1:
                 #print("1")
-                ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+                ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3] + "  -  " + r[4])
             else:
                 # 0 to len
                 #print(str(self.DateTime[len(self.DateTime)-1]) + "  " + str(current))
@@ -69,12 +69,12 @@ class moduleFrame1_view(QFrame, Ui_Frame):
                     # if current is the greatest
                     if self.DateTime[len(self.DateTime)-1] <= current:
                         #print('great   ' +str(self.DateTime[len(self.DateTime)-2])+"   "+str(current))
-                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3] + "  -  " + r[4])
                         break
                     # if the current is smaller than this one
                     if self.DateTime[inner] > current:
                         #print('insert  '+ str(current))
-                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.insert(inner-1,r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3])
+                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.insert(inner-1,r[0]+ "  " + r[1] + "  " + r[2] + "  -  " + r[3] + "  -  " + r[4])
                         break
                     else: 
                         continue
