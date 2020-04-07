@@ -145,5 +145,6 @@ Modified the database to store more information.
 Added session venue in session page and recorded page.
 
 2020.04.07
-Added search student method in dbController to search student name 
+Added search student method in dbController to search student name.
 Search by partitial string which is not case-sensitive.
+Bug fixed that the student list did not refresh.

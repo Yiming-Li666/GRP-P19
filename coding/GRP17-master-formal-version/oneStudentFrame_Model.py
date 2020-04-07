@@ -9,7 +9,7 @@ class oneStudentFrame_model(QAbstractListModel):
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["Module1 Lab1 2020/3/2 15:00 - 16:00 Attended"]
+        self.listItemData = []
         # TODO: build the student attendance data
 
     def flags(self, index):

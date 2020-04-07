@@ -7,7 +7,7 @@ from CommonHelper import CommonHelper
 class searchStudentFrame_view(QFrame, Ui_Frame):
 
     # send signal to module page
-    enterStudentPage_SignalToPage = pyqtSignal()
+    enterStudentPage_SignalToPage = pyqtSignal(str)
 
     def __init__(self):
         super(searchStudentFrame_view, self).__init__()
@@ -22,8 +22,9 @@ class searchStudentFrame_view(QFrame, Ui_Frame):
 
     def goToStudent(self, qModelIndex):
         # TODO: jump to the page
+        
         print("go to " + str(qModelIndex.row()))
-        self.enterStudentPage_SignalToPage.emit()
+        self.enterStudentPage_SignalToPage.emit(str(qModelIndex.row()))
 
     def sort(self):
         print("sort")

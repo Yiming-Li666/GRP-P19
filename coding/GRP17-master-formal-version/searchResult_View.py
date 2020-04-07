@@ -7,7 +7,7 @@ from PyQt5.QtCore import pyqtSignal
 from PyQt5 import QtWidgets
 
 class searchResult_view(QMainWindow):
-    OneStudentInfo_Signal = pyqtSignal()
+    OneStudentInfo_Signal = pyqtSignal(str)
 
     def __init__(self):
         super(searchResult_view, self).__init__()
@@ -46,7 +46,8 @@ class searchResult_view(QMainWindow):
 
         self.upcomingFrame.setupUi(self.window.resultFrame2)
         self.upcomingFrame.connectToRecord(self.window)
-    def goStudentInfo(self):
-        self.OneStudentInfo_Signal.emit()
+    
+    def goStudentInfo(self, rowNum):
+        self.OneStudentInfo_Signal.emit(rowNum)
 
 
