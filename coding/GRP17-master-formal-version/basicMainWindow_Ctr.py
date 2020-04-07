@@ -6,6 +6,7 @@ from upcomingEvent_View import upcomingEvent_view
 from sessionFrame1_Model import sessionFrame1_model
 from sessionFrame1_Delegate import sessionFrame_delegate
 from accountDialog_View import accountDialog_view
+from searchStudentFrame_Model import searchStudentFrame_model
 from PyQt5.Qt import *
 from PyQt5 import QtCore
 import dbController
@@ -35,6 +36,7 @@ class basicMainWindow_Ctr():
         self.bmView.backTo_Sig.connect(self.backTo)
         self.bmView.home_Sig.connect(self.home)
         self.bmView.searchStudent_Sig.connect(self.searchStudent)
+        self.bmView.lineEdit_4.returnPressed.connect(self.searchStudent)
         self.bmView.teacherInfo_Sig.connect(self.clickTeacherInfo)
         self.bmView.print_Sig.connect(self.printInfo)
 
@@ -77,9 +79,16 @@ class basicMainWindow_Ctr():
 
     def searchStudent(self):
         # read from text box
+        self.searchResultModel = searchStudentFrame_model()
+        self.searchResultModel.listItemData = []
         students = dbController.SearchStudent(self.bmView.lineEdit_4.text())
         if len(students) != 0:
-            print(students[0][0])
+            for r in students:
+                self.searchResultModel.listItemData.append(r[0] + "   " + r[1])
+            #print(students[0][0])
+        else:
+            self.searchResultModel.listItemData.append("No result!")
+        self.logCtr.searchResult_View.Frame1.listView.setModel(self.searchResultModel)
         print("search student") 
 
         '''
