@@ -87,5 +87,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     mainWindow = modulePage_view()
     mainWindow.show()
-    CommonHelper.readQSS("resources/qss/Module.qss",app)
+    CommonHelper.readQSS("resources/qss/mainwindow.qss",app)
     sys.exit(app.exec_())

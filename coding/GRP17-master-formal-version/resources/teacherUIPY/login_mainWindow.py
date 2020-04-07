@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import QLineEdit
 
 class login_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -47,6 +47,7 @@ class login_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.label_2)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_2.setEchoMode(QLineEdit.Password)
         self.horizontalLayout_2.addWidget(self.lineEdit_2)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
