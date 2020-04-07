@@ -142,4 +142,8 @@ Informal meeting to report the process of each team member.
 
 2020.04.06
 Modified the database to store more information.
-Addede session venue in session page and recorded page.
+Added session venue in session page and recorded page.
+
+2020.04.07
+Added search student method in dbController to search student name 
+Search by partitial string which is not case-sensitive.

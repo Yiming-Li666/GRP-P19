@@ -163,7 +163,6 @@ def GetTeacherInfo(teacherId):
     cursor.execute(sql)
     db.commit()
     data = cursor.fetchall()
-    #print(data[0][0])
     cursor.close()
     db.close()
     return data
@@ -176,7 +175,6 @@ def GetSessionInfo(moduleId):
     cursor.execute(sql)
     db.commit()
     data = cursor.fetchall()
-    #print(data[0][0])
     cursor.close()
     db.close()
     return data
@@ -190,14 +188,39 @@ def CheckAdmin(userId):
     data = cursor.fetchall()
     cursor.close()
     db.close()
-    #print(data)
     if len(data) == 0:
         return True
     else:
         return False
 
+def SearchStudent(studentName):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM student WHERE lower(studentName) LIKE '%" + str.lower(studentName) + "%';"
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    #print(data[0][0])
+    return data
+
+def GetStudentInfo(studentId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM attendance WHERE studentId = '%s';" % studentId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    print(data)
+    return data
+
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
-#AddStudent('/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg','20031525', 'Li Yiming')
+#AddStudent('/Users/liyiming/Desktop/GRP/demo/test.jpeg','20031525', 'Li Yiming')
+#SearchStudent('Yiming')
 #DeleteStudent('20031525')
 #AddTeacher('z202020','Paul','COMP1010')
 #AddTeacher('test','me','COMP1010')

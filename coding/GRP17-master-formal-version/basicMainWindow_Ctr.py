@@ -9,6 +9,7 @@ from accountDialog_View import accountDialog_view
 from PyQt5.Qt import *
 from PyQt5 import QtCore
 import dbController
+import Login_ctr
 import Login_View
 
 class basicMainWindow_Ctr():
@@ -75,6 +76,10 @@ class basicMainWindow_Ctr():
         # TODO: not implemented yet
 
     def searchStudent(self):
+        # read from text box
+        students = dbController.SearchStudent(self.bmView.lineEdit_4.text())
+        if len(students) != 0:
+            print(students[0][0])
         print("search student") 
 
         '''
