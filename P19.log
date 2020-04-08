@@ -151,3 +151,4 @@ Bug fixed that the student list did not refresh.
 
 2020.04.08
 Loaded student attendance information into attendance list.
+Bug fixed when searching student again, the list will not change.

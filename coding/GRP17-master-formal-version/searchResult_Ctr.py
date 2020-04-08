@@ -25,7 +25,8 @@ class searchResult_Ctr():
 
         self.studentAttendanceModel = oneStudentFrame_model()
         # student info
-        IdName = basicMainWindow_Ctr.searchResultModel.listItemData[int(rowNum)]
+        #print(basicMainWindow_Ctr.searchResultList)
+        IdName = basicMainWindow_Ctr.searchResultList[int(rowNum)]
         IdName = IdName.split('   ',1)
         studentDetail = dbController.GetStudentInfo(IdName[0])
         '''
@@ -41,6 +42,7 @@ class searchResult_Ctr():
                 self.studentAttendanceModel.listItemData.append(s[0] + "  absent")
 
         self.searchResultView.logCtr.oneStudentPage_View.Frame1.attendance_listView.setModel(self.studentAttendanceModel)
+        self.searchResultView.logCtr.oneStudentPage_View.Frame1.refresh()
         self.mainwindow.stackedWidget.setCurrentIndex(4)
 
     def loadUpcoming(self):    

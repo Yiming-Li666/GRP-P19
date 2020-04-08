@@ -14,7 +14,7 @@ import Login_ctr
 import Login_View
 
 class basicMainWindow_Ctr():
-    searchResultModel = searchStudentFrame_model()
+    searchResultList = []
     def __init__(self):
         self.bind()
 
@@ -79,17 +79,26 @@ class basicMainWindow_Ctr():
 
     def searchStudent(self):
         # read from text box
-        #self.searchResultModel = searchStudentFrame_model()
-        self.searchResultModel.listItemData = []
-        students = dbController.SearchStudent(self.bmView.lineEdit_4.text())
-        if len(students) != 0:
-            for r in students:
-                self.searchResultModel.listItemData.append(r[0] + "   " + r[1])
-            #print(students[0][0])
+        searchResultModel = searchStudentFrame_model()
+        searchResultModel.listItemData = []
+        self.searchResultList.clear()
+        if self.bmView.lineEdit_4.text() == '':
+            searchResultModel.listItemData.append("No result!")
+            self.searchResultList.append("No result!")
         else:
-            self.searchResultModel.listItemData.append("No result!")
-        self.logCtr.searchResult_View.Frame1.listView.setModel(self.searchResultModel)
-        print(self.searchResultModel.listItemData) 
+            students = dbController.SearchStudent(self.bmView.lineEdit_4.text())
+            if len(students) != 0:
+                for r in students:
+                    searchResultModel.listItemData.append(r[0] + "   " + r[1])
+                    self.searchResultList.append(r[0] + "   " + r[1])
+                #print(students[0][0])
+            else:
+                searchResultModel.listItemData.append("No result!")
+                self.searchResultList.append("No result!")
+        self.logCtr.searchResult_View.Frame1.listView.setModel(searchResultModel)
+        #print(searchResultModel.listItemData) 
+        #print("111")
+        #print(self.searchResultList)
 
         self.upcomingModel = upcomingEvent_Model()
         self.logCtr.searchResult_View.upcomingFrame.listView.setModel(self.upcomingModel)
