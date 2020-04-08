@@ -178,7 +178,14 @@
         <number>61</number>
        </property>
        <item>
-        <widget class="QTextBrowser" name="studentInfo_textBrowser"/>
+        <widget class="QLabel" name="studentInfo_label">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QWidget" name="widget_4" native="true">
@@ -207,7 +214,7 @@
              <number>30</number>
             </property>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,3,1">
+             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,3,0,1">
               <item>
                <spacer name="horizontalSpacer">
                 <property name="orientation">
@@ -225,7 +232,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QToolButton" name="sccessOrfail_pushbutton">
+               <widget class="QToolButton" name="succeed_pushbutton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                   <horstretch>0</horstretch>
@@ -246,6 +253,25 @@
                 </property>
                 <property name="text">
                  <string>Succeed</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="fail_pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>120</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Fail</string>
                 </property>
                </widget>
               </item>
