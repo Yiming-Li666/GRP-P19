@@ -76,11 +76,11 @@ def DeleteModule(moduleId):
     cursor.close()
     db.close()
 
-def AddLesson(lessonId, moduleId, lessonStart, lessonType, venue):
+def AddLesson(lessonId, moduleId, studentId, lessonStart, lessonType, venue):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
-    sql = "INSERT INTO lesson (lessonId, moduleId, lessonStart,lessonType, venue) VALUES (%s, %s, %s, %s, %s);"
-    args = (lessonId, moduleId, lessonStart, lessonType, venue)
+    sql = "INSERT INTO lesson (lessonId, moduleId, studentId, lessonStart,lessonType, venue) VALUES (%s, %s, %s, %s, %s, %s);"
+    args = (lessonId, moduleId, studentId, lessonStart, lessonType, venue)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
@@ -266,7 +266,7 @@ AddLesson('lab3', 'COMP1010', '2013-06-10 13:00:00.00', 'lab', 'PMB432')
 AddLesson('lab4', 'COMP1010', '2015-06-10 13:00:00.00', 'lab', 'PMB432')
 AddLesson('lab5', 'COMP1010', '2016-06-10 13:00:00.00', 'lab', 'PMB432')
 '''
-#AddLesson('lab6', 'COMP1010', '2020-06-10 13:00:00.00', 'lab', 'PMB432')
+#AddLesson('lab6', 'COMP1010', '20031525', '2020-06-10 13:00:00.00', 'lab', 'PMB432')
 #DeleteLesson('lab4')
 #DeleteLesson('lecture666')
 #AddAttendance('lab1', '20031525', 1)

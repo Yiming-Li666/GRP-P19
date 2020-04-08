@@ -17,6 +17,7 @@ class moduleFrame1_view(QFrame, Ui_Frame):
     # send signal to module page
     enterSessionPage_SignalToPage = pyqtSignal()
     DateTime = []
+    moduleId = ''
 
     def __init__(self):
         # setup UI
@@ -47,21 +48,21 @@ class moduleFrame1_view(QFrame, Ui_Frame):
 
     def sortSessionList(self,qModelIndex):
         #print("in")
-        moduleId = ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()]
-        sessionInfo = dbController.GetSessionInfo(moduleId)
+        self.moduleId = ModulePage_View.modulePage_view.moduleModel.listItemData[qModelIndex.row()]
+        sessionInfo = dbController.GetSessionInfo(self.moduleId)
         ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData = []
         if len(self.DateTime) != 0:
             self.DateTime = []
         for r in sessionInfo:
             # current = self.DateTime[len(self.DateTime)]
-            current = int(r[2].replace(' ','').replace('-','').replace(':','').replace('.',''))
+            current = int(r[3].replace(' ','').replace('-','').replace(':','').replace('.',''))
             self.DateTime.append(current)
             self.DateTime.sort()
             # print(self.DateTime)
             # only one element in list datatime, no element in listItemData
             if len(self.DateTime) == 1:
                 #print("1")
-                ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  " + r[4] + "  -  " + r[3])
+                ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[3] + "  " + r[5] + "  -  " + r[4])
             else:
                 # 0 to len
                 #print(str(self.DateTime[len(self.DateTime)-1]) + "  " + str(current))
@@ -69,12 +70,12 @@ class moduleFrame1_view(QFrame, Ui_Frame):
                     # if current is the greatest
                     if self.DateTime[len(self.DateTime)-1] <= current:
                         #print('great   ' +str(self.DateTime[len(self.DateTime)-2])+"   "+str(current))
-                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[2] + "  " + r[4] + "  -  " + r[3])
+                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.append(r[0]+ "  " + r[1] + "  " + r[3] + "  " + r[5] + "  -  " + r[4])
                         break
                     # if the current is smaller than this one
                     if self.DateTime[inner] > current:
                         #print('insert  '+ str(current))
-                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.insert(inner-1,r[0]+ "  " + r[1] + "  " + r[2] + "  " + r[4] + "  -  " + r[3])
+                        ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData.insert(inner-1,r[0]+ "  " + r[1] + "  " + r[3] + "  " + r[5] + "  -  " + r[4])
                         break
                     else: 
                         continue
