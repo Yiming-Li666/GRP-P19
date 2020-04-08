@@ -31,7 +31,6 @@ class Ui_Frame(object):
         self.comboBox = QtWidgets.QComboBox(Frame)
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
-        self.comboBox.currentTextChanged['QString'].connect(self.sortByModule)
         self.horizontalLayout.addWidget(self.comboBox)
         self.comboBox_2 = QtWidgets.QComboBox(Frame)
         self.comboBox_2.setObjectName("comboBox_2")
@@ -39,7 +38,6 @@ class Ui_Frame(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
-        self.comboBox_2.currentTextChanged['QString'].connect(self.sortBySession)
         self.horizontalLayout.addWidget(self.comboBox_2)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setSpacing(3)
@@ -70,7 +68,6 @@ class Ui_Frame(object):
         self.comboBox_5.addItem("")
         self.comboBox_5.addItem("")
         self.comboBox_5.addItem("")
-        self.comboBox_5.currentTextChanged['QString'].connect(self.sortAttendance)
         self.horizontalLayout.addWidget(self.comboBox_5)
         self.horizontalLayout.setStretch(0, 1)
         self.horizontalLayout.setStretch(1, 1)
@@ -86,6 +83,9 @@ class Ui_Frame(object):
         self.gridLayout.addWidget(self.attendance_listView, 3, 0, 1, 1)
 
         self.retranslateUi(Frame)
+        self.comboBox.currentTextChanged['QString'].connect(self.sortByModule)
+        self.comboBox_2.currentTextChanged['QString'].connect(self.sortBySession)
+        self.comboBox_5.currentTextChanged['QString'].connect(self.sortAttendance)
         QtCore.QMetaObject.connectSlotsByName(Frame)
 
     def retranslateUi(self, Frame):

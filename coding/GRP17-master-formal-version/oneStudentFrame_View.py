@@ -26,12 +26,10 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
         self.enterAttendancePage_SignalToPage.emit()
 
     def sortByModule(self):
-        #print(self.comboBox.currentText())
-        #TODO
+        searchResult_Ctr.studentAttend.clear()
+        self.studentAttendanceModel = oneStudentFrame_model()
+        studentDetail = dbController.GetStudentInfo(searchResult_Ctr.IdName[0])
         if self.comboBox.currentText() != 'Module Name':
-            searchResult_Ctr.studentAttend.clear()
-            self.studentAttendanceModel = oneStudentFrame_model()
-            studentDetail = dbController.GetStudentInfo(searchResult_Ctr.IdName[0])
             for s in studentDetail:
                 if self.comboBox.currentText() == s[0]:
                     searchResult_Ctr.studentAttend.append(s)
@@ -39,9 +37,14 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
                         self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  " + str(s[4]))
                     else:
                         self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  absent")
-            self.attendance_listView.setModel(self.studentAttendanceModel)
-        #else:
-
+        else:
+            for s in studentDetail:
+                searchResult_Ctr.studentAttend.append(s)
+                if s[3] == 1:
+                    self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  " + str(s[4]))
+                else:
+                    self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  absent")
+        self.attendance_listView.setModel(self.studentAttendanceModel)
 
     def sortBySession(self):
         #print(self.comboBox_2.currentText())
@@ -49,9 +52,6 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
         print("2")
 
     def sortAttendance(self):
-        #print(self.comboBox_5.currentText())
-        #TODO
-        #self.attendance_listView.
         self.studentAttendanceModel = oneStudentFrame_model()
         if self.comboBox_5.currentText() == 'Attendance':
             for sa in searchResult_Ctr.studentAttend:

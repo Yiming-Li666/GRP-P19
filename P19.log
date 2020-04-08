@@ -156,3 +156,4 @@ Added search result summary in one student search page.
 Added detailed search result summary.
 Added sort function to sort by module name and isAttend.
 Bug fixed that sort choices cannot be select at the same time.
+Bug fixed when select all module choice, list will not change.
