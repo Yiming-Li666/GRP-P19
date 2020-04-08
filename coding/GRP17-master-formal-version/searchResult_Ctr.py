@@ -35,13 +35,20 @@ class searchResult_Ctr():
             s[2]: Attended or not /boolean
             s[3]: attend time
         '''
+        isAttend = 0
+        isAbsent = 0
+        totalNum = len(studentDetail)
         for s in studentDetail:
             if s[2] == 1:
                 self.studentAttendanceModel.listItemData.append(s[0] + "  " + str(s[3]))
+                isAttend = isAttend + 1
             else:
                 self.studentAttendanceModel.listItemData.append(s[0] + "  absent")
-
+                isAbsent = isAbsent + 1
+        # search result list
         self.searchResultView.logCtr.oneStudentPage_View.Frame1.attendance_listView.setModel(self.studentAttendanceModel)
+        # search result summary
+        self.searchResultView.logCtr.oneStudentPage_View.Frame1.summary_textBrowser.setText("Attended: " + str(isAttend) + "/" + str(totalNum) + "\nAbsent: " + str(isAbsent) + "/" + str(totalNum))
         self.searchResultView.logCtr.oneStudentPage_View.Frame1.refresh()
         self.mainwindow.stackedWidget.setCurrentIndex(4)
 

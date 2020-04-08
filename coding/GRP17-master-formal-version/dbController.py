@@ -215,7 +215,7 @@ def GetStudentInfo(studentId):
     #print(data[0][0])
     cursor.close()
     db.close()
-    print(data)
+    #print(data)
     return data
 
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
