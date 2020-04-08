@@ -5,7 +5,7 @@ QLabel{
     font-weight:bold;
 }
 QtoolButton#toolButton4{
-    background-color: #F0F0F0;
+    background-color: blue;
     font:bold;
 }
 QListView{
