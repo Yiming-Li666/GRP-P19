@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from CommonHelper import CommonHelper
 from oneStudentFrame_Model import oneStudentFrame_model
 from searchResult_Ctr import searchResult_Ctr
+import dbController
 
 class oneStudentFrame_view(QFrame, Ui_Frame):
 
@@ -27,14 +28,20 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
     def sortByModule(self):
         #print(self.comboBox.currentText())
         #TODO
-        self.studentAttendanceModel = oneStudentFrame_model()
-        for sa in searchResult_Ctr.studentAttend:
-            if sa[0] == self.comboBox.currentText():
-                if sa[3] == 1:
-                    self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  " + str(sa[4]))
-                else:
-                    self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  absent")
-        self.attendance_listView.setModel(self.studentAttendanceModel)
+        if self.comboBox.currentText() != 'Module Name':
+            searchResult_Ctr.studentAttend.clear()
+            self.studentAttendanceModel = oneStudentFrame_model()
+            studentDetail = dbController.GetStudentInfo(searchResult_Ctr.IdName[0])
+            for s in studentDetail:
+                if self.comboBox.currentText() == s[0]:
+                    searchResult_Ctr.studentAttend.append(s)
+                    if s[3] == 1:
+                        self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  " + str(s[4]))
+                    else:
+                        self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  absent")
+            self.attendance_listView.setModel(self.studentAttendanceModel)
+        #else:
+
 
     def sortBySession(self):
         #print(self.comboBox_2.currentText())
@@ -44,6 +51,7 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
     def sortAttendance(self):
         #print(self.comboBox_5.currentText())
         #TODO
+        #self.attendance_listView.
         self.studentAttendanceModel = oneStudentFrame_model()
         if self.comboBox_5.currentText() == 'Attendance':
             for sa in searchResult_Ctr.studentAttend:

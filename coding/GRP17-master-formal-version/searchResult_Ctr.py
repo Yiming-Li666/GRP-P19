@@ -8,6 +8,7 @@ import ModulePage_Ctr
 import datetime
 
 class searchResult_Ctr():
+    IdName = []
     studentAttend = []
     def setCtr(self, searchResultView, mainwindow):
         self.searchResultView = searchResultView
@@ -28,9 +29,11 @@ class searchResult_Ctr():
         self.studentAttend.clear()
         # student info
         #print(basicMainWindow_Ctr.searchResultList)
-        IdName = basicMainWindow_Ctr.searchResultList[int(rowNum)]
-        IdName = IdName.split('   ',1)
-        studentDetail = dbController.GetStudentInfo(IdName[0])
+        IN = basicMainWindow_Ctr.searchResultList[int(rowNum)]
+        IN = IN.split('   ',1)
+        self.IdName.append(IN[0])
+        self.IdName.append(IN[1])
+        studentDetail = dbController.GetStudentInfo(self.IdName[0])
         isAttend = 0
         isAbsent = 0
         totalNum = len(studentDetail)
@@ -52,9 +55,9 @@ class searchResult_Ctr():
         # search result list
         self.searchResultView.logCtr.oneStudentPage_View.Frame1.attendance_listView.setModel(self.studentAttendanceModel)
         # search result summary
-        attendanceInfo = dbController.GetAttendanceInfo(IdName[0])
-        attendedInfo = dbController.GetAttendedInfo(IdName[0])
-        sum = "Student name:  " + IdName[1] + "\nStudent Id:  " + IdName[0]
+        attendanceInfo = dbController.GetAttendanceInfo(self.IdName[0])
+        attendedInfo = dbController.GetAttendedInfo(self.IdName[0])
+        sum = "Student name:  " + self.IdName[1] + "\nStudent Id:  " + self.IdName[0]
         '''
         attendanceInfo[a][0]: session number
         attendanceInfo[a][1]: module name
