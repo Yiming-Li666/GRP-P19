@@ -153,3 +153,5 @@ Bug fixed that the student list did not refresh.
 Loaded student attendance information into attendance list.
 Bug fixed when searching student again, the list will not change.
 Added search result summary in one student search page.
+Added detailed search result summary.
+Added sort function to sort by module name and isAttend.

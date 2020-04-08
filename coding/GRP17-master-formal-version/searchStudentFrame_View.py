@@ -27,6 +27,7 @@ class searchStudentFrame_view(QFrame, Ui_Frame):
         self.enterStudentPage_SignalToPage.emit(str(qModelIndex.row()))
 
     def sort(self):
+        #print(self.comboBox.currentText)
         print("sort")
         """
                Slot documentation goes here.

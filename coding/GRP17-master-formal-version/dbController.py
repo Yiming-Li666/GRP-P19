@@ -218,6 +218,32 @@ def GetStudentInfo(studentId):
     #print(data)
     return data
 
+def GetAttendanceInfo(studentId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT count(*),ModuleId FROM attendance WHERE studentId = '%s' GROUP BY ModuleId HAVING count(*)>=1;" % studentId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data
+
+def GetAttendedInfo(studentId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT count(*),ModuleId FROM attendance WHERE studentId = '%s' AND isAttend = 1 GROUP BY ModuleId HAVING count(*)>=1;" % studentId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data
+
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
 #AddStudent('/Users/liyiming/Desktop/GRP/demo/test.jpeg','20031525', 'Li Yiming')
 #SearchStudent('Yiming')
@@ -253,6 +279,7 @@ AddLesson('lab5', 'COMP1010', '2016-06-10 13:00:00.00', 'lab', 'PMB432')
 #DeleteLogin('z202020')
 #GetTeacherInfo('z202020')
 #GetSessionInfo()
+#GetAttendanceInfo('20031525')
 '''
 print("============")
 print("Done! ")

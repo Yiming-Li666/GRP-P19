@@ -31,6 +31,7 @@ class Ui_Frame(object):
         self.comboBox = QtWidgets.QComboBox(Frame)
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
+        self.comboBox.currentTextChanged['QString'].connect(self.sortByModule)
         self.horizontalLayout.addWidget(self.comboBox)
         self.comboBox_2 = QtWidgets.QComboBox(Frame)
         self.comboBox_2.setObjectName("comboBox_2")
@@ -38,6 +39,7 @@ class Ui_Frame(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
+        self.comboBox_2.currentTextChanged['QString'].connect(self.sortBySession)
         self.horizontalLayout.addWidget(self.comboBox_2)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setSpacing(3)
@@ -67,6 +69,8 @@ class Ui_Frame(object):
         self.comboBox_5.setObjectName("comboBox_5")
         self.comboBox_5.addItem("")
         self.comboBox_5.addItem("")
+        self.comboBox_5.addItem("")
+        self.comboBox_5.currentTextChanged['QString'].connect(self.sortAttendance)
         self.horizontalLayout.addWidget(self.comboBox_5)
         self.horizontalLayout.setStretch(0, 1)
         self.horizontalLayout.setStretch(1, 1)
@@ -95,8 +99,9 @@ class Ui_Frame(object):
         self.comboBox_2.setItemText(3, _translate("Frame", "Lab/Seminar"))
         self.label.setText(_translate("Frame", "From:"))
         self.label_2.setText(_translate("Frame", "To:"))
-        self.comboBox_5.setItemText(0, _translate("Frame", "Absent"))
+        self.comboBox_5.setItemText(0, _translate("Frame", "Attendance"))
         self.comboBox_5.setItemText(1, _translate("Frame", "Attended"))
+        self.comboBox_5.setItemText(2, _translate("Frame", "Absent"))
 
 
 if __name__ == "__main__":

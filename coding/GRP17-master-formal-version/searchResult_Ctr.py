@@ -1,4 +1,4 @@
-from oneStudentPage_View import oneStudentPage_View
+#from oneStudentPage_View import oneStudentPage_View
 from oneStudentFrame_Model import oneStudentFrame_model
 from searchStudentFrame_Model import searchStudentFrame_model
 from upcomingEvent_Model import upcomingEvent_Model
@@ -8,6 +8,7 @@ import ModulePage_Ctr
 import datetime
 
 class searchResult_Ctr():
+    studentAttend = []
     def setCtr(self, searchResultView, mainwindow):
         self.searchResultView = searchResultView
         self.mainwindow = mainwindow
@@ -17,38 +18,53 @@ class searchResult_Ctr():
         self.searchResultView.OneStudentInfo_Signal.connect(self.OneStudentInfo)
     
     def OneStudentInfo(self, rowNum):
-        # print("One Student")
+        #print(self.searchResultView.logCtr.oneStudentPage_View.Frame1.comboBox_5.currentText())
         # set model for view in oneStudentPage_View
         self.upcomingModel = upcomingEvent_Model()
         self.loadUpcoming()
         self.searchResultView.logCtr.oneStudentPage_View.upcomingFrame.listView.setModel(self.upcomingModel)
 
         self.studentAttendanceModel = oneStudentFrame_model()
+        self.studentAttend.clear()
         # student info
         #print(basicMainWindow_Ctr.searchResultList)
         IdName = basicMainWindow_Ctr.searchResultList[int(rowNum)]
         IdName = IdName.split('   ',1)
         studentDetail = dbController.GetStudentInfo(IdName[0])
-        '''
-            s[0]: lessonId
-            s[1]: studentId
-            s[2]: Attended or not /boolean
-            s[3]: attend time
-        '''
         isAttend = 0
         isAbsent = 0
         totalNum = len(studentDetail)
+        '''
+            s[0]: ModuleId
+            s[1]: lessonId
+            s[2]: studentId
+            s[3]: Attended or not /boolean
+            s[4]: attend time
+        '''
         for s in studentDetail:
-            if s[2] == 1:
-                self.studentAttendanceModel.listItemData.append(s[0] + "  " + str(s[3]))
+            self.studentAttend.append(s)
+            if s[3] == 1:
+                self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  " + str(s[4]))
                 isAttend = isAttend + 1
             else:
-                self.studentAttendanceModel.listItemData.append(s[0] + "  absent")
+                self.studentAttendanceModel.listItemData.append(s[0] + "  " + s[1] + "  absent")
                 isAbsent = isAbsent + 1
         # search result list
         self.searchResultView.logCtr.oneStudentPage_View.Frame1.attendance_listView.setModel(self.studentAttendanceModel)
         # search result summary
-        self.searchResultView.logCtr.oneStudentPage_View.Frame1.summary_textBrowser.setText("Attended: " + str(isAttend) + "/" + str(totalNum) + "\nAbsent: " + str(isAbsent) + "/" + str(totalNum))
+        attendanceInfo = dbController.GetAttendanceInfo(IdName[0])
+        attendedInfo = dbController.GetAttendedInfo(IdName[0])
+        sum = "Student name:  " + IdName[1] + "\nStudent Id:  " + IdName[0]
+        '''
+        attendanceInfo[a][0]: session number
+        attendanceInfo[a][1]: module name
+        attendedInfo[a][0]: attended session number
+        '''
+        for a in range(len(attendanceInfo)):
+            self.searchResultView.logCtr.oneStudentPage_View.Frame1.comboBox.addItem(attendanceInfo[a][1])
+            sum = sum + "\n" + attendanceInfo[a][1] + "  attended:  " + str(attendedInfo[a][0]) + "/" + str(attendanceInfo[a][0])
+        sum = sum + "\nTotal attendence:  " + str(isAttend) + "/" + str(totalNum) + "\nTotal absent:  " + str(isAbsent)
+        self.searchResultView.logCtr.oneStudentPage_View.Frame1.summary_textBrowser.setText(sum)
         self.searchResultView.logCtr.oneStudentPage_View.Frame1.refresh()
         self.mainwindow.stackedWidget.setCurrentIndex(4)
 
