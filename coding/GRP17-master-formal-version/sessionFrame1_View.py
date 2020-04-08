@@ -50,7 +50,8 @@ class sessionFrame1_View(QFrame,Ui_Frame):
             s = ModulePage_Ctr.ModulePage_ctr.sessionModel.listItemData[qModelIndex.row()]
         self.info = s.split()
 
-        print("go to " + str(qModelIndex.row()))
+        #print(self.info)
+        #print("go to " + str(qModelIndex.row()))
         #!!!!!
         #emit different Sig for different page
 

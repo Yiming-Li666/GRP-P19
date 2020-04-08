@@ -9,7 +9,7 @@ class searchStudentFrame_model(QAbstractListModel):
         self.init_data()
 
     def init_data(self):
-        self.listItemData = ["Student1"]
+        self.listItemData = []
         # TODO: build the module data
 
     def flags(self, index):
