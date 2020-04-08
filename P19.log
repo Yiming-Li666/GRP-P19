@@ -148,3 +148,6 @@ Added session venue in session page and recorded page.
 Added search student method in dbController to search student name.
 Search by partitial string which is not case-sensitive.
 Bug fixed that the student list did not refresh.
+
+2020.04.08
+Loaded student attendance information into attendance list.

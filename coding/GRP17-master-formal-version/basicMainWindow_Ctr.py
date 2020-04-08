@@ -14,7 +14,7 @@ import Login_ctr
 import Login_View
 
 class basicMainWindow_Ctr():
-
+    searchResultModel = searchStudentFrame_model()
     def __init__(self):
         self.bind()
 
@@ -79,7 +79,7 @@ class basicMainWindow_Ctr():
 
     def searchStudent(self):
         # read from text box
-        self.searchResultModel = searchStudentFrame_model()
+        #self.searchResultModel = searchStudentFrame_model()
         self.searchResultModel.listItemData = []
         students = dbController.SearchStudent(self.bmView.lineEdit_4.text())
         if len(students) != 0:
@@ -89,13 +89,7 @@ class basicMainWindow_Ctr():
         else:
             self.searchResultModel.listItemData.append("No result!")
         self.logCtr.searchResult_View.Frame1.listView.setModel(self.searchResultModel)
-        print("search student") 
-
-        '''
-        load student list View and model here
-        self.logCtr.searchResult_View.Frame1.listView
-        '''
-        # TODO: write the code when connect to the database
+        print(self.searchResultModel.listItemData) 
 
         self.upcomingModel = upcomingEvent_Model()
         self.logCtr.searchResult_View.upcomingFrame.listView.setModel(self.upcomingModel)
