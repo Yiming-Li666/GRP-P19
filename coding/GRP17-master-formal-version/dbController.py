@@ -193,7 +193,7 @@ def CheckAdmin(userId):
     else:
         return False
 
-def SearchStudent(studentName):
+def SearchStudentByName(studentName):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
     sql = "SELECT * FROM student WHERE lower(studentName) LIKE '%" + str.lower(studentName) + "%';"
@@ -203,6 +203,18 @@ def SearchStudent(studentName):
     cursor.close()
     db.close()
     #print(data[0][0])
+    return data
+
+def SearchStudentById(studentId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM student WHERE studentId = '%s';" % studentId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    #print('Search result:', data)
     return data
 
 def GetStudentInfo(studentId):
