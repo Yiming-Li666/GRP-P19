@@ -5,8 +5,8 @@ QLabel{
      font:bold;      
 }
 QCheckBox{
-    border-radius:1px;        
+    border-radius:5px;        
 }
 QDateEdit{
-    border-radius:1px;        
+    border-radius:5px;        
 }

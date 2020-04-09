@@ -8,11 +8,11 @@ QFrame#Frame{
 }
 QComboBox{
     background-color: #F0F0F0;
-    border-radius: 2px;
+    border-radius: 10px;
     border: groove #F0F0F0;
     font: bold;
 }
 QLineEdit{
-    border-radius:2px;
+    border-radius:5px;
     border: groove #F0F0F0;
 }
