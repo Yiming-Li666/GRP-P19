@@ -10,6 +10,6 @@ if __name__ == "__main__":
     loginWindow = login_View()
     loginCtr = login_Ctr()
     loginCtr.setView(loginWindow)
-    CommonHelper.readQSS("resources/qss/login.qss",app)
+    CommonHelper.readQSS("/Users/liyiming/Desktop/GRP/GRP-P19/coding/GRP17-master-formal-version/resources/qss/login.qss",app)
     loginWindow.show()
     sys.exit(app.exec_())
