@@ -86,7 +86,7 @@ class basicMainWindow_Ctr():
             searchResultModel.listItemData.append("No result!")
             self.searchResultList.append("No result!")
         else:
-            students = dbController.SearchStudent(self.bmView.lineEdit_4.text())
+            students = dbController.SearchStudentByName(self.bmView.lineEdit_4.text())
             if len(students) != 0:
                 for r in students:
                     searchResultModel.listItemData.append(r[0] + "   " + r[1])
@@ -96,6 +96,7 @@ class basicMainWindow_Ctr():
                 searchResultModel.listItemData.append("No result!")
                 self.searchResultList.append("No result!")
         self.logCtr.searchResult_View.Frame1.listView.setModel(searchResultModel)
+        #self.logCtr.searchResult_View.Frame1.listView.setAlternatingRowColors(True)
         #print(searchResultModel.listItemData) 
         #print("111")
         #print(self.searchResultList)

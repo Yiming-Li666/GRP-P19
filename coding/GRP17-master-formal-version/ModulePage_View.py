@@ -47,6 +47,7 @@ class modulePage_view(QMainWindow):
 
         # build view, model, delegate
         self.Frame1 = moduleFrame1_view()
+        #self.Frame1.listView.setAlternatingRowColors(True)
         #moduleModel = moduleFrame1_Model()
         moduleDelegate = moduleFrame_Deletagte()
 

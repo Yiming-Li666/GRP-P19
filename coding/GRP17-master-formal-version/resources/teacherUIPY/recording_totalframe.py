@@ -186,6 +186,7 @@ class recording_totalframe(object):
 
         self.retranslateUi(Frame)
         self.start_pushButton.clicked.connect(self.start)
+        self.stop_pushButton.clicked.connect(self.stop)
         QtCore.QMetaObject.connectSlotsByName(Frame)
 
     def retranslateUi(self, Frame):

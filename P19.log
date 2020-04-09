@@ -158,3 +158,6 @@ Added sort function to sort by module name and isAttend.
 Bug fixed that sort choices cannot be select at the same time.
 Bug fixed when select all module choice, list will not change.
 Modified database.
+
+2020.04.09
+Added face recognition method, cannot open the camera.
