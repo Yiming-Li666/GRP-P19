@@ -84,6 +84,7 @@ class sessionFrame1_View(QFrame,Ui_Frame):
     def sort(self):
         sortI = self.comboBox.currentText()
         #print(sortI)
+        #print(sortI)
         if sortI == "In Progress":
             self.Process_sessionModel = sessionFrame1_model()
             self.sortSession("In Progress")

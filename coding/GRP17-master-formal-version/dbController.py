@@ -76,11 +76,11 @@ def DeleteModule(moduleId):
     cursor.close()
     db.close()
 
-def AddLesson(lessonId, moduleId, lessonStart, lessonType, venue):
+def AddLesson(lessonId, moduleId, studentId, lessonStart, lessonType, venue):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
-    sql = "INSERT INTO lesson (lessonId, moduleId, lessonStart,lessonType, venue) VALUES (%s, %s, %s, %s, %s);"
-    args = (lessonId, moduleId, lessonStart, lessonType, venue)
+    sql = "INSERT INTO lesson (lessonId, moduleId, studentId, lessonStart,lessonType, venue) VALUES (%s, %s, %s, %s, %s, %s);"
+    args = (lessonId, moduleId, studentId, lessonStart, lessonType, venue)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
@@ -215,7 +215,33 @@ def GetStudentInfo(studentId):
     #print(data[0][0])
     cursor.close()
     db.close()
-    print(data)
+    #print(data)
+    return data
+
+def GetAttendanceInfo(studentId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT count(*),ModuleId FROM attendance WHERE studentId = '%s' GROUP BY ModuleId HAVING count(*)>=1;" % studentId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data
+
+def GetAttendedInfo(studentId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT count(*),ModuleId FROM attendance WHERE studentId = '%s' AND isAttend = 1 GROUP BY ModuleId HAVING count(*)>=1;" % studentId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
     return data
 
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
@@ -240,7 +266,7 @@ AddLesson('lab3', 'COMP1010', '2013-06-10 13:00:00.00', 'lab', 'PMB432')
 AddLesson('lab4', 'COMP1010', '2015-06-10 13:00:00.00', 'lab', 'PMB432')
 AddLesson('lab5', 'COMP1010', '2016-06-10 13:00:00.00', 'lab', 'PMB432')
 '''
-#AddLesson('lab6', 'COMP1010', '2020-06-10 13:00:00.00', 'lab', 'PMB432')
+#AddLesson('lab6', 'COMP1010', '20031525', '2020-06-10 13:00:00.00', 'lab', 'PMB432')
 #DeleteLesson('lab4')
 #DeleteLesson('lecture666')
 #AddAttendance('lab1', '20031525', 1)
@@ -253,6 +279,7 @@ AddLesson('lab5', 'COMP1010', '2016-06-10 13:00:00.00', 'lab', 'PMB432')
 #DeleteLogin('z202020')
 #GetTeacherInfo('z202020')
 #GetSessionInfo()
+#GetAttendanceInfo('20031525')
 '''
 print("============")
 print("Done! ")
