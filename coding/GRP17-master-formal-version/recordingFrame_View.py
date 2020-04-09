@@ -17,7 +17,7 @@ class recordingFrame_View(QFrame, recording_totalframe):
         self.setupUi(self)
 
         # self.attendance_progressBar.setValue(25)
-        self.attendance_progressBar.setProperty("value", 25)
+        self.attendance_progressBar.setProperty("value", 0)
 
         # connect with ctr
         self.recordingFrameCtr = recordingFrame_ctr()
