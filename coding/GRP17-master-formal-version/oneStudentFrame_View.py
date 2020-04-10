@@ -5,6 +5,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
 from CommonHelper import CommonHelper
 from oneStudentFrame_Model import oneStudentFrame_model
 from searchResult_Ctr import searchResult_Ctr
+import sessionPage_View
+import sessionFrame1_View
 import dbController
 
 class oneStudentFrame_view(QFrame, Ui_Frame):
@@ -47,9 +49,45 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
         self.attendance_listView.setModel(self.studentAttendanceModel)
 
     def sortBySession(self):
-        #print(self.comboBox_2.currentText())
-        #TODO
-        print("2")
+        # Lecture Tutorial Lab/Seminar
+        self.studentAttendanceModel = oneStudentFrame_model()
+        if self.comboBox_2.currentText() == 'Lecture':
+            for sa in searchResult_Ctr.studentAttend:
+                moduleId = sa[0]
+                lessonId = sa[1]
+                sessionType = dbController.GetSessionType(moduleId, lessonId)
+                if str.lower(sessionType[0][0]) == "lecture":
+                    if sa[3] == 1:
+                        self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  " + str(sa[4]))
+                    else:
+                        self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  absent")
+        elif self.comboBox_2.currentText() == 'Tutorial':
+            for sa in searchResult_Ctr.studentAttend:
+                moduleId = sa[0]
+                lessonId = sa[1]
+                sessionType = dbController.GetSessionType(moduleId, lessonId)
+                if str.lower(sessionType[0][0]) == "tutorial":
+                    if sa[3] == 1:
+                        self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  " + str(sa[4]))
+                    else:
+                        self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  absent")
+        elif self.comboBox_2.currentText() == 'Lab/Seminar':
+            for sa in searchResult_Ctr.studentAttend:
+                moduleId = sa[0]
+                lessonId = sa[1]
+                sessionType = dbController.GetSessionType(moduleId, lessonId)
+                if str.lower(sessionType[0][0]) == "lab" or str.lower(sessionType[0][0]) == "seminar":
+                    if sa[3] == 1:
+                        self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  " + str(sa[4]))
+                    else:
+                        self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  absent")
+        else:
+            for sa in searchResult_Ctr.studentAttend:
+                if sa[3] == 1:
+                    self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  " + str(sa[4]))
+                else:
+                    self.studentAttendanceModel.listItemData.append(sa[0] + "  " + sa[1] + "  absent")
+        self.attendance_listView.setModel(self.studentAttendanceModel)
 
     def sortAttendance(self):
         self.studentAttendanceModel = oneStudentFrame_model()

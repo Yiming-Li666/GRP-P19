@@ -161,3 +161,6 @@ Modified database.
 
 2020.04.09
 Added face recognition method, cannot open the camera.
+
+2020.04.10
+Added sort by session method.

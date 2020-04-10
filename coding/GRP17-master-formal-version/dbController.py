@@ -256,6 +256,19 @@ def GetAttendedInfo(studentId):
     #print(data)
     return data
 
+def GetSessionType(moduleId, lessonId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT lessonType FROM lesson WHERE moduleId = '%s' AND lessonId = '%s';" % (moduleId, lessonId)
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data
+
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")
 #AddStudent('/Users/liyiming/Desktop/GRP/demo/test.jpeg','20031525', 'Li Yiming')
 #SearchStudent('Yiming')
@@ -292,6 +305,7 @@ AddLesson('lab5', 'COMP1010', '2016-06-10 13:00:00.00', 'lab', 'PMB432')
 #GetTeacherInfo('z202020')
 #GetSessionInfo()
 #GetAttendanceInfo('20031525')
+#GetSessionType('COMP1010','lab1')
 '''
 print("============")
 print("Done! ")
