@@ -164,3 +164,4 @@ Added face recognition method, cannot open the camera.
 
 2020.04.10
 Added sort by session method.
+Complete the sort method to allow three sorts simultaneously.

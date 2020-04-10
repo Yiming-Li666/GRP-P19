@@ -230,6 +230,45 @@ def GetStudentInfo(studentId):
     #print(data)
     return data
 
+def GetStudentInfoLesson(studentId, lessonType):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM attendance WHERE attendance.studentId = '%s' AND attendance.moduleId = any(SELECT lesson.moduleId FROM lesson WHERE lesson.lessonId = attendance.lessonId AND lesson.studentId = attendance.studentId AND lesson.lessonType = '%s');" % (studentId,lessonType)
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data
+
+def GetStudentInfoAttend(studentId, isAttend):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM attendance WHERE studentId = '%s' AND isAttend = %d;" % (studentId,isAttend)
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data 
+
+def GetStudentInfoLessonAttend(studentId, lessonType, isAttend):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM attendance WHERE attendance.studentId = '%s' AND isAttend = %d AND attendance.moduleId = any(SELECT lesson.moduleId FROM lesson WHERE lesson.lessonId = attendance.lessonId AND lesson.studentId = attendance.studentId AND lesson.lessonType = '%s');" % (studentId,isAttend,lessonType)
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data 
+
 def GetAttendanceInfo(studentId):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()

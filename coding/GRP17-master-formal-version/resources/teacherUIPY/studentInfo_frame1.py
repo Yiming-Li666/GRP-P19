@@ -38,6 +38,7 @@ class Ui_Frame(object):
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
+        self.comboBox_2.addItem("")
         self.horizontalLayout.addWidget(self.comboBox_2)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setSpacing(3)
@@ -83,9 +84,9 @@ class Ui_Frame(object):
         self.gridLayout.addWidget(self.attendance_listView, 3, 0, 1, 1)
 
         self.retranslateUi(Frame)
-        self.comboBox.currentTextChanged['QString'].connect(self.sortByModule)
-        self.comboBox_2.currentTextChanged['QString'].connect(self.sortBySession)
-        self.comboBox_5.currentTextChanged['QString'].connect(self.sortAttendance)
+        self.comboBox.currentTextChanged['QString'].connect(self.sort)
+        self.comboBox_2.currentTextChanged['QString'].connect(self.sort)
+        self.comboBox_5.currentTextChanged['QString'].connect(self.sort)
         QtCore.QMetaObject.connectSlotsByName(Frame)
 
     def retranslateUi(self, Frame):
@@ -96,7 +97,8 @@ class Ui_Frame(object):
         self.comboBox_2.setItemText(0, _translate("Frame", "Session Type"))
         self.comboBox_2.setItemText(1, _translate("Frame", "Lecture"))
         self.comboBox_2.setItemText(2, _translate("Frame", "Tutorial"))
-        self.comboBox_2.setItemText(3, _translate("Frame", "Lab/Seminar"))
+        self.comboBox_2.setItemText(3, _translate("Frame", "Lab"))
+        self.comboBox_2.setItemText(4, _translate("Frame", "Seminar"))
         self.label.setText(_translate("Frame", "From:"))
         self.label_2.setText(_translate("Frame", "To:"))
         self.comboBox_5.setItemText(0, _translate("Frame", "Attendance"))
