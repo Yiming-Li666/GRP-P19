@@ -1,8 +1,0 @@
-QFrame#Frame{
- background-color: qlineargradient(x1:0,yi:0,x2:0,y2:1,stop:0  #EED2EE,stop:1 #BFEFFF,);  
-}
-QListView{
- background-color: #BFEFFF;
- alternate-background-color:#EED2EE;
-show-decoration-selected:0;
-}

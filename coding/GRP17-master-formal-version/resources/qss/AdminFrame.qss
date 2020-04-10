@@ -17,8 +17,8 @@ QToolButton:hover{
     background-color:#00BFFF;
 }
 QLineEdit{
-    border-radius:1px;
+    border-radius:5px;
 }
 QComboBox{
-    border-radius:1px;
+    border-radius:10px;
 }

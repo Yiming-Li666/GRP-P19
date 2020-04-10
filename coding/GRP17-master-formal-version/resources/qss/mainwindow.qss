@@ -14,3 +14,13 @@ QtoolButton#toolButton4{
     background-color: blue;
     font:bold;
 }
+<<<<<<< HEAD
+QListView{
+ background-color: #E0FFFF;
+ alternate-background-color:gray;
+show-decoration-selected:1;
+border-radius: 10px;
+border: 1px solid #CCCCCC;
+}
+=======
+>>>>>>> b8ef0131a6dd8184676f2406aa4303060275337f

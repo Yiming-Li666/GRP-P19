@@ -39,5 +39,5 @@ if __name__ == "__main__":
     test.listView.setModel(model)
 
     mainWindow.show()
-    CommonHelper.readQSS("resources/qss/UpcomingEvents.qss",app)
+    CommonHelper.readQSS("resources/qss/upe.qss",app)
     sys.exit(app.exec_())
