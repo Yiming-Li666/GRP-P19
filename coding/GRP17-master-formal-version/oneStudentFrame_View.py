@@ -52,7 +52,7 @@ class oneStudentFrame_view(QFrame, Ui_Frame):
                 if self.comboBox_5.currentText() == 'Attended':
                     studentDetail = dbController.GetStudentInfoLessonAttend(searchResult_Ctr.IdName[0], str.lower(self.comboBox_2.currentText()), 1)
                 else:
-                    studentDetail = dbController.GetStudentInfoLessonAttend(searchResult_Ctr.IdName[0], str.lower(self.comboBox_2.currentText()), 1)
+                    studentDetail = dbController.GetStudentInfoLessonAttend(searchResult_Ctr.IdName[0], str.lower(self.comboBox_2.currentText()), 0)
                 self.sortByModule(studentDetail)
         else:
             # do not sort

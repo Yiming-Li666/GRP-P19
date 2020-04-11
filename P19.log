@@ -165,3 +165,9 @@ Added face recognition method, cannot open the camera.
 2020.04.10
 Added sort by session method.
 Complete the sort method to allow three sorts simultaneously.
+
+2020.04.11
+Bug found that moudle combox will load module Id more than once.
+Bug fixed that moudle combox will load correct module Id.
+Bug fixed that sort by module, session type and attendance will show correct result.
+Set up all upcoming events.

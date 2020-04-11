@@ -63,6 +63,8 @@ class searchResult_Ctr():
         attendanceInfo[a][1]: module name
         attendedInfo[a][0]: attended session number
         '''
+        self.searchResultView.logCtr.oneStudentPage_View.Frame1.comboBox.clear()
+        self.searchResultView.logCtr.oneStudentPage_View.Frame1.comboBox.addItem('Module Name')
         for a in range(len(attendanceInfo)):
             self.searchResultView.logCtr.oneStudentPage_View.Frame1.comboBox.addItem(attendanceInfo[a][1])
             sum = sum + "\n" + attendanceInfo[a][1] + "  attended:  " + str(attendedInfo[a][0]) + "/" + str(attendanceInfo[a][0])

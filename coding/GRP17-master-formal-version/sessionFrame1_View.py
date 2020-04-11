@@ -30,8 +30,8 @@ class sessionFrame1_View(QFrame,Ui_Frame):
         self.search_lineEdit.returnPressed.connect(self.searchSession)
         #self.comboBox.currentIndexChanged.connect(self.getComboBoxItem)
         self.addButton.clicked.connect(self.addSession)
-        self.listView.doubleClicked.connect(self.doubleClicked)
-        self.listView.clicked.connect(self.goSession)
+        self.listView.doubleClicked.connect(self.goSession)
+        self.listView.clicked.connect(self.doubleClicked)
 
     def goSession(self, qModelIndex):
         #print(self.listView.currentText)
