@@ -60,8 +60,6 @@ class printDialog_view(QDialog, Ui_Dialog):
                 csv_writer.writerow(l)
         print("saved!")
 
-        # TODO: not implemented yet
-
 
 if __name__ == "__main__":
     import sys
