@@ -2,7 +2,6 @@ from PyQt5.QtWidgets import QDialog
 from printDialog_View import printDialog_view
 from upcomingEvent_Model import upcomingEvent_Model
 from basicMainWindow_View import basicMainWindow_view
-from upcomingEvent_View import upcomingEvent_view
 from sessionFrame1_Model import sessionFrame1_model
 from sessionFrame1_Delegate import sessionFrame_delegate
 from accountDialog_View import accountDialog_view

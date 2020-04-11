@@ -29,8 +29,10 @@ class searchResult_Ctr():
         self.studentAttend.clear()
         # student info
         #print(basicMainWindow_Ctr.searchResultList)
+        print("This : " + rowNum)
         IN = basicMainWindow_Ctr.searchResultList[int(rowNum)]
         IN = IN.split('   ',1)
+        self.IdName.clear()
         self.IdName.append(IN[0])
         self.IdName.append(IN[1])
         studentDetail = dbController.GetStudentInfo(self.IdName[0])

@@ -3,11 +3,13 @@ from PyQt5.QtWidgets import QFrame, QApplication, QMainWindow
 from resources.teacherUIPY.upcomingEvents_frame2 import upcomingEvents_frame2
 from upcomingEvent_Model import upcomingEvent_Model
 from CommonHelper import CommonHelper
+from upcomingEvent_Controller import upcomingEvent_Ctr
+from PyQt5.QtCore import pyqtSignal
 import sys
 
 
 class upcomingEvent_view(QFrame, upcomingEvents_frame2):
-
+    recordDialog_Signal = pyqtSignal()
     def __init__(self):
         # setup UI
         super(upcomingEvent_view, self).__init__()
@@ -21,7 +23,11 @@ class upcomingEvent_view(QFrame, upcomingEvents_frame2):
         '''
         connect database depends on different module
         '''
-        self.window.stackedWidget.setCurrentIndex(2)
+        self.upcomingEvent_Ctr = upcomingEvent_Ctr()
+        self.upcomingEvent_Ctr.setCtr(self,self.window)
+        
+        self.recordDialog_Signal.emit()
+        #self.window.stackedWidget.setCurrentIndex(2)
 
 # test code
 if __name__ == "__main__":

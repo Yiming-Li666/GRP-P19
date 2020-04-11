@@ -172,3 +172,5 @@ Bug fixed that moudle combox will load correct module Id.
 Bug fixed that sort by module, session type and attendance will show correct result.
 Set up all upcoming events.
 Added save file functionality to save the attendance infomation to local file.
+Bug found that cannot access another student attendance information.
+Bug fixed that one student information page will load correctly.
