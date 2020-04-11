@@ -131,8 +131,8 @@ class Ui_Dialog(object):
         self.gridLayout.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
 
         self.retranslateUi(Dialog)
-        self.module_comboBox.currentTextChanged['QString'].connect(self.sortByModule)
-        self.sessionType_comboBox.currentIndexChanged['QString'].connect(self.sortBySessionType)
+        self.module_comboBox.currentTextChanged['QString'].connect(self.sort)
+        self.sessionType_comboBox.currentIndexChanged['QString'].connect(self.sort)
         self.search_lineEdit.returnPressed.connect(self.sortByStudent)
         self.search_toolButton.clicked.connect(self.sortByStudent)
         self.dateEdit.dateChanged['QDate'].connect(self.sortByStartTime)

@@ -150,12 +150,16 @@ class basicMainWindow_Ctr():
         # TODO: user logout
 
     def printInfo(self):
-        print("print")
+        # print("print")
         self.printDialog = printDialog_view()
         # add item to module_comboBox
         # print(ModulePage_View.modulePage_view.moduleList)
         self.printDialog.module_comboBox.clear()
         self.printDialog.module_comboBox.addItem("Module")
+        self.printDialog.sessionType_comboBox.addItem("Lecture")
+        self.printDialog.sessionType_comboBox.addItem("Tutorial")
+        self.printDialog.sessionType_comboBox.addItem("Lab")
+        self.printDialog.sessionType_comboBox.addItem("Seminar")
         for module in ModulePage_View.modulePage_view.moduleList:
             self.printDialog.module_comboBox.addItem(module)
         # load listview

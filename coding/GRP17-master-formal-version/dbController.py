@@ -95,24 +95,24 @@ def DeleteLesson(lessonId):
     cursor.close()
     db.close()
 
-def AddAttendance(lessonId, studentId, isAttend):
+def AddAttendance(moduleId, lessonId, studentId, isAttend):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
     if isAttend == 1:
-        sql = "INSERT INTO attendance (lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, True, NOW());"
+        sql = "INSERT INTO attendance (moduleId, lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, %s, True, NOW());"
     else:
-        sql = "INSERT INTO attendance (lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, False, NOW());"
+        sql = "INSERT INTO attendance (moduleId, lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, %s, False, NOW());"
     args = (lessonId, studentId)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
     db.close()
 
-def DeleteAttendance(lessonId, studentId):
+def DeleteAttendance(moduleId, lessonId, studentId):
     # may not be used
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
-    sql = "DELETE FROM attendance WHERE lessonId = '%s' AND studentId = '%s'" % (lessonId, studentId)
+    sql = "DELETE FROM attendance WHERE moduleId = '%s', lessonId = '%s' AND studentId = '%s'" % (moduleId, lessonId, studentId)
     cursor.execute(sql)
     db.commit()
     cursor.close()
@@ -325,6 +325,39 @@ def GetSession():
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
     sql = "SELECT DISTINCT moduleId, lessonId FROM attendance;"
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return data
+
+def GetSessionByModule(moduleId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT DISTINCT moduleId, lessonId FROM attendance WHERE moduleId = '%s';" % moduleId
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return data
+
+def GetSessionByType(lessonType):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT DISTINCT moduleId, lessonId FROM attendance WHERE attendance.moduleId = any(SELECT lesson.moduleId FROM lesson WHERE lesson.lessonId = attendance.lessonId AND lesson.studentId = attendance.studentId AND lesson.lessonType = '%s');" % lessonType
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return data
+
+def GetSessionByBoth(moduleId, lessonType):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT DISTINCT moduleId, lessonId FROM attendance WHERE attendance.moduleId = '%s' AND attendance.moduleId = any(SELECT lesson.moduleId FROM lesson WHERE lesson.lessonId = attendance.lessonId AND lesson.studentId = attendance.studentId AND lesson.lessonType = '%s');" % (moduleId, lessonType)
     cursor.execute(sql)
     db.commit()
     data = cursor.fetchall()
