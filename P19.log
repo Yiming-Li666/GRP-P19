@@ -171,3 +171,4 @@ Bug found that moudle combox will load module Id more than once.
 Bug fixed that moudle combox will load correct module Id.
 Bug fixed that sort by module, session type and attendance will show correct result.
 Set up all upcoming events.
+Added save file functionality to save the attendance infomation to local file.

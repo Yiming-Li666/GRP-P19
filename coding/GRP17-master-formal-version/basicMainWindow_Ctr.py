@@ -9,6 +9,7 @@ from accountDialog_View import accountDialog_view
 from searchStudentFrame_Model import searchStudentFrame_model
 from PyQt5.Qt import *
 from PyQt5 import QtCore
+import ModulePage_View
 import ModulePage_Ctr
 import datetime
 import dbController
@@ -16,7 +17,9 @@ import Login_ctr
 import Login_View
 
 class basicMainWindow_Ctr():
+    printDialogModel = QStringListModel()
     searchResultList = []
+    sessionList = []
     def __init__(self):
         self.bind()
 
@@ -150,7 +153,21 @@ class basicMainWindow_Ctr():
     def printInfo(self):
         print("print")
         self.printDialog = printDialog_view()
+        # add item to module_comboBox
+        # print(ModulePage_View.modulePage_view.moduleList)
+        self.printDialog.module_comboBox.clear()
+        self.printDialog.module_comboBox.addItem("Module")
+        for module in ModulePage_View.modulePage_view.moduleList:
+            self.printDialog.module_comboBox.addItem(module)
         # load listview
+        
+        # load print list
+        self.sessionList.clear()
+        data = dbController.GetSession()
+        for session in data:
+            self.sessionList.append(session[0] + " " + session[1])
+        self.printDialogModel.setStringList(self.sessionList)
+        self.printDialog.listView.setModel(self.printDialogModel)
         self.printDialog.show()
 
     def loadUpcoming(self):    

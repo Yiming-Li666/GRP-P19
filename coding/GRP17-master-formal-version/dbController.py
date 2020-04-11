@@ -295,6 +295,19 @@ def GetAttendedInfo(studentId):
     #print(data)
     return data
 
+def GetSessionAttendance(ModuleId, lessonId):
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT * FROM attendance WHERE moduleId = '%s' AND lessonId = '%s';" % (ModuleId, lessonId)
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    #print(data[0][0])
+    cursor.close()
+    db.close()
+    #print(data)
+    return data
+
 def GetSessionType(moduleId, lessonId):
     db = pymysql.connect("localhost", "root", "root1", "test")
     cursor = db.cursor()
@@ -306,6 +319,17 @@ def GetSessionType(moduleId, lessonId):
     cursor.close()
     db.close()
     #print(data)
+    return data
+
+def GetSession():
+    db = pymysql.connect("localhost", "root", "root1", "test")
+    cursor = db.cursor()
+    sql = "SELECT DISTINCT moduleId, lessonId FROM attendance;"
+    cursor.execute(sql)
+    db.commit()
+    data = cursor.fetchall()
+    cursor.close()
+    db.close()
     return data
 
 #readImage("/Users/liyiming/Desktop/GRP/GRP-P19/demo/biden.jpg")

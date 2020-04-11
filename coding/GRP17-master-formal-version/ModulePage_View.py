@@ -18,6 +18,7 @@ class modulePage_view(QMainWindow):
 
     # jumping signal to controller - TBC
     # moduleModel = None
+    moduleList = []
     moduleModel = moduleFrame1_Model()
     enterSessionPage_Signal = pyqtSignal()
 
@@ -75,6 +76,7 @@ class modulePage_view(QMainWindow):
         # print(moduleName)
         for r in moduleName:
             self.moduleModel.listItemData.append(r[2])
+            self.moduleList.append(r[2])
         #print(moduleModel.listItemData)
         self.Frame1.listView.setModel(self.moduleModel)
         return self.moduleModel.listItemData
