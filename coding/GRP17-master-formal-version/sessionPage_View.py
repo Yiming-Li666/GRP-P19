@@ -12,6 +12,8 @@ import dbController
 import datetime
 
 class sessionPage_View(QMainWindow):
+    moduleId = ''
+    sessionId = ''
     recordDialog_Signal = pyqtSignal()
     recordedSession_Signal = pyqtSignal()
     def __init__(self,):
@@ -62,6 +64,7 @@ class sessionPage_View(QMainWindow):
         # if the session is ended or not
         if endTime > timer:
             # dialog info
+            moduleId = self.Frame1.info[1]
             self.recordDialog_Signal.emit()
         else:
             # label

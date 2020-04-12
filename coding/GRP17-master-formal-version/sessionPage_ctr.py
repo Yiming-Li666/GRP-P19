@@ -1,6 +1,7 @@
 from recordDialog_View import recordDialog_View
 from upcomingEvent_Model import upcomingEvent_Model
 import ModulePage_Ctr
+import sessionFrame1_View
 import datetime
 # TBC
 class sessionPage_ctr():
@@ -16,6 +17,7 @@ class sessionPage_ctr():
 
     def recordDialog(self):
         self.dialog = recordDialog_View()
+        self.dialog.textBrowser.setText(sessionFrame1_View.sessionFrame1_View.info[0]+ '\n' + sessionFrame1_View.sessionFrame1_View.info[1])
         self.dialog.setSessionWindow(self.mainwindow)
         self.dialog.show()
     
