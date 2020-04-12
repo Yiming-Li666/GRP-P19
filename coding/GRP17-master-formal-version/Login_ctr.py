@@ -37,7 +37,7 @@ class login_Ctr():
         # information in each page will be loaded when change the page
         self.tmView = modulePage_view()
         self.sessionView = sessionPage_View()
-        self.recordingPage_View = recordingPage_View()
+        #self.recordingPage_View = recordingPage_View()
         self.searchResult_View = searchResult_view()
         self.oneStudentPage_View = oneStudentPage_View()
         self.teacherInfoPage_View = teacherInfoPage_View()
@@ -47,7 +47,7 @@ class login_Ctr():
         
         self.tmView.setMainWindow(self.mainWindow, self)
         self.sessionView.setMainWindow(self.mainWindow, self)
-        self.recordingPage_View.setMainWindow(self.mainWindow)
+        #self.recordingPage_View.setMainWindow(self.mainWindow)
         self.searchResult_View.setMainWindow(self.mainWindow, self)
         self.oneStudentPage_View.setMainWindow(self.mainWindow, self)
         self.teacherInfoPage_View.setMainWindow(self.mainWindow)

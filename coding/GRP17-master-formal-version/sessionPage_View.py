@@ -12,8 +12,6 @@ import dbController
 import datetime
 
 class sessionPage_View(QMainWindow):
-    moduleId = ''
-    sessionId = ''
     recordDialog_Signal = pyqtSignal()
     recordedSession_Signal = pyqtSignal()
     def __init__(self,):

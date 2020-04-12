@@ -176,7 +176,9 @@ Bug found that cannot access another student attendance information.
 Bug fixed that one student information page will load correctly.
 Completed sort algorithm in print page.
 
-
+2020.04.12
+Filled moduleId and lessonId in the recording page.
+Load information of session in recording page.
 
 
 
