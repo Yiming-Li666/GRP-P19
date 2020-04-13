@@ -80,6 +80,10 @@ class moduleFrame1_view(QFrame, Ui_Frame):
                     else: 
                         continue
 
+    def search(self):
+        self.search_lineEdit.hide()
+
+
 # test code
 if __name__ == "__main__":
     app = QApplication(sys.argv)

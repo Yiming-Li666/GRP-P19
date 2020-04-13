@@ -19,15 +19,18 @@ class sessionFrame1_View(QFrame,Ui_Frame):
         # setup UI
         super(sessionFrame1_View, self).__init__()
         self.setupUi(self)
+        
         # self.refresh()
         
     def refresh(self):
         self.frameName_TBS.setText("Teaching Session")
+        self.search_lineEdit.hide()
+        self.search_toolButton.hide()
         self.setSlot()
 
     def setSlot(self):
-        self.search_toolButton.clicked.connect(self.searchSession)
-        self.search_lineEdit.returnPressed.connect(self.searchSession)
+        self.search_toolButton.clicked.connect(self.search)
+        self.search_lineEdit.returnPressed.connect(self.search)
         #self.comboBox.currentIndexChanged.connect(self.getComboBoxItem)
         self.addButton.clicked.connect(self.addSession)
         self.listView.doubleClicked.connect(self.goSession)
@@ -62,12 +65,8 @@ class sessionFrame1_View(QFrame,Ui_Frame):
     def doubleClicked(self, qModelIndex):
         ("you choosed " + str(qModelIndex.row()))
 
-    def searchSession(self):
-        print("search Session")
-        """
-               Slot documentation goes here.
-        """
-        # TODO: not implemented yet
+    def search(self):
+        print(self.search_lineEdit.text())
 
     def print(self):
         print("print recording")

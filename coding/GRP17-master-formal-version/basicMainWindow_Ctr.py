@@ -67,19 +67,12 @@ class basicMainWindow_Ctr():
             self.bmView.stackedWidget.setCurrentIndex(4)
         elif self.bmView.stackedWidget.currentIndex() == 7: #recorded session to session list
             self.bmView.stackedWidget.setCurrentIndex(1)
-        
-        """
-            Slot documentation goes here.
-        """
-        # TODO: not implemented yet
+
 
     def home(self):
         print("go home")
         self.bmView.stackedWidget.setCurrentIndex(0)
-        """
-            Slot documentation goes here.
-        """
-        # TODO: not implemented yet
+
 
     def searchStudent(self):
         # read from text box
@@ -91,8 +84,12 @@ class basicMainWindow_Ctr():
             self.searchResultList.append("No result!")
         else:
             students = dbController.SearchStudentByName(self.bmView.lineEdit_4.text())
-            if len(students) != 0:
+            studentsId = dbController.SearchStudentById(self.bmView.lineEdit_4.text())
+            if len(students) != 0 or len(studentsId) != 0:
                 for r in students:
+                    searchResultModel.listItemData.append(r[0] + "   " + r[1])
+                    self.searchResultList.append(r[0] + "   " + r[1])
+                for r in studentsId:
                     searchResultModel.listItemData.append(r[0] + "   " + r[1])
                     self.searchResultList.append(r[0] + "   " + r[1])
                 #print(students[0][0])
@@ -111,11 +108,6 @@ class basicMainWindow_Ctr():
 
         self.bmView.stackedWidget.setCurrentIndex(3)
         
-
-        """
-            Slot documentation goes here.
-        """
-        # TODO: not implemented yet
 
     def clickTeacherInfo(self):
         print("Teacher Info")

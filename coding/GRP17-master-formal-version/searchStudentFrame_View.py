@@ -12,10 +12,13 @@ class searchStudentFrame_view(QFrame, Ui_Frame):
     def __init__(self):
         super(searchStudentFrame_view, self).__init__()
         self.setupUi(self)
+        
 
     def refresh(self):
         self.addButton.hide()
-
+        self.search_lineEdit.hide()
+        self.search_toolButton.hide()
+        self.comboBox.hide()
         self.frameName_TBS.setText("Student Name")
 
         self.listView.clicked.connect(self.goToStudent)
@@ -33,6 +36,9 @@ class searchStudentFrame_view(QFrame, Ui_Frame):
                Slot documentation goes here.
         """
         # TODO: not implemented yet
+
+    def search(self):
+        print(self.search_lineEdit.text())
 
 # test code
 if __name__ == "__main__":

@@ -7,13 +7,12 @@ import dbController
 import csv
 
 class printDialog_view(QDialog, Ui_Dialog):
-
+    sessionList = []
     def __init__(self):
         super(printDialog_view, self).__init__()
         self.setupUi(self)
 
     def sort(self):
-        sessionList = []
         printDialogModel = QStringListModel()
         if self.module_comboBox.currentText() == 'Module' and self.sessionType_comboBox.currentText() == 'Session Type':
             data = dbController.GetSession()
@@ -24,8 +23,8 @@ class printDialog_view(QDialog, Ui_Dialog):
         else:
             data = dbController.GetSessionByBoth(self.module_comboBox.currentText(),str.lower(self.sessionType_comboBox.currentText()))
         for session in data:
-            sessionList.append(session[0] + " " + session[1])
-        printDialogModel.setStringList(sessionList)
+            self.sessionList.append(session[0] + " " + session[1])
+        printDialogModel.setStringList(self.sessionList)
         self.listView.setModel(printDialogModel)
         #if self.module_comboBox.currentText() = 'Module'
         #self.module_comboBox.currentText()
@@ -33,9 +32,15 @@ class printDialog_view(QDialog, Ui_Dialog):
         print("sort")
 
     def sortByStudent(self):
-        """
-           Slot documentation goes here.
-        """
+        printDialogModel = QStringListModel()
+        slist = []
+        for se in self.sessionList:
+            module = se.split()
+            if str.lower(self.search_lineEdit.text()) == str.lower(module[0]):
+                slist.append(se)
+        printDialogModel.setStringList(slist)
+        self.listView.setModel(printDialogModel)
+        
         # TODO: not implemented yet
 
     def sortByStartTime(self):
