@@ -1,7 +1,0 @@
-QtextBrowser{
-     border-radius:5px;   
-     border: 5px double gray;   
-}
-QPushButtton{
-    border-radius:2px;        
-}
