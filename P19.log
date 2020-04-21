@@ -180,8 +180,22 @@ Completed sort algorithm in print page.
 Filled moduleId and lessonId in the recording page.
 Load information of session in recording page.
 
-2020.04.23
+2020.04.13
 Added search by student Id functionality.
+Hided search box on basic window.
+
+2020.04.18
+Draw database ER diagram.
+List databse test data.
+Modified the final report to unify the standard and content.
+Wrote the common function achievement and teacher achievement.
+
+2020.04.21
+Bugs found that entering recording page again, buttons and widgets will be in a wrong status.
+Bugs found that attended info will be be recorded into database.
+Bugs found that the real-time attendance initialize incorrectly.
+
+
 
 
 

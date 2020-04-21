@@ -1,0 +1,24 @@
+QWidget#navigator_label,#attendence_label{
+    background-color:#E0FFFF;
+}
+QWidget#Frame{
+    background-color: qlineargradient(x1:0,yi:0,x2:0,y2:1,stop:0 #E0FFFF,stop:1 white);
+}
+QPushButton{
+    border-radius:2px;
+}
+QPushButton:hover{
+    background-color:#00BFFF;
+}
+QTushButton{
+    border-radius:1px;
+}
+QToolButton:hover{
+    background-color:#00BFFF;
+}
+QLineEdit{
+    border-radius:5px;
+}
+QComboBox{
+    border-radius:10px;
+}

@@ -1,0 +1,26 @@
+QListView{
+    alternate-background-color: rgb(134, 134, 134);
+}
+QListView::item:alternate {
+	background:rgb(173, 173, 173);
+}
+QWidget#MainWindow{
+ background-color: qlineargradient(x1:0,yi:0,x2:0,y2:1,stop:0 #E0FFFF,stop:1 white);
+}
+QLabel{
+    font-weight:bold;
+}
+QtoolButton#toolButton4{
+    background-color: blue;
+    font:bold;
+}
+<<<<<<< HEAD
+QListView{
+ background-color: #E0FFFF;
+ alternate-background-color:gray;
+show-decoration-selected:1;
+border-radius: 10px;
+border: 1px solid #CCCCCC;
+}
+=======
+>>>>>>> b8ef0131a6dd8184676f2406aa4303060275337f

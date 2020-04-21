@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="all">
+    <file>images/printIcon.png</file>
+    <file>images/backIcon.png</file>
+    <file>images/homeIcon.png</file>
+    <file>images/searchIcon.png</file>
+  </qresource>
+</RCC>
