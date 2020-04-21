@@ -85,8 +85,9 @@ class recordingFrame_View(QFrame, recording_totalframe):
         not_attendance = [
             i for i in self.ids_list if i not in self.confirm_attendence]
         for not_attendant_student in not_attendance:
-            lessonId = sessionFrame1_View.sessionFrame1_View.info[1]
-            AddAttendance(lessonId, not_attendant_student, 0)
+            moduleId = sessionFrame1_View.sessionFrame1_View.info[1]
+            lessonId = sessionFrame1_View.sessionFrame1_View.info[0]
+            AddAttendance(moduleId, lessonId, not_attendant_student, 0)
 
         gl.set_value('teacherId', Login_View.userId)
         gl.set_value('lessonId', sessionFrame1_View.sessionFrame1_View.info[0])

@@ -36,8 +36,9 @@ class recordingFrame_ctr():
             self.recordingFrameView.confirm_attendence.append(
                 self.recordingFrameView.attdence_buffer[0])
             # 这个是写入成功签到
-            # lessonId = sessionFrame1_View.info[0]
-            # AddAttendance(lessonId, self.recordingFrameView.attdence_buffer[0], 1)
+            moduleId = sessionFrame1_View.sessionFrame1_View.info[1]
+            lessonId = sessionFrame1_View.sessionFrame1_View.info[0]
+            AddAttendance(moduleId, lessonId, self.recordingFrameView.attdence_buffer[0], 1)
             del self.recordingFrameView.attdence_buffer[0]
         self.recordingFrameView.update_progress_ui()
 

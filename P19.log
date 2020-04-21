@@ -193,9 +193,11 @@ Wrote the common function achievement and teacher achievement.
 2020.04.21
 Bugs found that entering recording page again, buttons and widgets will be in a wrong status.
 Bugs found that attended info will not be recorded into database.
-Bugs found that the real-time attendance rate initialize incorrectly.
-
-
+Bugs found that the real-time attendance rate initialize incorrectly, if enter the page again.
+Bugs found that module list will be loaded incorrectly.
+Bugs fixed that attended info will be recorded into database.
+Changed RecodingFrame_Ctr and RecodingFrame_View and dbController to make record.
+Added final report to the git.
 
 
 

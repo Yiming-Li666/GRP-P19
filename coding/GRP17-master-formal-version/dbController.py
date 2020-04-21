@@ -102,7 +102,7 @@ def AddAttendance(moduleId, lessonId, studentId, isAttend):
         sql = "INSERT INTO attendance (moduleId, lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, %s, True, NOW());"
     else:
         sql = "INSERT INTO attendance (moduleId, lessonId, studentId, isAttend, attendTime) VALUES (%s, %s, %s, False, NOW());"
-    args = (lessonId, studentId)
+    args = (moduleId, lessonId, studentId)
     cursor.execute(sql, args)
     db.commit()
     cursor.close()
@@ -385,6 +385,7 @@ def insert_tb(sql, data):
 
 #readImage("/Users/liyiming/Desktop/test/test-P19/demo/biden.jpg")
 #AddStudent('/Users/liyiming/Desktop/test/demo/test.jpeg','20031525', 'Li Yiming')
+#AddStudent('/Users/liyiming/Desktop/GRP/demo/obama.jpg','20001000', 'Ghost')
 #SearchStudent('Yiming')
 #Deletestudent('20031525')
 #AddTeacher('z202020','Paul','COMP1010')
