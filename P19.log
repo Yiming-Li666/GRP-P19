@@ -192,8 +192,8 @@ Wrote the common function achievement and teacher achievement.
 
 2020.04.21
 Bugs found that entering recording page again, buttons and widgets will be in a wrong status.
-Bugs found that attended info will be be recorded into database.
-Bugs found that the real-time attendance initialize incorrectly.
+Bugs found that attended info will not be recorded into database.
+Bugs found that the real-time attendance rate initialize incorrectly.
 
 
 
