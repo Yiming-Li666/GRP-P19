@@ -15,6 +15,7 @@ from teacherInfoPage_View import teacherInfoPage_View
 from studentRecordPage_View import studentRecordPage_View
 from recordedSessionPage_View import recordedSessionPage_View
 from AdminFrame_View import adminFrame_view
+from AdminController import adminController
 import globalVar
 
 from resources.teacherUIPY.forgetPw_Dialog import forgetPw_dialog
@@ -79,6 +80,8 @@ class login_Ctr():
         if num == 0: 
             self.tmView.show()
         else:
+            self.adminCtr = adminController()
+            self.adminCtr.setView(self.adminFrame_view)
             self.adminFrame_view.show()
         
 
