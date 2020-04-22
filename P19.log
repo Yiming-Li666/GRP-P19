@@ -205,6 +205,8 @@ Bugs found that if no session is choosed, save button cannot find the target.
 Wrote database design (179 words) and implementation part (375 words).
 Added teacher function archievement part.
 Added references.
+Wrote user handbook.
+Added log out function to exit the program.
 
 
 

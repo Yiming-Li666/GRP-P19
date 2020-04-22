@@ -6,6 +6,8 @@ from sessionFrame1_Model import sessionFrame1_model
 from sessionFrame1_Delegate import sessionFrame_delegate
 from accountDialog_View import accountDialog_view
 from searchStudentFrame_Model import searchStudentFrame_model
+from Login_View import login_View
+from CommonHelper import CommonHelper
 from PyQt5.Qt import *
 from PyQt5 import QtCore
 import ModulePage_View
@@ -14,6 +16,7 @@ import datetime
 import dbController
 import Login_ctr
 import Login_View
+import sys
 
 class basicMainWindow_Ctr():
     printDialogModel = QStringListModel()
@@ -120,7 +123,9 @@ class basicMainWindow_Ctr():
     def clickTeacherInfo(self):
         print("Teacher Info")
         # create a dialog to give teacher information
-        self.dl = accountDialog_view()
+        #self.
+        global dl
+        dl = accountDialog_view()
         # dl.setWindowTitle('Teacher information')
         # dl.resize(300,200)
         # get userId from the login page
@@ -128,25 +133,25 @@ class basicMainWindow_Ctr():
         teacherInformation = dbController.GetTeacherInfo(Login_View.userId)
         # teacherInformation is a 2D array
         # get teacher name
-        self.dl.teacherName_label.setText(teacherInformation[0][1])
+        dl.teacherName_label.setText(teacherInformation[0][1])
         # set position
         # dl.name.setGeometry(QtCore.QRect(50, 20, 250, 50))
         # get all the module name
         str = ""
         for r in teacherInformation:
             str = str + r[2] + "\n"
-        self.dl.module_label.setText(str)
+        dl.module_label.setText(str)
         # set position
         # dl.module.setGeometry(QtCore.QRect(50, 60, 250, 100))
         # create a button to close the window
-        self.dl.logout_pushButton.clicked.connect(self.close)
+        dl.logout_pushButton.clicked.connect(self.close)
         # lock the parent window
         # self.dl.setWindowModality(Qt. WindowModal)
-        self.dl.show()
+        dl.show()
         # dl.exec_()
 
     def close(self):
-        self.dl.close()
+        sys.exit(0)
         # TODO: user logout
 
     def printInfo(self):
