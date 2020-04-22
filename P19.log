@@ -188,7 +188,7 @@ Hided search box on basic window.
 Draw database ER diagram.
 List databse test data.
 Modified the final report to unify the standard and content.
-Wrote the common function achievement and teacher achievement.
+Wrote the common function achievement (167 words) and teacher achievement (1089 words).
 
 2020.04.21
 Bugs found that entering recording page again, buttons and widgets will be in a wrong status.
@@ -198,8 +198,13 @@ Bugs found that module list will be loaded incorrectly.
 Bugs fixed that attended info will be recorded into database.
 Changed RecodingFrame_Ctr and RecodingFrame_View and dbController to make record.
 Added final report to the git.
+Wrote system implementation part for login system (190 words) and teacher function (865 words).
 
-
+2020.04.22
+Bugs found that if no session is choosed, save button cannot find the target.
+Wrote database design (179 words) and implementation part (375 words).
+Added teacher function archievement part.
+Added references.
 
 
 
