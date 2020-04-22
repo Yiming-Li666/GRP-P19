@@ -157,4 +157,65 @@ meeting 5{
 	}
 }
 
+Interview {
+	1. How do you think of our attendance sheet now? Do you need to type these attendence information into an electrical file after class?
+	A: Painful. 
+	   Need to print out the attendence sheet and store the attendent sheet into the computer manually. 
+	   Students can sign for each other.
 
+	2. If there is a software can take the place of attendance sheet, will you use it?
+	A: Yes, of course.
+	   Should consider the convience to do the attendence recording. Is it esay or time consuming.
+
+	3.  If there is a software can take the place of attendance sheet, what functionality do you want on it?
+	A: Tell me who has be absent for more than three times.
+
+	4. Do you prefer according attendance before class or after class?
+	A: In uk, scan the card before entering. Check in before the class can record who is late.
+	   If do this after class, ten minutes may be not enough.
+
+	5. The acceptable time of taking attendance after teaching session?
+	A: As fast as possible.
+
+	6. When doing the search operation, what kind of information do you want to search?
+	A: About time: cannot remember the time and perfer searching by lecture.
+	   May comparison feature to compare between lectures and modules.
+	   Be sure how safe the data will be protected in the system.
+}
+
+meeting 9 {
+	UI modification
+	Think about functionality
+	Rest work division {
+		WANG Boya organize archives
+		YU Guohao and ZHU Hongyi learn Latex
+		LI Mingchen and LI Yiming do the face recognition functions and build database
+	}
+}
+
+library and software material {
+	library {
+		sys
+		pyqt5
+		pymysql
+		numpy
+		face_recognition
+		cv2
+	}
+	software {
+		MySQL
+		MySQL workbrench
+		QtDesigner
+	}
+}
+
+UI modification{
+	click once and twice have different reaction which may not be user friendly.
+	Size of text on the button may be too small
+	Front page button on module page should be disabled
+	Window title should be more specific
+	there is a blank space on teachingSession page
+	Success/Fail do not need press animation, Start/Pause/Stop need press animation
+	progress bar can be longer
+	When recording, cannot go back to home page.
+}
